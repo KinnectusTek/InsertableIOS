@@ -19,9 +19,11 @@ enum InjectedValue: Codable {
     case doubleArray(id: String, value: [Double])
     case booleanArray(id: String, value: [Bool])
     case dataArray(id: String, value: [Data])
+    case state(id: String, value: InjectedState)
     case font(id: String, name: String, size: Int)
     case frame(id: String, width: Float, height: Float)
     case backgroundColor(id: String, hex: String)
+    
     var id: String {
         switch self {
         case .string(let id , _),
@@ -34,6 +36,7 @@ enum InjectedValue: Codable {
                 .doubleArray(let id , _),
                 .booleanArray(let id , _),
                 .dataArray(let id , _),
+                .state(let id, _),
                 .font(let id, _, _),
                 .frame(let id, _, _),
                 .backgroundColor(let id, _):
@@ -82,6 +85,14 @@ enum InjectedValue: Codable {
             return value
         default:
             return nil
+        }
+    }
+    var state: InjectedState {
+        switch self {
+        case .state(_, let value):
+            return value
+        default:
+            return .init(state: [])
         }
     }
     

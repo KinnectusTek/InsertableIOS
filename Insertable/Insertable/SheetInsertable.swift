@@ -12,11 +12,25 @@ import SwiftUI
 
 class SheetStore: ObservableObject {
     @Published var state: InjectedState
-    @Published var modifiers: [InjectedModifier] = []
+    @Published var modifiers: [InsertableModifier] = []
     
     private var cancellables = Set<AnyCancellable>()
     let stateSubject: CurrentValueSubject<InjectedState, Never>
     let viewStore: InjectedViewStore
+    
+    @InjectedFunctionBuilder var action: InjectedFunctionBuilder {
+        InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.0)
+        InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.1)
+        InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.2)
+        InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.3)
+        InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.4)
+        InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.5)
+        InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.6)
+        InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.7)
+        InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.8)
+        InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.9)
+    }
+    
     var isPresentedBinding: Binding<Bool> {
         .init {
             let isPresented = findBooleanValue(id: self.viewStore.isSheetDisplayedKey, state: self.state)
@@ -40,9 +54,10 @@ class SheetStore: ObservableObject {
             .map({ $0 })
             .assign(to: &$state)
 
-        stateSubject
-            .eraseToAnyPublisher()
-            .map({ _ in store.modifiers })
+        $state
+            .map({ state in
+                store.modifiers.map({ InsertableModifier(state: state, modifier: $0)})
+            })
             .assign(to: &$modifiers)
     }
 }

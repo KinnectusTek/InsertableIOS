@@ -12,7 +12,7 @@ import Combine
 class TextFieldStore: ObservableObject {
 
     @Published var state: InjectedState
-    @Published var modifiers: [InjectedModifier] = []
+    @Published var modifiers: [InsertableModifier] = []
     @Published var text: String = ""
     
     private var cancellables = Set<AnyCancellable>()
@@ -32,18 +32,33 @@ class TextFieldStore: ObservableObject {
         )
     }
     
+    @InjectedFunctionBuilder var action: InjectedFunctionBuilder {
+        InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.0)
+        InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.1)
+        InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.2)
+        InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.3)
+        InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.4)
+        InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.5)
+        InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.6)
+        InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.7)
+        InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.8)
+        InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.9)
+    }
+    
     init(store: InjectedViewStore, stateSubject: CurrentValueSubject<InjectedState, Never>) {
         self.viewStore = store
         self.state = stateSubject.value
+        self.stateSubject = stateSubject
         
         stateSubject
             .eraseToAnyPublisher()
             .map({ $0 })
             .assign(to: &$state)
         
-        stateSubject
-            .eraseToAnyPublisher()
-            .map({ _ in store.modifiers })
+        $state
+            .map({ state in
+                store.modifiers.map({ InsertableModifier(state: state, modifier: $0)})
+            })
             .assign(to: &$modifiers)
         
         $state.map({

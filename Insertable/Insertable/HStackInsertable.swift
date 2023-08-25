@@ -16,7 +16,7 @@ struct HStackInsertable: View {
     var body: some View {
         HStack {
             
-            Insertable(state: store.stateSubject, container: container, id: store.viewStore.content.0)
+            Insertable(state: store.stateSubject, container: container, viewStore: store.viewStore.content.0)
             
             if let content = store.viewStore.content.1 {
                 Insertable(state: store.stateSubject, container: container, viewStore: content)
@@ -45,7 +45,7 @@ struct HStackInsertable: View {
             if let content = store.viewStore.content.9 {
                         Insertable(state: store.stateSubject, container: container, viewStore: content)
             }
-        }.addModifiers(mods: store.viewStore.modifiers)
+        }.addModifiers(mods: store.modifiers)
     }
 }
 

@@ -11,7 +11,7 @@ import SwiftUI
 
 class FullScreenCoverStore: ObservableObject {
     @Published var state: InjectedState
-    @Published var modifiers: [InjectedModifier] = []
+    @Published var modifiers: [InsertableModifier] = []
     
     private var cancellables = Set<AnyCancellable>()
     let viewStore: InjectedViewStore
@@ -28,6 +28,7 @@ class FullScreenCoverStore: ObservableObject {
         }
 
     }
+    
     @InjectedFunctionBuilder var action: InjectedFunctionBuilder {
         InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.0)
         InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.1)
@@ -51,9 +52,10 @@ class FullScreenCoverStore: ObservableObject {
             .map({ $0 })
             .assign(to: &$state)
 
-        stateSubject
-            .eraseToAnyPublisher()
-            .map({ _ in store.modifiers })
+        $state
+            .map({ state in
+                store.modifiers.map({ InsertableModifier(state: state, modifier: $0)})
+            })
             .assign(to: &$modifiers)
     }
 }

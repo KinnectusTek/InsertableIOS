@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+enum InjectedError: Error {
+    case errorWithMessage(message: String)
+    case valueNotAvailable
+}

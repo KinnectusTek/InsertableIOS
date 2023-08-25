@@ -46,7 +46,7 @@ struct VStackInsertable: View {
             if let content = store.viewStore.content.9 {
                 Insertable(state: store.stateSubject, container: container, viewStore: content)
             }
-        }.addModifiers(mods: store.viewStore.modifiers)
+        }.addModifiers(mods: store.modifiers)
     }
 
 }

@@ -12,11 +12,24 @@ import Combine
 class ButtonStore: ObservableObject {
 
     @Published var state: InjectedState
-    @Published var modifiers: [InjectedModifier] = []
+    @Published var modifiers: [InsertableModifier] = []
     
     private var cancellables = Set<AnyCancellable>()
     let viewStore: InjectedViewStore
     let stateSubject: CurrentValueSubject<InjectedState, Never>
+    
+    @InjectedFunctionBuilder var action: InjectedFunctionBuilder {
+        InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.0)
+        InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.1)
+        InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.2)
+        InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.3)
+        InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.4)
+        InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.5)
+        InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.6)
+        InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.7)
+        InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.8)
+        InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.9)
+    }
     
     init(store: InjectedViewStore,
          stateSubject: CurrentValueSubject<InjectedState, Never>
@@ -30,16 +43,17 @@ class ButtonStore: ObservableObject {
             .map({ $0 })
             .assign(to: &$state)
         
-        stateSubject
-            .eraseToAnyPublisher()
-            .map({ _ in store.modifiers })
+        $state
+            .map({ state in
+                store.modifiers.map({ InsertableModifier(state: state, modifier: $0)})
+            })
             .assign(to: &$modifiers)
     }
     
     func didCommitAction() {
-//        if let state = viewStore.action.state {
-//            stateSubject.send(state.value)
-//        }
+        if let state = action.state {
+            stateSubject.send(state.value)
+        }
     }
 }
 
@@ -53,8 +67,8 @@ struct ButtonInsertable: View {
         Button(action: {
             store.didCommitAction()
         }, label: {
-            Insertable(state: store.stateSubject, container: container, viewStore: store.viewStore.content)
-        })
+            Insertable(state: store.stateSubject, container: container, viewStore: store.viewStore.content.0)
+        }).addModifiers(mods: store.modifiers)
     }
 }
 

@@ -16,7 +16,7 @@ class HStackStore: ObservableObject {
     @Published var state: InjectedState
     @Published var spacing: CGFloat? = nil
     @Published var alignment: VerticalAlignment = .center
-    @Published var modifiers: [InjectedModifier] = []
+    @Published var modifiers: [InsertableModifier] = []
     
     private var cancellables = Set<AnyCancellable>()
     let stateSubject: CurrentValueSubject<InjectedState, Never>
@@ -53,7 +53,9 @@ class HStackStore: ObservableObject {
         
         stateSubject.eraseToAnyPublisher().assign(to: &$state)
         
-        $state.map({ _ in store.modifiers }).assign(to: &$modifiers)
+        $state.map({ state in
+            store.modifiers.map({ InsertableModifier(state: state, modifier: $0)})
+        }).assign(to: &$modifiers)
     }
 }
 

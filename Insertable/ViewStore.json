@@ -1,0 +1,192 @@
+{
+    "viewStores" : [
+        {
+            "fullScreenCover" : {
+                "id" : "entry",
+                "modifiers" : [],
+                "isPresentedKey" : "isPageDisplayed",
+                "content" : {
+                    "vStack" : {
+                        "id" : "",
+                        "modifiers" : [],
+                        "content1" : {
+                                "text" : {
+                                    "id" : "",
+                                    "modifiers" : [],
+                                    "textKey" : "fullScreenTitle",
+                                    "content" : {
+                                        "empty" : {
+                                            "id" : ""
+                                        }
+                                    }
+                                }
+                        },
+                        "content2" : {
+                            "spacer" : {
+                                "id" : "",
+                                "modifiers" : [
+                                    {
+                                        "frame" : {
+                                            "id" : "fullScreenSpacerHeight"
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        "content3" : {
+                            "button" : {
+                                "id" : "displayButton",
+                                "modifiers" : [],
+                                "operation1" : {
+                                    "assign" : {
+                                        "key" : "isPageDisplayed",
+                                        "value" : {
+                                            "boolean" : {
+                                                "id" : "isPageDisplayed",
+                                                "value" : true
+                                            }
+                                        }
+                                    }
+                                },
+                                "content" : {
+                                    "text" : {
+                                        "id" : "",
+                                        "modifiers" : [],
+                                        "textKey" : "displayButtonTitle",
+                                        "content" : {
+                                            "empty" : {
+                                                "id" : ""
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "presentedContent" : {
+                    "viewStoreReference" : {
+                        "id" : "presentedContent"
+                    }
+                }
+            }
+        },
+        {
+            "vStack" : {
+                "id": "presentedContent",
+                "modifiers": [],
+                "content1" : {
+                    "text" : {
+                        "id" : "",
+                        "modifiers" : [],
+                        "textKey" : "name",
+                        "content" : {
+                            "empty" : {
+                                "id" : ""
+                            }
+                        }
+                    }
+                },
+                "content2" : {
+                    "text" : {
+                        "id" : "",
+                        "modifiers" : [],
+                        "textKey" : "email",
+                        "content" : {
+                            "empty" : {
+                                "id" : ""
+                            }
+                        }
+                    }
+                },
+                "content3" : {
+                    "field" : {
+                        "id" : "",
+                        "modifiers" : [],
+                        "textKey" : "email",
+                        "content" : {
+                            "empty" : {
+                                "id" : ""
+                            }
+                        }
+                    }
+                },
+                "content4" : {
+                    "button" : {
+                        "id" : "multiplyButton",
+                        "modifiers" : [],
+                        "operation1" : {
+                            "assign" : {
+                                "key" : "name",
+                                "value" : {
+                                    "string" : {
+                                        "id" : "name",
+                                        "value" : "Dolo"
+                                    }
+                                }
+                            }
+                        },
+                        "operation2" : {
+                            "asyncAfter" : {
+                                "operation" : {
+                                    "assign" : {
+                                        "key" : "name",
+                                        "value" : {
+                                            "string" : {
+                                                "id" : "name",
+                                                "value" : "You did it"
+                                            }
+                                        }
+                                    }
+                                },
+                                "delay": 2.5
+                            }
+                        },
+                        "content" : {
+                            "text" : {
+                                "id" : "",
+                                "modifiers" : [],
+                                "textKey" : "multiplyButtonTitle",
+                                "content" : {
+                                    "empty" : {
+                                        "id" : ""
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "content5" : {
+                    "button" : {
+                        "id" : "dismissButton",
+                        "modifiers" : [],
+                        "operation1" : {
+                            "assign" : {
+                                "key" : "isPageDisplayed",
+                                "value" : {
+                                    "boolean" : {
+                                        "id" : "isPageDisplayed",
+                                        "value" : false
+                                    }
+                                }
+                            }
+                        },
+                        "content" : {
+                            "text" : {
+                                "id" : "",
+                                "modifiers" : [],
+                                "textKey" : "dismissButtonTitle",
+                                "content" : {
+                                    "empty" : {
+                                        "id" : ""
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+    ]
+}

@@ -15,55 +15,50 @@ struct Insertable: View {
     var state: CurrentValueSubject<InjectedState,Never>
     var container: ViewStoresContainer
     var viewStore: InjectedViewStore
-    private var _viewStore: InjectedViewStore {
-        if viewStore.isViewStoreReference {
-            return container.viewStores.first(where: {$0.id == viewStore.id })!
-        } else {
-            return viewStore
-        }
-    }
     @ViewBuilder var render: some View {
         switch viewStore {
         case .vStack:
         
             VStackInsertable(
-                store: .init(store: _viewStore, stateSubject: state),
+                store: .init(store: viewStore, stateSubject: state),
                 container: container)
             
         case .hStack:
             
             HStackInsertable(
-                store: .init(store: _viewStore, stateSubject: state),
+                store: .init(store: viewStore, stateSubject: state),
                 container: container)
         
         case .button:
             
-            ButtonInsertable(container: container, store: .init(store: _viewStore, stateSubject: state))
+            ButtonInsertable(container: container, store: .init(store: viewStore, stateSubject: state))
 
         case .text:
            
-            TextInsertable(store: .init(stateSubject: state, store: _viewStore), container: container)
+            TextInsertable(store: .init(stateSubject: state, store: viewStore), container: container)
                     
         case .field:
             
-            TextFieldInsertable(container: container,
-                                store: .init(store: _viewStore))
+            TextFieldInsertable(store: .init(store: viewStore, stateSubject: state), container: container)
         
         case .fullScreenCover:
             
-            FullScreenCoverInsertable(store: .init(store: _viewStore, stateSubject: state), container: <#T##ViewStoresContainer#>)
+            FullScreenCoverInsertable(store: .init(store: viewStore, stateSubject: state), container: container)
         
         case .sheet:
             
-            SheetInsertable(container: container,
-                            store: .init(store: _viewStore))
+            SheetInsertable(store: .init(store: viewStore, stateSubject: state), container: container)
         
         case .spacer:
             
-            SpacerInsertable(container: container,
-                             store: .init(store: _viewStore))
+            SpacerInsertable(store: .init(store: viewStore, stateSubject: state), container: container)
             
-        case .empty, .viewStoreReference:
+        case .viewStoreReference(let id):
+            if let viewStore = container.viewStores.first(where: {$0.id == id })  {
+                Insertable(state: state, container: container, viewStore: viewStore)
+            }
+            
+        case .empty:
             
             EmptyView()
             

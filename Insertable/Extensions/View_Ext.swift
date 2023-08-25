@@ -9,13 +9,13 @@ import Foundation
 import SwiftUI
 
 extension View {
-    func addModifier(mod: InjectedModifier) -> some View {
+    func addModifier(mod: InsertableModifier) -> some View {
         modifier(mod)
     }
     
-    func addModifiers(mods: [InjectedModifier]) -> some View {
-        mods.reduce(self, { accum, nextModifier  in
-            accum.addModifier(mod: nextModifier) as! Self
+    func addModifiers(mods: [InsertableModifier]) -> some View {
+        mods.reduce(AnyView(self), { accum, nextModifier  in
+            AnyView(accum.modifier(nextModifier))
         })
     }
 }

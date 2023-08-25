@@ -12,5 +12,6 @@ indirect enum InjectedOperation: Codable {
     case divideByInteger(key: String, quotient: Int)
     case assign(key: String, value: InjectedValue)
     case async(operation: InjectedOperation)
+    case asyncAfter(operation: InjectedOperation, delay: Double)
     case noOperation
 }

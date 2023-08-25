@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import Combine
+
 
 @main
 struct InsertableApp: App {
+    var state = CurrentValueSubject<InjectedState, Never>(getState())
+    var container = getViewStores()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(state: state, container: container)
         }
     }
 }

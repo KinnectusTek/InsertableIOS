@@ -6,21 +6,23 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ContentView: View {
+    var state: CurrentValueSubject<InjectedState,Never>
+    var container: ViewStoresContainer
+    var entry: InjectedViewStore {
+        container.viewStores.first(where: {$0.id == "entry" })!
+    }
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
+        Insertable(state: state, container: container, viewStore: entry)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        let state = CurrentValueSubject<InjectedState, Never>(getState())
+        let container = getViewStores()
+        ContentView(state: state, container: container)
     }
 }

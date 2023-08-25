@@ -1,0 +1,61 @@
+
+{
+    "state" : [
+        {
+            "string" : {
+                    "id": "name",
+                    "value" : "Blake"
+                    }
+        },
+        {
+            "string" : {
+                    "id": "email",
+                    "value" : "blake@mail.com"
+                    }
+        },
+        {
+            "integer" : {
+                    "id": "age",
+                    "value" : 35
+                    }
+        },
+        {
+            "string" : {
+                    "id": "multiplyButtonTitle",
+                    "value" : "Multiply"
+                    }
+        },
+        {
+            "boolean" : {
+                    "id": "isPageDisplayed",
+                    "value" : false
+                    }
+        },
+        {
+            "string" : {
+                    "id": "displayButtonTitle",
+                    "value" : "Display"
+                    }
+        },
+        {
+            "string" : {
+                    "id": "fullScreenTitle",
+                    "value" : "Push Display Button"
+                    }
+        },
+        {
+            "string" : {
+                    "id": "dismissButtonTitle",
+                    "value" : "Dismiss"
+                    }
+        },
+        {
+            "frame" : {
+                "id" : "fullScreenSpacerHeight",
+                "width": 100,
+                "height": 100
+            }
+        }
+        ]
+    
+}

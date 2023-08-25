@@ -14,6 +14,31 @@
 		DBAB4BC82A8CFBCD00BB804C /* InsertableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4BC72A8CFBCD00BB804C /* InsertableTests.swift */; };
 		DBAB4BD22A8CFBCD00BB804C /* InsertableUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4BD12A8CFBCD00BB804C /* InsertableUITests.swift */; };
 		DBAB4BD42A8CFBCD00BB804C /* InsertableUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4BD32A8CFBCD00BB804C /* InsertableUITestsLaunchTests.swift */; };
+		DBAB4BE12A8CFBDD00BB804C /* Insertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4BE02A8CFBDD00BB804C /* Insertable.swift */; };
+		DBAB4BE32A8F0A0900BB804C /* InjectedModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4BE22A8F0A0900BB804C /* InjectedModifier.swift */; };
+		DBAB4BE52A8F0A2F00BB804C /* InjectedViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4BE42A8F0A2F00BB804C /* InjectedViewStore.swift */; };
+		DBAB4BE72A8F0A4700BB804C /* VStackStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4BE62A8F0A4700BB804C /* VStackStore.swift */; };
+		DBAB4BE92A8F0A5500BB804C /* VStackInsertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4BE82A8F0A5500BB804C /* VStackInsertable.swift */; };
+		DBAB4BEB2A8F0A7C00BB804C /* View_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4BEA2A8F0A7C00BB804C /* View_Ext.swift */; };
+		DBAB4BED2A8F0AA800BB804C /* HStackStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4BEC2A8F0AA800BB804C /* HStackStore.swift */; };
+		DBAB4BEF2A8F0AE000BB804C /* HStackInsertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4BEE2A8F0AE000BB804C /* HStackInsertable.swift */; };
+		DBAB4BF12A8F0CFD00BB804C /* ButtonInsertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4BF02A8F0CFD00BB804C /* ButtonInsertable.swift */; };
+		DBAB4BF32A8F0D8B00BB804C /* TextInsertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4BF22A8F0D8B00BB804C /* TextInsertable.swift */; };
+		DBAB4BF52A8F0DD400BB804C /* TextFieldInsertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4BF42A8F0DD400BB804C /* TextFieldInsertable.swift */; };
+		DBAB4BF92A911B5900BB804C /* SpacerInsertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4BF82A911B5900BB804C /* SpacerInsertable.swift */; };
+		DBAB4BFB2A91214300BB804C /* InjectedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4BFA2A91214300BB804C /* InjectedService.swift */; };
+		DBAB4BFD2A91862A00BB804C /* FullScreenCoverInsertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4BFC2A91862A00BB804C /* FullScreenCoverInsertable.swift */; };
+		DBAB4BFF2A91881E00BB804C /* InjectedValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4BFE2A91881E00BB804C /* InjectedValue.swift */; };
+		DBAB4C012A91A08E00BB804C /* InjectedFunctionBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4C002A91A08E00BB804C /* InjectedFunctionBuilder.swift */; };
+		DBAB4C032A92FC2500BB804C /* SheetInsertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4C022A92FC2500BB804C /* SheetInsertable.swift */; };
+		DBAB4C052A9306F100BB804C /* InjectedOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4C042A9306F100BB804C /* InjectedOperation.swift */; };
+		DBAB4C072A93B2E800BB804C /* Insertable.json in Resources */ = {isa = PBXBuildFile; fileRef = DBAB4C062A93B2E800BB804C /* Insertable.json */; };
+		DBAB4C092A93F23900BB804C /* Operators_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4C082A93F23900BB804C /* Operators_Ext.swift */; };
+		DBAB4C0B2A93FCAF00BB804C /* CompositionFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4C0A2A93FCAF00BB804C /* CompositionFunctions.swift */; };
+		DBAB4C0D2A9419EA00BB804C /* UIColor_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4C0C2A9419EA00BB804C /* UIColor_Ext.swift */; };
+		DBAB4C0F2A94563700BB804C /* ViewStore.json in Resources */ = {isa = PBXBuildFile; fileRef = DBAB4C0E2A94563700BB804C /* ViewStore.json */; };
+		DBAB4C182A97C2FE00BB804C /* InjectedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4C172A97C2FE00BB804C /* InjectedError.swift */; };
+		DBAB4C7E2A99478600BB804C /* TestInsertables.json in Resources */ = {isa = PBXBuildFile; fileRef = DBAB4C7D2A99478600BB804C /* TestInsertables.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +69,31 @@
 		DBAB4BCD2A8CFBCD00BB804C /* InsertableUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InsertableUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBAB4BD12A8CFBCD00BB804C /* InsertableUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertableUITests.swift; sourceTree = "<group>"; };
 		DBAB4BD32A8CFBCD00BB804C /* InsertableUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertableUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DBAB4BE02A8CFBDD00BB804C /* Insertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Insertable.swift; sourceTree = "<group>"; };
+		DBAB4BE22A8F0A0900BB804C /* InjectedModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedModifier.swift; sourceTree = "<group>"; };
+		DBAB4BE42A8F0A2F00BB804C /* InjectedViewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedViewStore.swift; sourceTree = "<group>"; };
+		DBAB4BE62A8F0A4700BB804C /* VStackStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VStackStore.swift; sourceTree = "<group>"; };
+		DBAB4BE82A8F0A5500BB804C /* VStackInsertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VStackInsertable.swift; sourceTree = "<group>"; };
+		DBAB4BEA2A8F0A7C00BB804C /* View_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View_Ext.swift; sourceTree = "<group>"; };
+		DBAB4BEC2A8F0AA800BB804C /* HStackStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HStackStore.swift; sourceTree = "<group>"; };
+		DBAB4BEE2A8F0AE000BB804C /* HStackInsertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HStackInsertable.swift; sourceTree = "<group>"; };
+		DBAB4BF02A8F0CFD00BB804C /* ButtonInsertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonInsertable.swift; sourceTree = "<group>"; };
+		DBAB4BF22A8F0D8B00BB804C /* TextInsertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInsertable.swift; sourceTree = "<group>"; };
+		DBAB4BF42A8F0DD400BB804C /* TextFieldInsertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldInsertable.swift; sourceTree = "<group>"; };
+		DBAB4BF82A911B5900BB804C /* SpacerInsertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacerInsertable.swift; sourceTree = "<group>"; };
+		DBAB4BFA2A91214300BB804C /* InjectedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedService.swift; sourceTree = "<group>"; };
+		DBAB4BFC2A91862A00BB804C /* FullScreenCoverInsertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenCoverInsertable.swift; sourceTree = "<group>"; };
+		DBAB4BFE2A91881E00BB804C /* InjectedValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedValue.swift; sourceTree = "<group>"; };
+		DBAB4C002A91A08E00BB804C /* InjectedFunctionBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedFunctionBuilder.swift; sourceTree = "<group>"; };
+		DBAB4C022A92FC2500BB804C /* SheetInsertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetInsertable.swift; sourceTree = "<group>"; };
+		DBAB4C042A9306F100BB804C /* InjectedOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedOperation.swift; sourceTree = "<group>"; };
+		DBAB4C062A93B2E800BB804C /* Insertable.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Insertable.json; sourceTree = "<group>"; };
+		DBAB4C082A93F23900BB804C /* Operators_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators_Ext.swift; sourceTree = "<group>"; };
+		DBAB4C0A2A93FCAF00BB804C /* CompositionFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionFunctions.swift; sourceTree = "<group>"; };
+		DBAB4C0C2A9419EA00BB804C /* UIColor_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor_Ext.swift; sourceTree = "<group>"; };
+		DBAB4C0E2A94563700BB804C /* ViewStore.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ViewStore.json; sourceTree = "<group>"; };
+		DBAB4C172A97C2FE00BB804C /* InjectedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedError.swift; sourceTree = "<group>"; };
+		DBAB4C7D2A99478600BB804C /* TestInsertables.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestInsertables.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,10 +144,15 @@
 		DBAB4BB52A8CFBCC00BB804C /* Insertable */ = {
 			isa = PBXGroup;
 			children = (
+				DBAB4C062A93B2E800BB804C /* Insertable.json */,
+				DBAB4C0E2A94563700BB804C /* ViewStore.json */,
 				DBAB4BB62A8CFBCC00BB804C /* InsertableApp.swift */,
 				DBAB4BB82A8CFBCC00BB804C /* ContentView.swift */,
 				DBAB4BBA2A8CFBCD00BB804C /* Assets.xcassets */,
 				DBAB4BBC2A8CFBCD00BB804C /* Preview Content */,
+				DBAB4C142A96F9C000BB804C /* Insertable */,
+				DBAB4C162A96F9FE00BB804C /* InjectedModels */,
+				DBAB4C152A96F9D900BB804C /* Extensions */,
 			);
 			path = Insertable;
 			sourceTree = "<group>";
@@ -114,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				DBAB4BC72A8CFBCD00BB804C /* InsertableTests.swift */,
+				DBAB4C7D2A99478600BB804C /* TestInsertables.json */,
 			);
 			path = InsertableTests;
 			sourceTree = "<group>";
@@ -125,6 +181,49 @@
 				DBAB4BD32A8CFBCD00BB804C /* InsertableUITestsLaunchTests.swift */,
 			);
 			path = InsertableUITests;
+			sourceTree = "<group>";
+		};
+		DBAB4C142A96F9C000BB804C /* Insertable */ = {
+			isa = PBXGroup;
+			children = (
+				DBAB4BE02A8CFBDD00BB804C /* Insertable.swift */,
+				DBAB4BFC2A91862A00BB804C /* FullScreenCoverInsertable.swift */,
+				DBAB4BEC2A8F0AA800BB804C /* HStackStore.swift */,
+				DBAB4BEE2A8F0AE000BB804C /* HStackInsertable.swift */,
+				DBAB4C022A92FC2500BB804C /* SheetInsertable.swift */,
+				DBAB4BF02A8F0CFD00BB804C /* ButtonInsertable.swift */,
+				DBAB4BF22A8F0D8B00BB804C /* TextInsertable.swift */,
+				DBAB4BE62A8F0A4700BB804C /* VStackStore.swift */,
+				DBAB4BE82A8F0A5500BB804C /* VStackInsertable.swift */,
+				DBAB4BF42A8F0DD400BB804C /* TextFieldInsertable.swift */,
+				DBAB4BF82A911B5900BB804C /* SpacerInsertable.swift */,
+			);
+			path = Insertable;
+			sourceTree = "<group>";
+		};
+		DBAB4C152A96F9D900BB804C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DBAB4BEA2A8F0A7C00BB804C /* View_Ext.swift */,
+				DBAB4C0C2A9419EA00BB804C /* UIColor_Ext.swift */,
+				DBAB4C082A93F23900BB804C /* Operators_Ext.swift */,
+				DBAB4C0A2A93FCAF00BB804C /* CompositionFunctions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DBAB4C162A96F9FE00BB804C /* InjectedModels */ = {
+			isa = PBXGroup;
+			children = (
+				DBAB4BE22A8F0A0900BB804C /* InjectedModifier.swift */,
+				DBAB4BE42A8F0A2F00BB804C /* InjectedViewStore.swift */,
+				DBAB4BFA2A91214300BB804C /* InjectedService.swift */,
+				DBAB4BFE2A91881E00BB804C /* InjectedValue.swift */,
+				DBAB4C002A91A08E00BB804C /* InjectedFunctionBuilder.swift */,
+				DBAB4C042A9306F100BB804C /* InjectedOperation.swift */,
+				DBAB4C172A97C2FE00BB804C /* InjectedError.swift */,
+			);
+			path = InjectedModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +332,8 @@
 			files = (
 				DBAB4BBE2A8CFBCD00BB804C /* Preview Assets.xcassets in Resources */,
 				DBAB4BBB2A8CFBCD00BB804C /* Assets.xcassets in Resources */,
+				DBAB4C0F2A94563700BB804C /* ViewStore.json in Resources */,
+				DBAB4C072A93B2E800BB804C /* Insertable.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +341,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBAB4C7E2A99478600BB804C /* TestInsertables.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,8 +359,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBAB4C092A93F23900BB804C /* Operators_Ext.swift in Sources */,
+				DBAB4BF52A8F0DD400BB804C /* TextFieldInsertable.swift in Sources */,
+				DBAB4C052A9306F100BB804C /* InjectedOperation.swift in Sources */,
+				DBAB4BFF2A91881E00BB804C /* InjectedValue.swift in Sources */,
 				DBAB4BB92A8CFBCC00BB804C /* ContentView.swift in Sources */,
+				DBAB4BF92A911B5900BB804C /* SpacerInsertable.swift in Sources */,
+				DBAB4BE92A8F0A5500BB804C /* VStackInsertable.swift in Sources */,
+				DBAB4BFB2A91214300BB804C /* InjectedService.swift in Sources */,
+				DBAB4BFD2A91862A00BB804C /* FullScreenCoverInsertable.swift in Sources */,
+				DBAB4BE52A8F0A2F00BB804C /* InjectedViewStore.swift in Sources */,
+				DBAB4C0D2A9419EA00BB804C /* UIColor_Ext.swift in Sources */,
+				DBAB4BE12A8CFBDD00BB804C /* Insertable.swift in Sources */,
+				DBAB4BEB2A8F0A7C00BB804C /* View_Ext.swift in Sources */,
+				DBAB4BED2A8F0AA800BB804C /* HStackStore.swift in Sources */,
+				DBAB4C182A97C2FE00BB804C /* InjectedError.swift in Sources */,
+				DBAB4BE32A8F0A0900BB804C /* InjectedModifier.swift in Sources */,
 				DBAB4BB72A8CFBCC00BB804C /* InsertableApp.swift in Sources */,
+				DBAB4C012A91A08E00BB804C /* InjectedFunctionBuilder.swift in Sources */,
+				DBAB4BF12A8F0CFD00BB804C /* ButtonInsertable.swift in Sources */,
+				DBAB4BF32A8F0D8B00BB804C /* TextInsertable.swift in Sources */,
+				DBAB4C0B2A93FCAF00BB804C /* CompositionFunctions.swift in Sources */,
+				DBAB4BEF2A8F0AE000BB804C /* HStackInsertable.swift in Sources */,
+				DBAB4BE72A8F0A4700BB804C /* VStackStore.swift in Sources */,
+				DBAB4C032A92FC2500BB804C /* SheetInsertable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
