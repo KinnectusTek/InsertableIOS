@@ -1,0 +1,58 @@
+//
+//  VStackStore.swift
+//  Insertable
+//
+//  Created by Blake Osonduagwueki on 8/17/23.
+//
+
+import Foundation
+import Combine
+import SwiftUI
+
+class VStackStore: ObservableObject {
+    typealias Alignment = (InjectedState) -> HorizontalAlignment
+    typealias Spacing = (InjectedState) -> CGFloat
+    
+    @Published var state: InjectedState
+    @Published var spacing: CGFloat? = nil
+    @Published var alignment: HorizontalAlignment = .center
+    @Published var modifiers: [InjectedModifier] = []
+    private var cancellables = Set<AnyCancellable>()
+    
+    let stateSubject: CurrentValueSubject<InjectedState, Never>
+    let viewStore: InjectedViewStore
+    
+    init(store: InjectedViewStore,
+         stateSubject: CurrentValueSubject<InjectedState, Never>,
+         alignmentTransform: Alignment? = nil,
+         spacingTransform: Spacing? = nil) {
+        self.viewStore = store
+        self.stateSubject = stateSubject
+        self.state = stateSubject.value
+        
+        stateSubject
+            .eraseToAnyPublisher()
+            .map({ $0 })
+            .assign(to: &$state)
+        
+        $state.map({ _ in store.modifiers }).assign(to: &$modifiers)
+
+        stateSubject
+            .eraseToAnyPublisher()
+            .map({ _ in store.modifiers })
+            .assign(to: &$modifiers)
+
+        if let alignmentTransform = alignmentTransform {
+            self.$state.compactMap { $0 }
+                .map(alignmentTransform)
+                .assign(to: &$alignment)
+        }
+
+        if let spacingTransform = spacingTransform {
+            self.$state.compactMap { $0 }
+                .map(spacingTransform)
+                .assign(to: &$spacing)
+        }
+        
+    }
+}
