@@ -7,16 +7,24 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 extension View {
-    func addModifier(mod: InsertableModifier) -> some View {
-        modifier(mod)
+    func addModifier(mod: InjectedModifier, state: CurrentValueSubject<InjectedState, Never>, container: ViewStoresContainer) -> some View {
+        modifier(InsertableModifier(stateSubject: state, container: container, modifier:  mod))
     }
     
-    func addModifiers(mods: [InsertableModifier]) -> some View {
-        mods.reduce(AnyView(self), { accum, nextModifier  in
+    func addModifiers(mods: [InjectedModifier], state: CurrentValueSubject<InjectedState, Never>, container: ViewStoresContainer) -> some View {
+        mods
+            .map { modifier -> InsertableModifier in
+                InsertableModifier(stateSubject: state, container: container, modifier: modifier)
+            }
+            .reduce(AnyView(self), { accum, nextModifier  in
             AnyView(accum.modifier(nextModifier))
         })
+    }
+    func eraseToAnyView() -> some View {
+        AnyView(self)
     }
 }
 

@@ -1,23 +1,32 @@
 //
-//  TextInsertable.swift
+//  FullScreenCoverStore.swift
 //  Insertable
 //
-//  Created by Blake Osonduagwueki on 8/17/23.
+//  Created by Blake Osonduagwueki on 8/27/23.
 //
 
 import Foundation
-import SwiftUI
 import Combine
+import SwiftUI
 
-class TextStore: ObservableObject {
-
+class FullScreenCoverStore: ObservableObject {
     @Published var state: InjectedState
-    @Published var text: String = ""
-    @Published var modifiers: [InsertableModifier] = []
     
     private var cancellables = Set<AnyCancellable>()
     let viewStore: InjectedViewStore
     let stateSubject: CurrentValueSubject<InjectedState, Never>
+    
+    var isPresentedBinding: Binding<Bool> {
+        .init {
+            let isPresented = findBooleanValue(id: self.viewStore.isFullScreenDisplayedKey, state: self.state)
+            return isPresented
+        } set: { [weak self] isPresented in
+            guard let self = self else { return }
+            let state = InjectedViewStore.updateState(state: self.state, newValue: .boolean(id: self.viewStore.text, value: isPresented))
+            self.stateSubject.send(state)
+        }
+
+    }
     
     @InjectedFunctionBuilder var action: InjectedFunctionBuilder {
         InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.0)
@@ -32,32 +41,15 @@ class TextStore: ObservableObject {
         InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.9)
     }
     
-    init(stateSubject: CurrentValueSubject<InjectedState, Never>, store: InjectedViewStore) {
+    init(store: InjectedViewStore, stateSubject: CurrentValueSubject<InjectedState, Never>) {
         self.viewStore = store
-        self.stateSubject = stateSubject
         self.state = stateSubject.value
+        self.stateSubject = stateSubject
         
-        stateSubject.eraseToAnyPublisher().assign(to: &$state)
+        stateSubject
+            .eraseToAnyPublisher()
+            .map({ $0 })
+            .assign(to: &$state)
 
-        $state
-            .map({ state in
-                store.modifiers.map({ InsertableModifier(state: state, modifier: $0)})
-            })
-            .assign(to: &$modifiers)
-        
-        $state.map({
-            findStringValue(id: store.text, state: $0)
-        }).assign(to: &$text)
-    }
-}
-
-
-struct TextInsertable: View {
-    @ObservedObject var store: TextStore
-    var container: ViewStoresContainer
-
-    var body: some View {
-        Text(store.text)
-            .addModifiers(mods: store.modifiers)
     }
 }

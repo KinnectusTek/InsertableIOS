@@ -1,32 +1,34 @@
 //
-//  FullScreenCoverInsertable.swift
+//  TextFieldStore.swift
 //  Insertable
 //
-//  Created by Blake Osonduagwueki on 8/19/23.
+//  Created by Blake Osonduagwueki on 8/27/23.
 //
 
 import Foundation
 import Combine
 import SwiftUI
 
-class FullScreenCoverStore: ObservableObject {
+class TextFieldStore: ObservableObject {
+
     @Published var state: InjectedState
-    @Published var modifiers: [InsertableModifier] = []
+    @Published var text: String = ""
     
     private var cancellables = Set<AnyCancellable>()
     let viewStore: InjectedViewStore
     let stateSubject: CurrentValueSubject<InjectedState, Never>
     
-    var isPresentedBinding: Binding<Bool> {
-        .init {
-            let isPresented = findBooleanValue(id: self.viewStore.isFullScreenDisplayedKey, state: self.state)
-            return isPresented
-        } set: { [weak self] isPresented in
-            guard let self = self else { return }
-            let state = InjectedViewStore.updateState(state: self.state, newValue: .boolean(id: self.viewStore.text, value: isPresented))
-            self.stateSubject.send(state)
-        }
-
+    var textBinding: Binding<String> {
+        .init(
+            get: {
+                self.text
+            },
+            set: {[weak self] text in
+                guard let self = self else { return }
+                let state = InjectedViewStore.updateState(state: self.state, newValue: .string(id: self.viewStore.text, value: text))
+                self.stateSubject.send(state)
+            }
+        )
     }
     
     @InjectedFunctionBuilder var action: InjectedFunctionBuilder {
@@ -51,26 +53,10 @@ class FullScreenCoverStore: ObservableObject {
             .eraseToAnyPublisher()
             .map({ $0 })
             .assign(to: &$state)
+        
+        $state.map({
+            findStringValue(id: store.text, state: $0)
+        }).assign(to: &$text)
 
-        $state
-            .map({ state in
-                store.modifiers.map({ InsertableModifier(state: state, modifier: $0)})
-            })
-            .assign(to: &$modifiers)
-    }
-}
-
-
-struct FullScreenCoverInsertable: View {
-    
-    @ObservedObject var store: FullScreenCoverStore
-    var container: ViewStoresContainer
-
-    var body: some View {
-        Insertable(state: store.stateSubject, container: container, viewStore: store.viewStore.content.0)
-        .addModifiers(mods: store.modifiers)
-        .fullScreenCover(isPresented: store.isPresentedBinding) {
-            Insertable(state: store.stateSubject, container: container, viewStore: store.viewStore.presentedContent)
-        }
     }
 }

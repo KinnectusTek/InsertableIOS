@@ -13,12 +13,7 @@
                                 "text" : {
                                     "id" : "",
                                     "modifiers" : [],
-                                    "textKey" : "fullScreenTitle",
-                                    "content" : {
-                                        "empty" : {
-                                            "id" : ""
-                                        }
-                                    }
+                                    "textKey" : "fullScreenTitle"
                                 }
                         },
                         "content2" : {
@@ -52,11 +47,7 @@
                                     "text" : {
                                         "id" : "",
                                         "modifiers" : [],
-                                        "textKey" : "displayButtonTitle",
-                                        "content" : {
-                                            "empty" : {
-                                                "id" : ""
-                                            }
+                                        "textKey" : "displayButtonTitle"
                                         }
                                     }
                                 }
@@ -79,11 +70,7 @@
                     "text" : {
                         "id" : "",
                         "modifiers" : [],
-                        "textKey" : "name",
-                        "content" : {
-                            "empty" : {
-                                "id" : ""
-                            }
+                        "textKey" : "name"
                         }
                     }
                 },
@@ -91,11 +78,7 @@
                     "text" : {
                         "id" : "",
                         "modifiers" : [],
-                        "textKey" : "email",
-                        "content" : {
-                            "empty" : {
-                                "id" : ""
-                            }
+                        "textKey" : "email"
                         }
                     }
                 },
@@ -146,11 +129,7 @@
                             "text" : {
                                 "id" : "",
                                 "modifiers" : [],
-                                "textKey" : "multiplyButtonTitle",
-                                "content" : {
-                                    "empty" : {
-                                        "id" : ""
-                                    }
+                                "textKey" : "multiplyButtonTitle"
                                 }
                             }
                         }
@@ -175,11 +154,7 @@
                             "text" : {
                                 "id" : "",
                                 "modifiers" : [],
-                                "textKey" : "dismissButtonTitle",
-                                "content" : {
-                                    "empty" : {
-                                        "id" : ""
-                                    }
+                                "textKey" : "dismissButtonTitle"
                                 }
                             }
                         }

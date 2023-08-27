@@ -8,9 +8,7 @@
 import Foundation
 import Combine
 
-struct ViewStoresContainer: Codable {
-    let viewStores: [InjectedViewStore]
-}
+
 func createState() -> Data {
     let values: [InjectedValue] = [
         .string(id: "name", value: "Blake"),
@@ -26,39 +24,36 @@ func createState() -> Data {
     return try! JSONEncoder().encode(InjectedState(state: values))
 }
 func creatViewStore() -> Data {
+    
     var presentedContent: InjectedViewStore {
         .vStack(
             id: "presentedContent",
-            modifiers: [],
-            content1: .text(id: "", modifiers: [], textKey: "name", content: .empty()),
-            content2: .text(id: "", modifiers: [], textKey: "email", content: .empty()),
-            content3: .field(id: "", modifiers: [], textKey: "email", content: .empty()),
+            content1: .text(id: "", textKey: "name"),
+            content2: .text(id: "", textKey: "email"),
+            content3: .field(id: "", textKey: "email", content: .empty()),
             content4: .button(
                 id: "multiplyButton",
-                modifiers: [],
                 operation1: .assign(key: "name", value: .string(id: "name", value: "Dolo")),
                 operation2: .asyncAfter(operation: .assign(key: "name", value:.string(id: "name", value: "You did it")), delay: 2.5),
-                content: .text(id: "", modifiers: [], textKey: "multiplayButtonTitle", content: .empty())),
+                content: .text(id: "", textKey: "multiplayButtonTitle")),
             content5: .button(
                 id: "dismissButton",
-                modifiers: [],
                 operation1: .assign(key: "isPageDisplayed", value: .boolean(id: "isPageDisplayed", value: false)),
-                content: .text(id: "", modifiers: [], textKey: "dismissButtonTitle", content: .empty())
+                content: .text(id: "", textKey: "dismissButtonTitle")
             )
         )
     }
+    
     let fullScreenStore: InjectedViewStore = .fullScreenCover(
         id: "entry",
-        modifiers: [],
         isPresentedKey: "isPageDisplayed",
         content: .vStack(
-            id: "", modifiers: [],
-            content1: .text(id: "", modifiers: [], textKey: "fullScreenTitle", content: .empty()),
+            id: "",
+            content1: .text(id: "", textKey: "fullScreenTitle"),
             content2: .spacer(id: "", modifiers: [.frame(id: "fullScreenSpacerHeight")]),
             content3: .button(id: "displayButton",
-                              modifiers: [],
                               operation1: .assign(key: "isPageDisplayed", value: .boolean(id: "isPageDisplayed", value: true)),
-                              content: .text(id: "", modifiers: [], textKey: "displayButtonTitle", content: .empty())
+                              content: .text(id: "", textKey: "displayButtonTitle")
                              )
                     ),
         presentedContent: .viewStoreReference(id: "presentedContent"))

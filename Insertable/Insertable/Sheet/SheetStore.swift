@@ -1,22 +1,16 @@
 //
-//  HStackStore.swift
+//  SheetStore.swift
 //  Insertable
 //
-//  Created by Blake Osonduagwueki on 8/17/23.
+//  Created by Blake Osonduagwueki on 8/27/23.
 //
 
 import Foundation
 import Combine
 import SwiftUI
 
-class HStackStore: ObservableObject {
-    typealias Alignment = (InjectedState) -> VerticalAlignment
-    typealias Spacing = (InjectedState) -> CGFloat
-    
+class SheetStore: ObservableObject {
     @Published var state: InjectedState
-    @Published var spacing: CGFloat? = nil
-    @Published var alignment: VerticalAlignment = .center
-    @Published var modifiers: [InsertableModifier] = []
     
     private var cancellables = Set<AnyCancellable>()
     let stateSubject: CurrentValueSubject<InjectedState, Never>
@@ -35,27 +29,28 @@ class HStackStore: ObservableObject {
         InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.9)
     }
     
+    var isPresentedBinding: Binding<Bool> {
+        .init {
+            let isPresented = findBooleanValue(id: self.viewStore.isSheetDisplayedKey, state: self.state)
+            return isPresented
+        } set: { [weak self] isPresented in
+            guard let self = self else { return }
+            let state = InjectedViewStore.updateState(state: self.state, newValue: .boolean(id: self.viewStore.text, value: isPresented))
+            self.stateSubject.send(state)
+        }
+
+    }
     init(store: InjectedViewStore,
-         stateSubject: CurrentValueSubject<InjectedState, Never>,
-         alignmentTransform: Alignment? = nil,
-         spacingTransform: Spacing? = nil) {
-        self.viewStore = store
+         stateSubject: CurrentValueSubject<InjectedState, Never>){
+        
         self.stateSubject = stateSubject
+        self.viewStore = store
         self.state = stateSubject.value
         
-        if let alignmentTransform = alignmentTransform {
-            self.$state.map(alignmentTransform).assign(to: &$alignment)
-        }
-        
-        if let spacingTransform = spacingTransform {
-            self.$state.map(spacingTransform).assign(to: &$spacing)
-        }
-        
-        stateSubject.eraseToAnyPublisher().assign(to: &$state)
-        
-        $state.map({ state in
-            store.modifiers.map({ InsertableModifier(state: state, modifier: $0)})
-        }).assign(to: &$modifiers)
+        stateSubject
+            .eraseToAnyPublisher()
+            .map({ $0 })
+            .assign(to: &$state)
+
     }
 }
-

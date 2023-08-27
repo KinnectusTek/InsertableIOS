@@ -16,7 +16,6 @@ class VStackStore: ObservableObject {
     @Published var state: InjectedState
     @Published var spacing: CGFloat? = nil
     @Published var alignment: HorizontalAlignment = .center
-    @Published var modifiers: [InsertableModifier] = []
     private var cancellables = Set<AnyCancellable>()
     
     let stateSubject: CurrentValueSubject<InjectedState, Never>
@@ -47,12 +46,6 @@ class VStackStore: ObservableObject {
             .eraseToAnyPublisher()
             .map({ $0 })
             .assign(to: &$state)
-        
-        $state
-            .map({ state in
-                store.modifiers.map({ InsertableModifier(state: state, modifier: $0)})
-            })
-            .assign(to: &$modifiers)
 
         if let alignmentTransform = alignmentTransform {
             self.$state.compactMap { $0 }

@@ -1,2 +1,82 @@
 
 
+{
+    "viewStores": [
+            {
+                "text": {
+                    "id": "text",
+                    "modifiers": [],
+                    "textKey": "textKey",
+                    "content": {
+                        "empty": {
+                            "id": ""
+                        }
+                    }
+                }
+            },
+            {
+                "button": {
+                    "id": "button",
+                    "modifiers": [],
+                    "content": {
+                        "text": {
+                            "id": "buttonTitle",
+                            "modifiers": [],
+                            "textKey": "buttonTitle",
+                            "content": {
+                                "empty": {
+                                    "id": ""
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "vStack": {
+                    "id": "vStack",
+                    "modifiers": [],
+                    "content1": {
+                        "text": {
+                            "id": "vStackText",
+                            "modifiers": [],
+                            "textKey": "vStackText"
+                        }
+                    }
+                }
+            },
+            {
+                "hStack": {
+                    "id": "hStack",
+                    "modifiers": [],
+                    "content1": {
+                        "text": {
+                            "id": "hStackText",
+                            "modifiers": [],
+                            "textKey": "hStackText"
+                        }
+                    }
+                }
+            },
+            {
+                "field": {
+                    "id": "field",
+                    "modifiers": [],
+                    "textKey": "field",
+                    "content": {
+                        "text": {
+                            "id": "fieldText",
+                            "modifiers": [],
+                            "textKey": "fieldText"
+                        }
+                    }
+                }
+            },
+            {
+                "spacer": {
+                    "id": "spacer",
+                    "modifiers": []
+                }
+            }
+    ]
+}

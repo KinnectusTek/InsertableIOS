@@ -1,22 +1,25 @@
 //
-//  ButtonInsertable.swift
+//  HStackStore.swift
 //  Insertable
 //
 //  Created by Blake Osonduagwueki on 8/17/23.
 //
 
 import Foundation
-import SwiftUI
 import Combine
+import SwiftUI
 
-class ButtonStore: ObservableObject {
-
+class HStackStore: ObservableObject {
+    typealias Alignment = (InjectedState) -> VerticalAlignment
+    typealias Spacing = (InjectedState) -> CGFloat
+    
     @Published var state: InjectedState
-    @Published var modifiers: [InsertableModifier] = []
+    @Published var spacing: CGFloat? = nil
+    @Published var alignment: VerticalAlignment = .center
     
     private var cancellables = Set<AnyCancellable>()
-    let viewStore: InjectedViewStore
     let stateSubject: CurrentValueSubject<InjectedState, Never>
+    let viewStore: InjectedViewStore
     
     @InjectedFunctionBuilder var action: InjectedFunctionBuilder {
         InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.0)
@@ -32,43 +35,23 @@ class ButtonStore: ObservableObject {
     }
     
     init(store: InjectedViewStore,
-         stateSubject: CurrentValueSubject<InjectedState, Never>
-    ) {
-        self.stateSubject = stateSubject
+         stateSubject: CurrentValueSubject<InjectedState, Never>,
+         alignmentTransform: Alignment? = nil,
+         spacingTransform: Spacing? = nil) {
         self.viewStore = store
+        self.stateSubject = stateSubject
         self.state = stateSubject.value
         
-        stateSubject
-            .eraseToAnyPublisher()
-            .map({ $0 })
-            .assign(to: &$state)
-        
-        $state
-            .map({ state in
-                store.modifiers.map({ InsertableModifier(state: state, modifier: $0)})
-            })
-            .assign(to: &$modifiers)
-    }
-    
-    func didCommitAction() {
-        if let state = action.state {
-            stateSubject.send(state.value)
+        if let alignmentTransform = alignmentTransform {
+            self.$state.map(alignmentTransform).assign(to: &$alignment)
         }
-    }
-}
-
-
-
-struct ButtonInsertable: View {
-    var container: ViewStoresContainer
-    @ObservedObject var store: ButtonStore
-
-    var body: some View {
-        Button(action: {
-            store.didCommitAction()
-        }, label: {
-            Insertable(state: store.stateSubject, container: container, viewStore: store.viewStore.content.0)
-        }).addModifiers(mods: store.modifiers)
+        
+        if let spacingTransform = spacingTransform {
+            self.$state.map(spacingTransform).assign(to: &$spacing)
+        }
+        
+        stateSubject.eraseToAnyPublisher().assign(to: &$state)
+        
     }
 }
 

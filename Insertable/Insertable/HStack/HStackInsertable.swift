@@ -45,7 +45,7 @@ struct HStackInsertable: View {
             if let content = store.viewStore.content.9 {
                         Insertable(state: store.stateSubject, container: container, viewStore: content)
             }
-        }.addModifiers(mods: store.modifiers)
+        }.addModifiers(mods: store.viewStore.modifiers, state: store.stateSubject, container: container)
     }
 }
 
