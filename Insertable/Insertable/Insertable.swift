@@ -41,6 +41,10 @@ struct Insertable: View {
             
             TextFieldInsertable(store: .init(store: viewStore, stateSubject: state), container: container)
             
+        case .namedImage, .systemImage:
+            
+            ImageInsertable(store: .init(store: viewStore, stateSubject: state), container: container)
+        
         case .spacer:
             
             SpacerInsertable(store: .init(store: viewStore, stateSubject: state), container: container)

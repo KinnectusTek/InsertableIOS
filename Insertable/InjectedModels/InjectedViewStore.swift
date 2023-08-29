@@ -62,6 +62,8 @@ indirect enum InjectedViewStore: Codable, Hashable {
                 operation9: InjectedOperation? = .noOperation,
                 operation10: InjectedOperation? = .noOperation,
                 content: InjectedViewStore)
+    case namedImage(id: String = "", modifiers: [InjectedModifier] = [])
+    case systemImage(name: String = "", modifiers: [InjectedModifier] = [])
     case spacer(id: String = "",
                 modifiers: [InjectedModifier] = [])
     case empty(id: String = "")
@@ -73,6 +75,8 @@ indirect enum InjectedViewStore: Codable, Hashable {
                 .text(let id, _, _),
                 .field(let id, _, _, _),
                 .button(let id, _, _, _, _, _, _, _, _, _, _, _, _),
+                .namedImage(let id, _),
+                .systemImage(let id, _),
                 .spacer(let id, _),
                 .empty(let id):
             return id
@@ -91,6 +95,8 @@ indirect enum InjectedViewStore: Codable, Hashable {
                 .text(_, let modifiers, _),
                 .field(_, let modifiers, _, _),
                 .button(_, let modifiers, _, _,_,_,_,_,_,_,_,_,_),
+                .namedImage(_, let modifiers),
+                .systemImage(_, let modifiers),
                 .spacer(_, let modifiers):
             return modifiers
         default:

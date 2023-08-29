@@ -42,8 +42,8 @@
 		DBAB4C8A2A9B9B4E00BB804C /* TextStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4C892A9B9B4E00BB804C /* TextStore.swift */; };
 		DBAB4C8C2A9B9B8200BB804C /* TextFieldStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4C8B2A9B9B8200BB804C /* TextFieldStore.swift */; };
 		DBAB4C8E2A9B9BBE00BB804C /* SpacerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4C8D2A9B9BBE00BB804C /* SpacerStore.swift */; };
-		DBAB4C9B2A9BB88F00BB804C /* FullScreenCoverInsertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4C992A9BB88F00BB804C /* FullScreenCoverInsertable.swift */; };
-		DBAB4C9C2A9BB88F00BB804C /* FullScreenCoverStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4C9A2A9BB88F00BB804C /* FullScreenCoverStore.swift */; };
+		DBAB4C9E2A9E3E1100BB804C /* ImageInsertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4C9D2A9E3E1100BB804C /* ImageInsertable.swift */; };
+		DBAB4CA02A9E3E1800BB804C /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4C9F2A9E3E1800BB804C /* ImageStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,8 +102,8 @@
 		DBAB4C892A9B9B4E00BB804C /* TextStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStore.swift; sourceTree = "<group>"; };
 		DBAB4C8B2A9B9B8200BB804C /* TextFieldStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStore.swift; sourceTree = "<group>"; };
 		DBAB4C8D2A9B9BBE00BB804C /* SpacerStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacerStore.swift; sourceTree = "<group>"; };
-		DBAB4C992A9BB88F00BB804C /* FullScreenCoverInsertable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenCoverInsertable.swift; sourceTree = "<group>"; };
-		DBAB4C9A2A9BB88F00BB804C /* FullScreenCoverStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenCoverStore.swift; sourceTree = "<group>"; };
+		DBAB4C9D2A9E3E1100BB804C /* ImageInsertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInsertable.swift; sourceTree = "<group>"; };
+		DBAB4C9F2A9E3E1800BB804C /* ImageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,8 +196,6 @@
 		DBAB4C142A96F9C000BB804C /* Insertable */ = {
 			isa = PBXGroup;
 			children = (
-				DBAB4C992A9BB88F00BB804C /* FullScreenCoverInsertable.swift */,
-				DBAB4C9A2A9BB88F00BB804C /* FullScreenCoverStore.swift */,
 				DBAB4BE02A8CFBDD00BB804C /* Insertable.swift */,
 				DBAB4C952A9B9BF500BB804C /* HStack */,
 				DBAB4C932A9B9BE800BB804C /* Button */,
@@ -205,6 +203,7 @@
 				DBAB4C912A9B9BDB00BB804C /* VStack */,
 				DBAB4C902A9B9BD100BB804C /* TextField */,
 				DBAB4C8F2A9B9BCA00BB804C /* Spacer */,
+				DBAB4CA12A9E3E1F00BB804C /* Image */,
 			);
 			path = Insertable;
 			sourceTree = "<group>";
@@ -287,6 +286,15 @@
 				DBAB4BEE2A8F0AE000BB804C /* HStackInsertable.swift */,
 			);
 			path = HStack;
+			sourceTree = "<group>";
+		};
+		DBAB4CA12A9E3E1F00BB804C /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				DBAB4C9D2A9E3E1100BB804C /* ImageInsertable.swift */,
+				DBAB4C9F2A9E3E1800BB804C /* ImageStore.swift */,
+			);
+			path = Image;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -434,6 +442,7 @@
 				DBAB4BFB2A91214300BB804C /* InjectedService.swift in Sources */,
 				DBAB4BE52A8F0A2F00BB804C /* InjectedViewStore.swift in Sources */,
 				DBAB4C8C2A9B9B8200BB804C /* TextFieldStore.swift in Sources */,
+				DBAB4CA02A9E3E1800BB804C /* ImageStore.swift in Sources */,
 				DBAB4C0D2A9419EA00BB804C /* UIColor_Ext.swift in Sources */,
 				DBAB4C8E2A9B9BBE00BB804C /* SpacerStore.swift in Sources */,
 				DBAB4BE12A8CFBDD00BB804C /* Insertable.swift in Sources */,
@@ -442,11 +451,10 @@
 				DBAB4C182A97C2FE00BB804C /* InjectedError.swift in Sources */,
 				DBAB4BE32A8F0A0900BB804C /* InjectedModifier.swift in Sources */,
 				DBAB4BB72A8CFBCC00BB804C /* InsertableApp.swift in Sources */,
+				DBAB4C9E2A9E3E1100BB804C /* ImageInsertable.swift in Sources */,
 				DBAB4C012A91A08E00BB804C /* InjectedFunctionBuilder.swift in Sources */,
 				DBAB4BF12A8F0CFD00BB804C /* ButtonInsertable.swift in Sources */,
 				DBAB4BF32A8F0D8B00BB804C /* TextInsertable.swift in Sources */,
-				DBAB4C9C2A9BB88F00BB804C /* FullScreenCoverStore.swift in Sources */,
-				DBAB4C9B2A9BB88F00BB804C /* FullScreenCoverInsertable.swift in Sources */,
 				DBAB4C0B2A93FCAF00BB804C /* CompositionFunctions.swift in Sources */,
 				DBAB4BEF2A8F0AE000BB804C /* HStackInsertable.swift in Sources */,
 				DBAB4C882A9B9B3700BB804C /* ButtonStore.swift in Sources */,
