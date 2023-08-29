@@ -39,7 +39,10 @@ class ButtonStore: ObservableObject {
         
         stateSubject
             .eraseToAnyPublisher()
-            .map({ $0 })
+            .removeDuplicates()
+            .map({
+                $0
+            })
             .assign(to: &$state)
         
     }

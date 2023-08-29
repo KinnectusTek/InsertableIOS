@@ -7,7 +7,7 @@
 import Foundation
 import SwiftUI
 
-enum InjectedValue: Codable {
+enum InjectedValue: Codable, Equatable {
 
     case string(id: String, value: String)
     case integer(id: String, value: Int)
@@ -170,7 +170,7 @@ enum InjectedValue: Codable {
 }
 
 
-struct InjectedState: Codable {
+struct InjectedState: Codable, Equatable {
     var state: [InjectedValue]
 }
 

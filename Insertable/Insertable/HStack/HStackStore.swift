@@ -35,6 +35,7 @@ class HStackStore: ObservableObject {
     }
     
     init(store: InjectedViewStore,
+         container: ViewStoresContainer,
          stateSubject: CurrentValueSubject<InjectedState, Never>,
          alignmentTransform: Alignment? = nil,
          spacingTransform: Spacing? = nil) {

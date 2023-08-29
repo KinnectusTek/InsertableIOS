@@ -14,6 +14,7 @@ struct ContentView: View {
     var entry: InjectedViewStore {
         container.viewStores.first(where: {$0.id == "entry" })!
     }
+    var value: Bool = false
     var body: some View {
         Insertable(state: state, container: container, viewStore: entry)
     }

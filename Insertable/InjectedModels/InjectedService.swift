@@ -18,7 +18,7 @@ func createState() -> Data {
         .string(id: "displayButtonTitle", value: "Display"),
         .string(id: "fullScreenTitle", value: "Push Display Button"),
         .string(id: "dismissButtonTitle", value: "Dismiss"),
-        .boolean(id: "isPageDisplayed", value: false),
+        .boolean(id: "isPageDisplayed", value: true),
         .frame(id: "fullScreenSpacerHeight", width: 100, height: 100)
     ]
     return try! JSONEncoder().encode(InjectedState(state: values))
@@ -28,6 +28,7 @@ func creatViewStore() -> Data {
     var presentedContent: InjectedViewStore {
         .vStack(
             id: "presentedContent",
+            
             content1: .text(id: "", textKey: "name"),
             content2: .text(id: "", textKey: "email"),
             content3: .field(id: "", textKey: "email", content: .empty()),
@@ -44,22 +45,24 @@ func creatViewStore() -> Data {
         )
     }
     
-    let fullScreenStore: InjectedViewStore = .fullScreenCover(
-        id: "entry",
-        isPresentedKey: "isPageDisplayed",
-        content: .vStack(
-            id: "",
+    var entryViewStore: InjectedViewStore {
+        .vStack(
+            id: "entry",
+            modifiers: [
+                .fullScreenCover(viewStore: .viewStoreReference(id: "presentedContent"), isPresentedKey: "isPageDisplayed"),
+                .backgroundColor(id: "slkdfj")
+            ],
             content1: .text(id: "", textKey: "fullScreenTitle"),
             content2: .spacer(id: "", modifiers: [.frame(id: "fullScreenSpacerHeight")]),
             content3: .button(id: "displayButton",
                               operation1: .assign(key: "isPageDisplayed", value: .boolean(id: "isPageDisplayed", value: true)),
                               content: .text(id: "", textKey: "displayButtonTitle")
                              )
-                    ),
-        presentedContent: .viewStoreReference(id: "presentedContent"))
+        )
+    }
             
             
-    let container = ViewStoresContainer(viewStores: [fullScreenStore, presentedContent])
+    let container = ViewStoresContainer(viewStores: [entryViewStore, presentedContent])
     return try! JSONEncoder().encode(container)
 }
 func getState() -> InjectedState {

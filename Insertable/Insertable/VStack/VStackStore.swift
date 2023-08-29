@@ -20,6 +20,7 @@ class VStackStore: ObservableObject {
     
     let stateSubject: CurrentValueSubject<InjectedState, Never>
     let viewStore: InjectedViewStore
+    var isFullScreenCoverPresented: Binding<Bool> = .constant(false)
     
     @InjectedFunctionBuilder var action: InjectedFunctionBuilder {
         InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.0)
@@ -58,6 +59,5 @@ class VStackStore: ObservableObject {
                 .map(spacingTransform)
                 .assign(to: &$spacing)
         }
-        
     }
 }

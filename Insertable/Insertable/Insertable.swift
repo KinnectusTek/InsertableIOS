@@ -26,7 +26,7 @@ struct Insertable: View {
         case .hStack:
             
             HStackInsertable(
-                store: .init(store: viewStore, stateSubject: state),
+                store: .init(store: viewStore, container: container, stateSubject: state),
                 container: container)
         
         case .button:
@@ -40,15 +40,7 @@ struct Insertable: View {
         case .field:
             
             TextFieldInsertable(store: .init(store: viewStore, stateSubject: state), container: container)
-        
-        case .fullScreenCover:
             
-            FullScreenCoverInsertable(store: .init(store: viewStore, stateSubject: state), container: container)
-        
-        case .sheet:
-            
-            SheetInsertable(store: .init(store: viewStore, stateSubject: state), container: container)
-        
         case .spacer:
             
             SpacerInsertable(store: .init(store: viewStore, stateSubject: state), container: container)

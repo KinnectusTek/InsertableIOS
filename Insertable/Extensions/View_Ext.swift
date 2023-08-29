@@ -10,20 +10,44 @@ import SwiftUI
 import Combine
 
 extension View {
-    func addModifier(mod: InjectedModifier, state: CurrentValueSubject<InjectedState, Never>, container: ViewStoresContainer) -> some View {
-        modifier(InsertableModifier(stateSubject: state, container: container, modifier:  mod))
+    func addModifier(modifier: InjectedModifier, state: CurrentValueSubject<InjectedState, Never>, container: ViewStoresContainer) -> some View {
+        switch modifier {
+        case .font(let id):
+            return AnyView(self.font(findFontValue(id: id, state: state.value)))
+            
+        case .frame(let id):
+            let (width, height) = findFrameValue(id: id, state: state.value)
+            return AnyView(self.frame(width: width, height: height))
+            
+        case .backgroundColor(let id):
+            return AnyView(self.background(Color.random))
+        case let .fullScreenCover(viewStore, isPresentedKey):
+            let isPresented = findBooleanValue(id: isPresentedKey, state: state.value)
+            return AnyView(
+                self.fullScreenCover(isPresented: .constant(isPresented), content: {
+                    Insertable(state: state, container: container, viewStore: viewStore)
+                })
+            )
+        case let .sheet(viewStore, isPresentedKey):
+            return AnyView(self)
+//            return AnyView(
+//                content.fullScreenCover(isPresented: .constant(true), content: {
+//                    Insertable(state: stateSubject, container: container, viewStore: viewStore)
+//                })
+//            )
+        }
     }
     
+   
     func addModifiers(mods: [InjectedModifier], state: CurrentValueSubject<InjectedState, Never>, container: ViewStoresContainer) -> some View {
-        mods
-            .map { modifier -> InsertableModifier in
-                InsertableModifier(stateSubject: state, container: container, modifier: modifier)
-            }
-            .reduce(AnyView(self), { accum, nextModifier  in
-            AnyView(accum.modifier(nextModifier))
+        print(state.value)
+        return mods
+            .reduce(AnyView(self), { accum, nextModifier -> AnyView in
+                accum.addModifier(modifier: nextModifier, state: state, container: container).eraseToAnyView()
         })
     }
-    func eraseToAnyView() -> some View {
+    
+    func eraseToAnyView() -> AnyView {
         AnyView(self)
     }
 }

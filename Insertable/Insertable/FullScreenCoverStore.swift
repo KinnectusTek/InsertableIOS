@@ -16,17 +16,7 @@ class FullScreenCoverStore: ObservableObject {
     let viewStore: InjectedViewStore
     let stateSubject: CurrentValueSubject<InjectedState, Never>
     
-    var isPresentedBinding: Binding<Bool> {
-        .init {
-            let isPresented = findBooleanValue(id: self.viewStore.isFullScreenDisplayedKey, state: self.state)
-            return isPresented
-        } set: { [weak self] isPresented in
-            guard let self = self else { return }
-            let state = InjectedViewStore.updateState(state: self.state, newValue: .boolean(id: self.viewStore.text, value: isPresented))
-            self.stateSubject.send(state)
-        }
-
-    }
+    var isPresentedBinding: Binding<Bool> = .constant(false)
     
     @InjectedFunctionBuilder var action: InjectedFunctionBuilder {
         InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.0)
@@ -41,10 +31,20 @@ class FullScreenCoverStore: ObservableObject {
         InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.9)
     }
     
-    init(store: InjectedViewStore, stateSubject: CurrentValueSubject<InjectedState, Never>) {
+    init(store: InjectedViewStore, isDisplayedKey: String, stateSubject: CurrentValueSubject<InjectedState, Never>) {
         self.viewStore = store
+       
         self.state = stateSubject.value
         self.stateSubject = stateSubject
+        self.isPresentedBinding =
+            .init {
+                let isPresented = findBooleanValue(id: isDisplayedKey, state: self.state)
+                return isPresented
+            } set: { [weak self] isPresented in
+                guard let self = self else { return }
+                let state = InjectedViewStore.updateState(state: self.state, newValue: .boolean(id: self.viewStore.text, value: isPresented))
+                self.stateSubject.send(state)
+            }
         
         stateSubject
             .eraseToAnyPublisher()

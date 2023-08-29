@@ -65,17 +65,6 @@ indirect enum InjectedViewStore: Codable, Hashable {
     case spacer(id: String = "",
                 modifiers: [InjectedModifier] = [])
     case empty(id: String = "")
-    case fullScreenCover(
-                id: String = "",
-                modifiers: [InjectedModifier] = [],
-                isPresentedKey: String,
-                content: InjectedViewStore,
-                presentedContent: InjectedViewStore)
-    case sheet(id: String = "",
-               modifiers: [InjectedModifier] = [],
-                isPresentedKey: String,
-                content: InjectedViewStore,
-                presentedContent: InjectedViewStore)
     var id: String {
         switch self {
         case .viewStoreReference(let id),
@@ -85,9 +74,7 @@ indirect enum InjectedViewStore: Codable, Hashable {
                 .field(let id, _, _, _),
                 .button(let id, _, _, _, _, _, _, _, _, _, _, _, _),
                 .spacer(let id, _),
-                .empty(let id),
-                .fullScreenCover(let id, _, _, _, _),
-                .sheet(let id, _, _, _, _):
+                .empty(let id):
             return id
         }
     }
@@ -104,9 +91,7 @@ indirect enum InjectedViewStore: Codable, Hashable {
                 .text(_, let modifiers, _),
                 .field(_, let modifiers, _, _),
                 .button(_, let modifiers, _, _,_,_,_,_,_,_,_,_,_),
-                .spacer(_, let modifiers),
-                .fullScreenCover(_, let modifiers, _, _, _),
-                .sheet(_, let modifiers, _, _, _):
+                .spacer(_, let modifiers):
             return modifiers
         default:
             return []
@@ -129,9 +114,7 @@ indirect enum InjectedViewStore: Codable, Hashable {
                 .hStack(_, _, let content1, let content2, let content3, let content4,let content5,let content6,let content7,let content8,let content9,let content10):
             return (content1, content2, content3, content4, content5,content6,content7,content8,content9,content10)
         case .field(_, _, _, let content),
-                .button(_, _, _,_,_,_,_,_,_,_,_,_, let content),
-                .fullScreenCover(_, _, _, let content, _),
-                .sheet(_, _, _, let content, _):
+                .button(_, _, _,_,_,_,_,_,_,_,_,_, let content):
             return (content, nil, nil, nil, nil, nil, nil, nil, nil, nil)
         case .empty(_), .spacer(_, _), .viewStoreReference(_), .text(_, _, _):
             return (.empty(id: ""), nil, nil, nil, nil, nil, nil, nil, nil, nil)
@@ -162,33 +145,6 @@ indirect enum InjectedViewStore: Codable, Hashable {
             return (operation1 ?? .noOperation, operation2  ?? .noOperation, operation3  ?? .noOperation, operation4  ?? .noOperation,operation5  ?? .noOperation,operation6  ?? .noOperation,operation7 ?? .noOperation ,operation8 ?? .noOperation,operation9  ?? .noOperation,operation10  ?? .noOperation)
         default:
             return (.noOperation, .noOperation, .noOperation, .noOperation, .noOperation, .noOperation, .noOperation, .noOperation, .noOperation, .noOperation)
-        }
-    }
-    
-    var presentedContent: InjectedViewStore {
-        switch self {
-        case .fullScreenCover(_, _, _, _, let presentedContent):
-            return presentedContent
-        default:
-            return .empty(id: "")
-        }
-    }
-    
-    var isFullScreenDisplayedKey: String {
-        switch self {
-        case .fullScreenCover(_,_, let key, _, _):
-            return key
-        default:
-            return ""
-        }
-    }
-    
-    var isSheetDisplayedKey: String {
-        switch self {
-        case .sheet(_, _, let key, _, _):
-            return key
-        default:
-            return ""
         }
     }
 }

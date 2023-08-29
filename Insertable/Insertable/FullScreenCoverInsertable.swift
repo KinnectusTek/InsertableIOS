@@ -20,7 +20,7 @@ struct FullScreenCoverInsertable: View {
         Insertable(state: store.stateSubject, container: container, viewStore: store.viewStore.content.0)
             .addModifiers(mods: store.viewStore.modifiers, state: store.stateSubject, container: container)
         .fullScreenCover(isPresented: store.isPresentedBinding) {
-            Insertable(state: store.stateSubject, container: container, viewStore: store.viewStore.presentedContent)
+            Insertable(state: store.stateSubject, container: container, viewStore: store.viewStore)
         }
     }
 }

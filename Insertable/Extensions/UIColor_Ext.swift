@@ -7,9 +7,18 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
+extension Color {
+    static var random: Color {
+        Color(UIColor.random)
+    }
+}
 
 extension UIColor {
+    static var random: UIColor {
+        [UIColor.red, UIColor.blue, UIColor.gray, UIColor.green].randomElement()!
+    }
     static let hex: (String) -> UIColor = { hex in
         var sanitizedHex = hex.trimmingCharacters(in: .whitespacesAndNewlines)
         sanitizedHex = sanitizedHex.replacingOccurrences(of: "#", with: "")
