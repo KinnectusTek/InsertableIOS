@@ -42,7 +42,6 @@
 		DBAB4C8A2A9B9B4E00BB804C /* TextStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4C892A9B9B4E00BB804C /* TextStore.swift */; };
 		DBAB4C8C2A9B9B8200BB804C /* TextFieldStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4C8B2A9B9B8200BB804C /* TextFieldStore.swift */; };
 		DBAB4C8E2A9B9BBE00BB804C /* SpacerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4C8D2A9B9BBE00BB804C /* SpacerStore.swift */; };
-		DBAB4C982A9BB7B000BB804C /* InsertableModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4C972A9BB7B000BB804C /* InsertableModifier.swift */; };
 		DBAB4C9B2A9BB88F00BB804C /* FullScreenCoverInsertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4C992A9BB88F00BB804C /* FullScreenCoverInsertable.swift */; };
 		DBAB4C9C2A9BB88F00BB804C /* FullScreenCoverStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4C9A2A9BB88F00BB804C /* FullScreenCoverStore.swift */; };
 /* End PBXBuildFile section */
@@ -103,7 +102,6 @@
 		DBAB4C892A9B9B4E00BB804C /* TextStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStore.swift; sourceTree = "<group>"; };
 		DBAB4C8B2A9B9B8200BB804C /* TextFieldStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStore.swift; sourceTree = "<group>"; };
 		DBAB4C8D2A9B9BBE00BB804C /* SpacerStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacerStore.swift; sourceTree = "<group>"; };
-		DBAB4C972A9BB7B000BB804C /* InsertableModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertableModifier.swift; sourceTree = "<group>"; };
 		DBAB4C992A9BB88F00BB804C /* FullScreenCoverInsertable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenCoverInsertable.swift; sourceTree = "<group>"; };
 		DBAB4C9A2A9BB88F00BB804C /* FullScreenCoverStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullScreenCoverStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -226,7 +224,6 @@
 			isa = PBXGroup;
 			children = (
 				DBAB4BE22A8F0A0900BB804C /* InjectedModifier.swift */,
-				DBAB4C972A9BB7B000BB804C /* InsertableModifier.swift */,
 				DBAB4BE42A8F0A2F00BB804C /* InjectedViewStore.swift */,
 				DBAB4BFA2A91214300BB804C /* InjectedService.swift */,
 				DBAB4BFE2A91881E00BB804C /* InjectedValue.swift */,
@@ -448,7 +445,6 @@
 				DBAB4C012A91A08E00BB804C /* InjectedFunctionBuilder.swift in Sources */,
 				DBAB4BF12A8F0CFD00BB804C /* ButtonInsertable.swift in Sources */,
 				DBAB4BF32A8F0D8B00BB804C /* TextInsertable.swift in Sources */,
-				DBAB4C982A9BB7B000BB804C /* InsertableModifier.swift in Sources */,
 				DBAB4C9C2A9BB88F00BB804C /* FullScreenCoverStore.swift in Sources */,
 				DBAB4C9B2A9BB88F00BB804C /* FullScreenCoverInsertable.swift in Sources */,
 				DBAB4C0B2A93FCAF00BB804C /* CompositionFunctions.swift in Sources */,
