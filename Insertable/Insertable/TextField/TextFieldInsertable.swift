@@ -8,7 +8,6 @@
 import Foundation
 import SwiftUI
 
-
 struct TextFieldInsertable: View {
     @ObservedObject var store: TextFieldStore
     var container: ViewStoresContainer

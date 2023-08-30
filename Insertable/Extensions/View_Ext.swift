@@ -20,21 +20,19 @@ extension View {
             return AnyView(self.frame(width: width, height: height))
             
         case .backgroundColor(let id):
-            return AnyView(self.background(Color.random))
+            return AnyView(self.background(Color(UIColor.hex(findStringValue(id: id, state: state.value)))))
         case let .fullScreenCover(viewStore, isPresentedKey):
-            let isPresented = findBooleanValue(id: isPresentedKey, state: state.value)
-            return AnyView(
-                self.fullScreenCover(isPresented: .constant(isPresented), content: {
+            AnyView(
+                self.fullScreenCover(isPresented: .constant(findBooleanValue(id: isPresentedKey, state: state.value)), content: {
                     Insertable(state: state, container: container, viewStore: viewStore)
                 })
             )
         case let .sheet(viewStore, isPresentedKey):
-            return AnyView(self)
-//            return AnyView(
-//                content.fullScreenCover(isPresented: .constant(true), content: {
-//                    Insertable(state: stateSubject, container: container, viewStore: viewStore)
-//                })
-//            )
+            AnyView(
+                self.sheet(isPresented: .constant(findBooleanValue(id: isPresentedKey, state: state.value)), content: {
+                    Insertable(state: state, container: container, viewStore: viewStore)
+                })
+            )
         }
     }
     

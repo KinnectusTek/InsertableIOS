@@ -15,7 +15,7 @@ struct VStackInsertable: View {
     var container: ViewStoresContainer
     
     var body: some View {
-        VStack {
+        VStack(alignment: store.alignment, spacing: store.spacing) {
             
             Insertable(state: store.stateSubject, container: container, viewStore: store.viewStore.content.0)
             

@@ -9,21 +9,18 @@ import SwiftUI
 
 enum InjectedValue: Codable, Equatable {
 
-    case string(id: String, value: String)
-    case integer(id: String, value: Int)
-    case double(id: String, value: Double)
-    case boolean(id: String, value: Bool)
-    case data(id: String, value: Data)
-    case stringArray(id: String, value: [String])
-    case integerArray(id: String, value: [Int])
-    case doubleArray(id: String, value: [Double])
-    case booleanArray(id: String, value: [Bool])
-    case dataArray(id: String, value: [Data])
-    case state(id: String, value: InjectedState)
-    case font(id: String, name: String, size: Int)
-    case frame(id: String, width: Float, height: Float)
-    case backgroundColor(id: String, hex: String)
-    
+    case string(stateId: String, id: String, value: String)
+    case integer(stateId: String, id: String, value: Int)
+    case double(stateId: String, id: String, value: Double)
+    case boolean(stateId: String, id: String, value: Bool)
+    case data(stateId: String, id: String, value: Data)
+    case stringArray(stateId: String, id: String, value: [String])
+    case integerArray(stateId: String, id: String, value: [Int])
+    case doubleArray(stateId: String, id: String, value: [Double])
+    case booleanArray(stateId: String, id: String, value: [Bool])
+    case dataArray(stateId: String, id: String, value: [Data])
+    case state(stateId: String, id: String, value: InjectedState)
+
     var id: String {
         switch self {
         case .string(let id , _),
@@ -36,10 +33,7 @@ enum InjectedValue: Codable, Equatable {
                 .doubleArray(let id , _),
                 .booleanArray(let id , _),
                 .dataArray(let id , _),
-                .state(let id, _),
-                .font(let id, _, _),
-                .frame(let id, _, _),
-                .backgroundColor(let id, _):
+                .state(let id, _):
             return id
         }
     }
@@ -96,33 +90,6 @@ enum InjectedValue: Codable, Equatable {
         }
     }
     
-    var font: (String, Int) {
-        switch self {
-        case let .font(_, name, size):
-            return (name, size)
-        default:
-            return ("", Int.min)
-        }
-    }
-    
-    var frame: (Float, Float) {
-        switch self {
-        case let .frame(_, width, height):
-            return (width, height)
-        default:
-            return (.nan, .nan)
-        }
-    }
-    
-    var color: String {
-        switch self {
-        case .backgroundColor(_, let hex):
-            return hex
-        default:
-            return ""
-        }
-    }
-    
     var stringArray: [String] {
         switch self {
         case .stringArray(_, let value):
@@ -167,66 +134,31 @@ enum InjectedValue: Codable, Equatable {
             return []
         }
     }
-}
 
-
-struct InjectedState: Codable, Equatable {
-    var state: [InjectedValue]
-}
-
-func findBooleanValue(id: String, state: InjectedState) -> Bool {
-    state.state.first(where: {$0.id == id})?.boolean ?? false
-}
-
-func findStringValue(id: String, state: InjectedState) -> String {
-    state.state.first(where: {$0.id == id})?.string ?? ""
-}
-
-func findIntegerValue(id: String, state: InjectedState) -> Int {
-   state.state.first(where: {$0.id == id})?.integer ?? Int.min
-}
-
-func findDoubleValue(id: String, state: InjectedState) -> Double {
-    state.state.first(where: {$0.id == id})?.double ?? 0
-}
-
-func findDataValue(id: String, state: InjectedState) -> Data {
-    state.state.first(where: {$0.id == id})?.data ?? Data()
-}
-
-func findBooleanArrayValue(id: String, state: InjectedState) -> [Bool] {
-    state.state.first(where: {$0.id == id})?.booleanArray ?? []
-}
-
-func findStringArrayValue(id: String, state: InjectedState) -> [String] {
-    state.state.first(where: {$0.id == id})?.stringArray ?? []
-}
-
-func findIntegerArrayValue(id: String, state: InjectedState) -> [Int] {
-   state.state.first(where: {$0.id == id})?.integerArray ?? []
-}
-
-func findDoubleArrayValue(id: String, state: InjectedState) -> [Double] {
-    state.state.first(where: {$0.id == id})?.doubleArray ?? []
-}
-
-func findDataArrayValue(id: String, state: InjectedState) -> [Data] {
-    state.state.first(where: {$0.id == id})?.dataArray ?? []
-}
-func findFontValue(id: String, state: InjectedState) -> Font {
-    if let (name, size) = state.state.first(where: {$0.id == id})?.font {
-        return Font(UIFont(name: name, size: CGFloat(size)) ?? UIFont.systemFont(ofSize: 12))
+    func updateStateId(id: String) -> InjectedValue {
+        switch self {
+        case .string(_, let value):
+            return .string(stateId: id, id: value, value: value)
+        case .integer(_, let value):
+            return .integer(stateId: id, id: value, value: value)
+        case .double(_, let value):
+            return .double(stateId: id, id: value, value: value)
+        case .boolean(_, let value):
+            return .boolean(stateId: id, id: value, value: value)
+        case .data(_, let value):
+            return .data(stateId: id, id: value, value: value)
+        case .stringArray(_, let value):
+            return .stringArray(stateId: id, id: value, value: value)
+        case .integerArray(_, let value):
+            return .integerArray(stateId: id, id: value, value: value)
+        case .doubleArray(_, let value):
+            return .doubleArray(stateId: id, id: value, value: value)
+        case .booleanArray(_, let value):
+            return .booleanArray(stateId: id, id: value, value: value)
+        case .dataArray(_, let value):
+            return .dataArray(stateId: id, id: value, value: value)
+        case .state(_, let value):
+            return .state(stateId: id, id: value, value: value)
+        }
     }
-    return Font(UIFont.systemFont(ofSize: 12))
-}
-
-func findFrameValue(id: String, state: InjectedState) -> (width: CGFloat, height: CGFloat) {
-    if let (width, height) = state.state.first(where: {$0.id == id})?.frame {
-      return (CGFloat(width), CGFloat(height))
-    }
-    return (.nan, .nan)
-}
-
-func findColorValue(id: String, state: InjectedState) -> Color {
-    Color(uiColor: UIColor.hex(state.state.first(where: {$0.id == id})?.color ?? "#FFFFFF"))
 }

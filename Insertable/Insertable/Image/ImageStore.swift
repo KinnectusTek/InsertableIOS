@@ -11,7 +11,7 @@ import Combine
 
 class ImageStore: ObservableObject {
     @Published var state: InjectedState
-    var image: Image
+    @Published var image: Image = .init(systemName: "")
     let viewStore: InjectedViewStore
     let stateSubject: CurrentValueSubject<InjectedState, Never>
     
@@ -20,15 +20,17 @@ class ImageStore: ObservableObject {
         self.stateSubject = stateSubject
         self.state = stateSubject.value
         
+        $state.map { state in
+            switch store {
+            case .namedImage(let imageKey, _):
+                return Image(findStringValue(id: imageKey, state: state))
+            case .systemImage(let imageKey, _):
+                return Image(systemName: findStringValue(id: imageKey, state: state))
+            default:
+                return Image.init(systemName: "")
+            }
+        }.assign(to: &$image)
         
-        switch store {
-        case .namedImage(let name):
-            self.image = Image(name)
-        case .systemImage(let id):
-            self.image = Image(systemName: id)
-        default:
-            self.image = Image.init(systemName: "")
-        }
-        stateSubject.eraseToAnyPublisher().assign(to: $&state)
+        stateSubject.eraseToAnyPublisher().assign(to: &$state)
     }
 }

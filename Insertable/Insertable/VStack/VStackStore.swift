@@ -10,9 +10,6 @@ import Combine
 import SwiftUI
 
 class VStackStore: ObservableObject {
-    typealias Alignment = (InjectedState) -> HorizontalAlignment
-    typealias Spacing = (InjectedState) -> CGFloat
-    
     @Published var state: InjectedState
     @Published var spacing: CGFloat? = nil
     @Published var alignment: HorizontalAlignment = .center
@@ -22,28 +19,43 @@ class VStackStore: ObservableObject {
     let viewStore: InjectedViewStore
     
     init(store: InjectedViewStore,
-         stateSubject: CurrentValueSubject<InjectedState, Never>,
-         alignmentTransform: Alignment? = nil,
-         spacingTransform: Spacing? = nil) {
+         stateSubject: CurrentValueSubject<InjectedState, Never>) {
         self.viewStore = store
         self.stateSubject = stateSubject
         self.state = stateSubject.value
+        
+        
         
         stateSubject
             .eraseToAnyPublisher()
             .map({ $0 })
             .assign(to: &$state)
-
-        if let alignmentTransform = alignmentTransform {
-            self.$state.compactMap { $0 }
-                .map(alignmentTransform)
-                .assign(to: &$alignment)
-        }
-
-        if let spacingTransform = spacingTransform {
-            self.$state.compactMap { $0 }
-                .map(spacingTransform)
-                .assign(to: &$spacing)
-        }
+        
+        $state.map { state in
+            let alignment = findStringValue(id: store.alignmentKey, state: state)
+            switch VStackAlignment(rawValue: alignment) {
+            case .center?:
+                return HorizontalAlignment.center
+            case .leading?:
+                return HorizontalAlignment.leading
+            case .trailing?:
+                return HorizontalAlignment.trailing
+            case .listRowSeparatorLeading?:
+                return HorizontalAlignment.listRowSeparatorLeading
+            case .listRowSeparatorTrailing?:
+                return HorizontalAlignment.listRowSeparatorTrailing
+            default:
+                return nil
+            }
+            
+        }.compactMap { $0 }.assign(to: &$alignment)
+        
+        $state.map { state in
+            if let spacing = findOptionalDoubleValue(id: store.spacingKey, state: state) {
+                return CGFloat(spacing)
+            } else {
+                return nil
+            }
+        }.assign(to: &$spacing)
     }
 }
