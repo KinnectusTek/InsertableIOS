@@ -74,7 +74,7 @@ func createLoginState() -> Data {
 }
 
 func createLoginViewStore() -> Data {
-    var login: InjectedViewStore {
+    var onboardingViewStore: InjectedViewStore {
         .vStack(id: "entry",
                 modifiers: [],
                 content1: .hStack(

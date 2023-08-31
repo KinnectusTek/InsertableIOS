@@ -10,9 +10,6 @@ import Combine
 import SwiftUI
 
 class HStackStore: ObservableObject {
-    typealias Alignment = (InjectedState) -> VerticalAlignment
-    typealias Spacing = (InjectedState) -> CGFloat
-    
     @Published var state: InjectedState
     @Published var spacing: CGFloat? = nil
     @Published var alignment: VerticalAlignment = .center
@@ -23,23 +20,39 @@ class HStackStore: ObservableObject {
   
     init(store: InjectedViewStore,
          container: ViewStoresContainer,
-         stateSubject: CurrentValueSubject<InjectedState, Never>,
-         alignmentTransform: Alignment? = nil,
-         spacingTransform: Spacing? = nil) {
+         stateSubject: CurrentValueSubject<InjectedState, Never>) {
         self.viewStore = store
         self.stateSubject = stateSubject
         self.state = stateSubject.value
         
-        if let alignmentTransform = alignmentTransform {
-            self.$state.map(alignmentTransform).assign(to: &$alignment)
-        }
-        
-        if let spacingTransform = spacingTransform {
-            self.$state.map(spacingTransform).assign(to: &$spacing)
-        }
-        
         stateSubject.eraseToAnyPublisher().assign(to: &$state)
         
+        $state.map { state in
+            let alignment = findStringValue(id: store.alignmentKey, state: state)
+            switch HStackAlignment(rawValue: alignment) {
+            case .center?:
+                return VerticalAlignment.center
+            case .top?:
+                return VerticalAlignment.top
+            case .bottom?:
+                return VerticalAlignment.bottom
+            case .firstTextBaseline?:
+                return VerticalAlignment.firstTextBaseline
+            case .lastTextBaseline?:
+                return VerticalAlignment.lastTextBaseline
+            default:
+                return nil
+            }
+            
+        }.compactMap { $0 }.assign(to: &$alignment)
+
+        $state.map { state in
+            if let spacing = findOptionalDoubleValue(id: store.spacingKey, state: state) {
+                return CGFloat(spacing)
+            } else {
+                return nil
+            }
+        }.assign(to: &$spacing)
     }
 }
 

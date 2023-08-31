@@ -14,3 +14,7 @@ enum VStackAlignment: String, Codable {
 enum HStackAlignment: String, Codable {
     case bottom, center, top, firstTextBaseline, lastTextBaseline
 }
+
+enum ZStackAlignment: String, Codable {
+    case trailing, leading, center, top, bottom, bottomLeading, bottomTrailing, topLeading, topTrailing, centerFirstTextBaseline, centerLastTextBaseline, leadingFirstTextBaseline, leadingLastTextBaseline, trailingFirstTextBaseline, trailingLastTextBaseline
+}

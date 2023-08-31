@@ -23,23 +23,23 @@ enum InjectedValue: Codable, Equatable {
 
     var id: String {
         switch self {
-        case .string(let id , _),
-                .integer(let id , _),
-                .double(let id , _),
-                .boolean(let id , _),
-                .data(let id , _),
-                .stringArray(let id , _),
-                .integerArray(let id , _),
-                .doubleArray(let id , _),
-                .booleanArray(let id , _),
-                .dataArray(let id , _),
-                .state(let id, _):
+        case .string(_, let id , _),
+                .integer(_, let id , _),
+                .double(_, let id , _),
+                .boolean(_, let id , _),
+                .data(_, let id , _),
+                .stringArray(_, let id , _),
+                .integerArray(_, let id , _),
+                .doubleArray(_, let id , _),
+                .booleanArray(_, let id , _),
+                .dataArray(_, let id , _),
+                .state(_, let id, _):
             return id
         }
     }
     var string: String? {
         switch self {
-        case .string(_, let value):
+        case .string(_, _, let value):
             return value
         default:
             return nil
@@ -48,7 +48,7 @@ enum InjectedValue: Codable, Equatable {
     
     var integer: Int? {
         switch self {
-        case .integer(_, let value):
+        case .integer(_, _, let value):
             return value
         default:
             return nil
@@ -57,7 +57,7 @@ enum InjectedValue: Codable, Equatable {
     
     var double: Double? {
         switch self {
-        case .double(_, let value):
+        case .double(_, _, let value):
             return value
         default:
             return nil
@@ -66,7 +66,7 @@ enum InjectedValue: Codable, Equatable {
     
     var boolean: Bool? {
         switch self {
-        case .boolean(_, let value):
+        case .boolean(_, _, let value):
             return value
         default:
             return nil
@@ -75,7 +75,7 @@ enum InjectedValue: Codable, Equatable {
     
     var data: Data? {
         switch self {
-        case .data(_, let value):
+        case .data(_, _, let value):
             return value
         default:
             return nil
@@ -83,7 +83,7 @@ enum InjectedValue: Codable, Equatable {
     }
     var state: InjectedState {
         switch self {
-        case .state(_, let value):
+        case .state(_, _, let value):
             return value
         default:
             return .init(state: [])
@@ -92,7 +92,7 @@ enum InjectedValue: Codable, Equatable {
     
     var stringArray: [String] {
         switch self {
-        case .stringArray(_, let value):
+        case .stringArray(_, _, let value):
             return value
         default:
             return []
@@ -101,7 +101,7 @@ enum InjectedValue: Codable, Equatable {
     
     var integerArray: [Int] {
         switch self {
-        case .integerArray(_, let value):
+        case .integerArray(_, _, let value):
             return value
         default:
             return []
@@ -110,7 +110,7 @@ enum InjectedValue: Codable, Equatable {
     
     var doubleArray: [Double] {
         switch self {
-        case .doubleArray(_, let value):
+        case .doubleArray(_, _, let value):
             return value
         default:
             return []
@@ -119,7 +119,7 @@ enum InjectedValue: Codable, Equatable {
     
     var booleanArray: [Bool] {
         switch self {
-        case .booleanArray(_, let value):
+        case .booleanArray(_, _, let value):
             return value
         default:
             return []
@@ -128,36 +128,45 @@ enum InjectedValue: Codable, Equatable {
     
     var dataArray: [Data] {
         switch self {
-        case .dataArray(_, let value):
+        case .dataArray(_, _, let value):
             return value
         default:
             return []
         }
     }
 
+    var state: InjectedState {
+        switch self {
+        case .state(_, _, let value):
+            return value
+        default:
+            return InjectedState(id: "", state: [])
+        }
+    }
+
     func updateStateId(id: String) -> InjectedValue {
         switch self {
-        case .string(_, let value):
+        case .string(_, _, let value):
             return .string(stateId: id, id: value, value: value)
-        case .integer(_, let value):
+        case .integer(_, _, let value):
             return .integer(stateId: id, id: value, value: value)
-        case .double(_, let value):
+        case .double(_, _, let value):
             return .double(stateId: id, id: value, value: value)
-        case .boolean(_, let value):
+        case .boolean(_, _, let value):
             return .boolean(stateId: id, id: value, value: value)
-        case .data(_, let value):
+        case .data(_, _, let value):
             return .data(stateId: id, id: value, value: value)
-        case .stringArray(_, let value):
+        case .stringArray(_, _, let value):
             return .stringArray(stateId: id, id: value, value: value)
-        case .integerArray(_, let value):
+        case .integerArray(_, _, let value):
             return .integerArray(stateId: id, id: value, value: value)
-        case .doubleArray(_, let value):
+        case .doubleArray(_, _, let value):
             return .doubleArray(stateId: id, id: value, value: value)
-        case .booleanArray(_, let value):
+        case .booleanArray(_, _, let value):
             return .booleanArray(stateId: id, id: value, value: value)
-        case .dataArray(_, let value):
+        case .dataArray(_, _, let value):
             return .dataArray(stateId: id, id: value, value: value)
-        case .state(_, let value):
+        case .state(_, _, let value):
             return .state(stateId: id, id: value, value: value)
         }
     }

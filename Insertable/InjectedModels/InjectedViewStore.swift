@@ -68,6 +68,7 @@ indirect enum InjectedViewStore: Codable, Hashable {
                 content: InjectedViewStore)
     case namedImage(name: String = "", modifiers: [InjectedModifier] = [])
     case systemImage(id: String = "", modifiers: [InjectedModifier] = [])
+    case color(id: String = "", modifiers: [InjectedModifier] = [], colorKey: String)
     case spacer(id: String = "",
                 modifiers: [InjectedModifier] = [])
     case empty(id: String = "")
@@ -101,6 +102,7 @@ indirect enum InjectedViewStore: Codable, Hashable {
                 .button(_, let modifiers, _, _,_,_,_,_,_,_,_,_,_),
                 .namedImage(_, let modifiers),
                 .systemImage(_, let modifiers),
+                .color(_, let modifiers),
                 .spacer(_, let modifiers):
             return modifiers
         default:
@@ -126,7 +128,7 @@ indirect enum InjectedViewStore: Codable, Hashable {
         case .field(_, _, _, let content),
                 .button(_, _, _,_,_,_,_,_,_,_,_,_, let content):
             return (content, nil, nil, nil, nil, nil, nil, nil, nil, nil)
-        case .empty, .spacer, .viewStoreReference, .text, .systemImage, .namedImage:
+        case .empty, .spacer, .viewStoreReference, .text, .systemImage, .namedImage, .color:
             return (.empty(id: ""), nil, nil, nil, nil, nil, nil, nil, nil, nil)
         }
     }
@@ -171,6 +173,14 @@ indirect enum InjectedViewStore: Codable, Hashable {
         case .vStack(_, _, _, let spacingKey, _, _, _, _, _, _, _, _, _, _),
             .hStack(_, _, _, let spacingKey, _, _, _, _, _, _, _, _, _, _):
             return spacingKey
+        default:
+            return ""
+        }
+    }
+    var colorKey: String {
+        switch self {
+        case .color(_, _, let colorKey):
+            return id
         default:
             return ""
         }
