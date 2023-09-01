@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB900DD72A9F0238001FBA2E /* ViewStoresContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB900DD62A9F0238001FBA2E /* ViewStoresContainer.swift */; };
+		DB900DD92A9F0246001FBA2E /* InjectedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB900DD82A9F0246001FBA2E /* InjectedState.swift */; };
+		DB900DDC2A9F028C001FBA2E /* ZStackStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB900DDA2A9F028C001FBA2E /* ZStackStore.swift */; };
+		DB900DDD2A9F028C001FBA2E /* ZStackInsertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB900DDB2A9F028C001FBA2E /* ZStackInsertable.swift */; };
+		DB900DE12AA038D1001FBA2E /* ColorInsertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB900DE02AA038D0001FBA2E /* ColorInsertable.swift */; };
+		DB900DE32AA0391C001FBA2E /* ColorStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB900DE22AA0391C001FBA2E /* ColorStore.swift */; };
+		DB900DE62AA0C83A001FBA2E /* ListInsertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB900DE52AA0C83A001FBA2E /* ListInsertable.swift */; };
+		DB900DE82AA0C843001FBA2E /* ListStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB900DE72AA0C843001FBA2E /* ListStore.swift */; };
 		DBAB4BB72A8CFBCC00BB804C /* InsertableApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4BB62A8CFBCC00BB804C /* InsertableApp.swift */; };
 		DBAB4BB92A8CFBCC00BB804C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4BB82A8CFBCC00BB804C /* ContentView.swift */; };
 		DBAB4BBB2A8CFBCD00BB804C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBAB4BBA2A8CFBCD00BB804C /* Assets.xcassets */; };
@@ -37,13 +45,13 @@
 		DBAB4C0F2A94563700BB804C /* ViewStore.json in Resources */ = {isa = PBXBuildFile; fileRef = DBAB4C0E2A94563700BB804C /* ViewStore.json */; };
 		DBAB4C182A97C2FE00BB804C /* InjectedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4C172A97C2FE00BB804C /* InjectedError.swift */; };
 		DBAB4C7E2A99478600BB804C /* TestInsertables.json in Resources */ = {isa = PBXBuildFile; fileRef = DBAB4C7D2A99478600BB804C /* TestInsertables.json */; };
-		DBAB4C822A9B86A800BB804C /* ViewStoreContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4C7F2A99D74F00BB804C /* ViewStoreContainer.swift */; };
 		DBAB4C882A9B9B3700BB804C /* ButtonStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4C872A9B9B3700BB804C /* ButtonStore.swift */; };
 		DBAB4C8A2A9B9B4E00BB804C /* TextStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4C892A9B9B4E00BB804C /* TextStore.swift */; };
 		DBAB4C8C2A9B9B8200BB804C /* TextFieldStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4C8B2A9B9B8200BB804C /* TextFieldStore.swift */; };
 		DBAB4C8E2A9B9BBE00BB804C /* SpacerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4C8D2A9B9BBE00BB804C /* SpacerStore.swift */; };
 		DBAB4C9E2A9E3E1100BB804C /* ImageInsertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4C9D2A9E3E1100BB804C /* ImageInsertable.swift */; };
 		DBAB4CA02A9E3E1800BB804C /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4C9F2A9E3E1800BB804C /* ImageStore.swift */; };
+		DBAB4CA32A9E453600BB804C /* StackAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4CA22A9E453600BB804C /* StackAlignment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +72,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DB900DD62A9F0238001FBA2E /* ViewStoresContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewStoresContainer.swift; sourceTree = "<group>"; };
+		DB900DD82A9F0246001FBA2E /* InjectedState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InjectedState.swift; sourceTree = "<group>"; };
+		DB900DDA2A9F028C001FBA2E /* ZStackStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZStackStore.swift; sourceTree = "<group>"; };
+		DB900DDB2A9F028C001FBA2E /* ZStackInsertable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZStackInsertable.swift; sourceTree = "<group>"; };
+		DB900DE02AA038D0001FBA2E /* ColorInsertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorInsertable.swift; sourceTree = "<group>"; };
+		DB900DE22AA0391C001FBA2E /* ColorStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorStore.swift; sourceTree = "<group>"; };
+		DB900DE52AA0C83A001FBA2E /* ListInsertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInsertable.swift; sourceTree = "<group>"; };
+		DB900DE72AA0C843001FBA2E /* ListStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListStore.swift; sourceTree = "<group>"; };
 		DBAB4BB32A8CFBCC00BB804C /* Insertable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Insertable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBAB4BB62A8CFBCC00BB804C /* InsertableApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertableApp.swift; sourceTree = "<group>"; };
 		DBAB4BB82A8CFBCC00BB804C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -97,13 +113,13 @@
 		DBAB4C0E2A94563700BB804C /* ViewStore.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ViewStore.json; sourceTree = "<group>"; };
 		DBAB4C172A97C2FE00BB804C /* InjectedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedError.swift; sourceTree = "<group>"; };
 		DBAB4C7D2A99478600BB804C /* TestInsertables.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestInsertables.json; sourceTree = "<group>"; };
-		DBAB4C7F2A99D74F00BB804C /* ViewStoreContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStoreContainer.swift; sourceTree = "<group>"; };
 		DBAB4C872A9B9B3700BB804C /* ButtonStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStore.swift; sourceTree = "<group>"; };
 		DBAB4C892A9B9B4E00BB804C /* TextStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStore.swift; sourceTree = "<group>"; };
 		DBAB4C8B2A9B9B8200BB804C /* TextFieldStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStore.swift; sourceTree = "<group>"; };
 		DBAB4C8D2A9B9BBE00BB804C /* SpacerStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacerStore.swift; sourceTree = "<group>"; };
 		DBAB4C9D2A9E3E1100BB804C /* ImageInsertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInsertable.swift; sourceTree = "<group>"; };
 		DBAB4C9F2A9E3E1800BB804C /* ImageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
+		DBAB4CA22A9E453600BB804C /* StackAlignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackAlignment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +147,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DB900DDF2A9F02B2001FBA2E /* ZStack */ = {
+			isa = PBXGroup;
+			children = (
+				DB900DDB2A9F028C001FBA2E /* ZStackInsertable.swift */,
+				DB900DDA2A9F028C001FBA2E /* ZStackStore.swift */,
+			);
+			path = ZStack;
+			sourceTree = "<group>";
+		};
+		DB900DE42AA0392A001FBA2E /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				DB900DE02AA038D0001FBA2E /* ColorInsertable.swift */,
+				DB900DE22AA0391C001FBA2E /* ColorStore.swift */,
+			);
+			path = Color;
+			sourceTree = "<group>";
+		};
+		DB900DE92AA0C848001FBA2E /* List */ = {
+			isa = PBXGroup;
+			children = (
+				DB900DE52AA0C83A001FBA2E /* ListInsertable.swift */,
+				DB900DE72AA0C843001FBA2E /* ListStore.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
 		DBAB4BAA2A8CFBCC00BB804C = {
 			isa = PBXGroup;
 			children = (
@@ -197,13 +240,16 @@
 			isa = PBXGroup;
 			children = (
 				DBAB4BE02A8CFBDD00BB804C /* Insertable.swift */,
-				DBAB4C952A9B9BF500BB804C /* HStack */,
 				DBAB4C932A9B9BE800BB804C /* Button */,
 				DBAB4C922A9B9BE200BB804C /* Text */,
+				DB900DDF2A9F02B2001FBA2E /* ZStack */,
+				DBAB4C952A9B9BF500BB804C /* HStack */,
 				DBAB4C912A9B9BDB00BB804C /* VStack */,
 				DBAB4C902A9B9BD100BB804C /* TextField */,
 				DBAB4C8F2A9B9BCA00BB804C /* Spacer */,
 				DBAB4CA12A9E3E1F00BB804C /* Image */,
+				DB900DE42AA0392A001FBA2E /* Color */,
+				DB900DE92AA0C848001FBA2E /* List */,
 			);
 			path = Insertable;
 			sourceTree = "<group>";
@@ -229,7 +275,9 @@
 				DBAB4C002A91A08E00BB804C /* InjectedFunctionBuilder.swift */,
 				DBAB4C042A9306F100BB804C /* InjectedOperation.swift */,
 				DBAB4C172A97C2FE00BB804C /* InjectedError.swift */,
-				DBAB4C7F2A99D74F00BB804C /* ViewStoreContainer.swift */,
+				DBAB4CA22A9E453600BB804C /* StackAlignment.swift */,
+				DB900DD82A9F0246001FBA2E /* InjectedState.swift */,
+				DB900DD62A9F0238001FBA2E /* ViewStoresContainer.swift */,
 			);
 			path = InjectedModels;
 			sourceTree = "<group>";
@@ -432,30 +480,38 @@
 			files = (
 				DBAB4C092A93F23900BB804C /* Operators_Ext.swift in Sources */,
 				DBAB4BF52A8F0DD400BB804C /* TextFieldInsertable.swift in Sources */,
+				DB900DE12AA038D1001FBA2E /* ColorInsertable.swift in Sources */,
 				DBAB4C052A9306F100BB804C /* InjectedOperation.swift in Sources */,
 				DBAB4BFF2A91881E00BB804C /* InjectedValue.swift in Sources */,
+				DB900DE82AA0C843001FBA2E /* ListStore.swift in Sources */,
 				DBAB4C8A2A9B9B4E00BB804C /* TextStore.swift in Sources */,
 				DBAB4BB92A8CFBCC00BB804C /* ContentView.swift in Sources */,
 				DBAB4BF92A911B5900BB804C /* SpacerInsertable.swift in Sources */,
+				DB900DE62AA0C83A001FBA2E /* ListInsertable.swift in Sources */,
 				DBAB4BE92A8F0A5500BB804C /* VStackInsertable.swift in Sources */,
-				DBAB4C822A9B86A800BB804C /* ViewStoreContainer.swift in Sources */,
 				DBAB4BFB2A91214300BB804C /* InjectedService.swift in Sources */,
+				DB900DDC2A9F028C001FBA2E /* ZStackStore.swift in Sources */,
 				DBAB4BE52A8F0A2F00BB804C /* InjectedViewStore.swift in Sources */,
 				DBAB4C8C2A9B9B8200BB804C /* TextFieldStore.swift in Sources */,
 				DBAB4CA02A9E3E1800BB804C /* ImageStore.swift in Sources */,
+				DB900DDD2A9F028C001FBA2E /* ZStackInsertable.swift in Sources */,
 				DBAB4C0D2A9419EA00BB804C /* UIColor_Ext.swift in Sources */,
 				DBAB4C8E2A9B9BBE00BB804C /* SpacerStore.swift in Sources */,
 				DBAB4BE12A8CFBDD00BB804C /* Insertable.swift in Sources */,
 				DBAB4BEB2A8F0A7C00BB804C /* View_Ext.swift in Sources */,
 				DBAB4BED2A8F0AA800BB804C /* HStackStore.swift in Sources */,
 				DBAB4C182A97C2FE00BB804C /* InjectedError.swift in Sources */,
+				DB900DE32AA0391C001FBA2E /* ColorStore.swift in Sources */,
 				DBAB4BE32A8F0A0900BB804C /* InjectedModifier.swift in Sources */,
 				DBAB4BB72A8CFBCC00BB804C /* InsertableApp.swift in Sources */,
+				DBAB4CA32A9E453600BB804C /* StackAlignment.swift in Sources */,
 				DBAB4C9E2A9E3E1100BB804C /* ImageInsertable.swift in Sources */,
 				DBAB4C012A91A08E00BB804C /* InjectedFunctionBuilder.swift in Sources */,
 				DBAB4BF12A8F0CFD00BB804C /* ButtonInsertable.swift in Sources */,
+				DB900DD92A9F0246001FBA2E /* InjectedState.swift in Sources */,
 				DBAB4BF32A8F0D8B00BB804C /* TextInsertable.swift in Sources */,
 				DBAB4C0B2A93FCAF00BB804C /* CompositionFunctions.swift in Sources */,
+				DB900DD72A9F0238001FBA2E /* ViewStoresContainer.swift in Sources */,
 				DBAB4BEF2A8F0AE000BB804C /* HStackInsertable.swift in Sources */,
 				DBAB4C882A9B9B3700BB804C /* ButtonStore.swift in Sources */,
 				DBAB4BE72A8F0A4700BB804C /* VStackStore.swift in Sources */,
