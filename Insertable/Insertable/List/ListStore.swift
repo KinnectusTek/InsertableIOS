@@ -6,3 +6,19 @@
 //
 
 import Foundation
+import SwiftUI
+import Combine
+
+class ListStore: ObserveableObject {
+    @Published var listItems: [InjectedViewStore] = []
+    @Published var viewStore: InjectedViewStore
+    @Published var stateSubject: StateSubject
+    
+    init(viewStore: InjectedViewStore, stateSubject: StateSubject) {
+        self.viewStore = viewStore
+        self.stateSubject = stateSubject
+
+
+
+    }
+}
