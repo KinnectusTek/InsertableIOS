@@ -1,8 +1,8 @@
 //
-//  VStackInsertable.swift
+//  ZStackInsertable.swift
 //  Insertable
 //
-//  Created by Blake Osonduagwueki on 8/17/23.
+//  Created by Blake Osonduagwueki on 8/30/23.
 //
 
 import Foundation
@@ -10,12 +10,13 @@ import SwiftUI
 import Combine
 
 
-struct VStackInsertable: View {
-    @ObservedObject var store: VStackStore
+struct ZStackInsertable: View {
+    @ObservedObject var store: ZStackStore
     var container: ViewStoresContainer
     
     var body: some View {
-        VStack(alignment: store.alignment, spacing: store.spacing) {
+        ZStack(alignment: ., content: <#T##() -> _#>)
+        ZStack(alignment: store.alignment){
             
             Insertable(state: store.stateSubject, container: container, viewStore: store.viewStore.content.0)
             

@@ -1,17 +1,16 @@
 //
-//  VStackStore.swift
+//  ZStackStore.swift
 //  Insertable
 //
-//  Created by Blake Osonduagwueki on 8/17/23.
+//  Created by Blake Osonduagwueki on 8/30/23.
 //
 
 import Foundation
 import Combine
 import SwiftUI
 
-class VStackStore: ObservableObject {
+class ZStackStore: ObservableObject {
     @Published var state: InjectedState
-    @Published var spacing: CGFloat? = nil
     @Published var alignment: HorizontalAlignment = .center
     private var cancellables = Set<AnyCancellable>()
     
@@ -50,12 +49,5 @@ class VStackStore: ObservableObject {
             
         }.compactMap { $0 }.assign(to: &$alignment)
         
-        $state.map { state in
-            if let spacing = findOptionalDoubleValue(id: store.spacingKey, state: state) {
-                return CGFloat(spacing)
-            } else {
-                return nil
-            }
-        }.assign(to: &$spacing)
     }
 }
