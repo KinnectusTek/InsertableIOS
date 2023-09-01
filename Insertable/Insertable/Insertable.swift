@@ -28,6 +28,17 @@ struct Insertable: View {
             HStackInsertable(
                 store: .init(store: viewStore, container: container, stateSubject: state),
                 container: container)
+        case .zStack:
+
+            ZStackInsertable(
+                store: .init(store: viewStore, container: container, stateSubject: state),
+                container: container)
+        
+        case .list:
+
+            ListInsertable(
+                store: .init(viewStore: viewStore, stateSubject: state),
+                container: container)
         
         case .button:
             

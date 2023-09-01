@@ -55,3 +55,7 @@ func findDoubleArrayValue(id: String, state: InjectedState) -> [Double] {
 func findDataArrayValue(id: String, state: InjectedState) -> [Data] {
     state.state.first(where: {$0.id == id})?.dataArray ?? []
 }
+
+func findStateArrayValue(id: String, state: InjectedState) -> [InjectedState] {
+    state.state.first(where: {$0.id == id})?.stateArray ?? []
+}

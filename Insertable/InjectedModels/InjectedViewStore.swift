@@ -46,6 +46,24 @@ indirect enum InjectedViewStore: Codable, Hashable {
                 content8: InjectedViewStore? = nil,
                 content9: InjectedViewStore? = nil,
                 content10: InjectedViewStore? = nil)
+    case zStack(id: String = "",
+                modifiers: [InjectedModifier] = [],
+                alignmentKey: String = "",
+                spacingKey: String = "",
+                content1: InjectedViewStore,
+                content2: InjectedViewStore? = nil,
+                content3: InjectedViewStore? = nil,
+                content4: InjectedViewStore? = nil,
+                content5: InjectedViewStore? = nil,
+                content6: InjectedViewStore? = nil,
+                content7: InjectedViewStore? = nil,
+                content8: InjectedViewStore? = nil,
+                content9: InjectedViewStore? = nil,
+                content10: InjectedViewStore? = nil)
+    case list(id: String = "",
+              modifiers: [InjectedModifier] = [],
+              listKey: String,
+              content: InjectedViewStore)
     case text(id: String = "",
               modifiers: [InjectedModifier] = [],
               textKey: String)
@@ -77,6 +95,8 @@ indirect enum InjectedViewStore: Codable, Hashable {
         case .viewStoreReference(let id),
                 .vStack(let id,_, _, _, _, _, _, _, _, _, _, _, _, _),
                 .hStack(let id,_, _, _, _, _, _, _, _, _, _, _, _, _),
+                .zStack(let id,_, _, _, _, _, _, _, _, _, _, _, _, _),
+                .list(let id, _, _, _),
                 .text(let id, _, _),
                 .field(let id, _, _, _),
                 .button(let id, _, _, _, _, _, _, _, _, _, _, _, _),
@@ -97,6 +117,8 @@ indirect enum InjectedViewStore: Codable, Hashable {
         switch self {
         case .vStack(_, let modifiers, _, _, _, _, _, _, _,_,_,_,_,_),
                 .hStack(_, let modifiers, _, _,_, _, _, _,_,_,_,_,_,_),
+                .zStack(_, let modifiers, _, _,_, _, _, _,_,_,_,_,_,_),
+                .list(_, let modifiers, _, _),
                 .text(_, let modifiers, _),
                 .field(_, let modifiers, _, _),
                 .button(_, let modifiers, _, _,_,_,_,_,_,_,_,_,_),
@@ -183,6 +205,23 @@ indirect enum InjectedViewStore: Codable, Hashable {
             return id
         default:
             return ""
+        }
+    }
+    var listKey: String {
+        switch self {
+        case .list(_, _, let listKey, _):
+            return listKey
+        default:
+            return ""
+        }
+    }
+
+    var itemStore: InjectedViewStore {
+        switch self {
+        case .list(_, _, _, let content):
+            return content
+        default:
+            return .empty()
         }
     }
 }

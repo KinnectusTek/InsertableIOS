@@ -13,8 +13,8 @@ struct ListInsertable: View {
     var container: ViewStoresContainer
 
     var body: some View {
-        List(store.listItems, id: \.self) { item in
-            Text(item)
+        List(store.listStates, id: \.self) { itemState in
+            Insertable(store: store.viewStore.itemStore(state: itemState), container: container)
         }
         .addModifiers(mods: store.viewStore.modifiers, state: store.stateSubject, container: container)
     }

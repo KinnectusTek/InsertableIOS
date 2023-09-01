@@ -14,12 +14,13 @@ enum InjectedValue: Codable, Equatable {
     case double(stateId: String, id: String, value: Double)
     case boolean(stateId: String, id: String, value: Bool)
     case data(stateId: String, id: String, value: Data)
+    case state(stateId: String, id: String, value: InjectedState)
     case stringArray(stateId: String, id: String, value: [String])
     case integerArray(stateId: String, id: String, value: [Int])
     case doubleArray(stateId: String, id: String, value: [Double])
     case booleanArray(stateId: String, id: String, value: [Bool])
     case dataArray(stateId: String, id: String, value: [Data])
-    case state(stateId: String, id: String, value: InjectedState)
+    case stateArray(stateId: String, id: String, value: [InjectedState])
 
     var id: String {
         switch self {
@@ -81,12 +82,13 @@ enum InjectedValue: Codable, Equatable {
             return nil
         }
     }
+
     var state: InjectedState {
         switch self {
         case .state(_, _, let value):
             return value
         default:
-            return .init(state: [])
+            return InjectedState(id: "", state: [])
         }
     }
     
@@ -135,12 +137,12 @@ enum InjectedValue: Codable, Equatable {
         }
     }
 
-    var state: InjectedState {
+     var stateArray: [InjectedState] {
         switch self {
         case .state(_, _, let value):
-            return value
+            return [value]
         default:
-            return InjectedState(id: "", state: [])
+            return []
         }
     }
 
@@ -156,6 +158,8 @@ enum InjectedValue: Codable, Equatable {
             return .boolean(stateId: id, id: value, value: value)
         case .data(_, _, let value):
             return .data(stateId: id, id: value, value: value)
+        case .state(_, _, let value):
+            return .state(stateId: id, id: value, value: value)
         case .stringArray(_, _, let value):
             return .stringArray(stateId: id, id: value, value: value)
         case .integerArray(_, _, let value):
@@ -166,8 +170,8 @@ enum InjectedValue: Codable, Equatable {
             return .booleanArray(stateId: id, id: value, value: value)
         case .dataArray(_, _, let value):
             return .dataArray(stateId: id, id: value, value: value)
-        case .state(_, _, let value):
-            return .state(stateId: id, id: value, value: value)
+        case .stateArray(_, _, let value):
+            return .stateArray(stateId: id, id: value, value: value)
         }
     }
 }
