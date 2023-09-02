@@ -25,7 +25,7 @@ class TextFieldStore: ObservableObject {
             },
             set: {[weak self] text in
                 guard let self = self else { return }
-                let state = InjectedViewStore.updateState(state: self.state, newValue: .string(id: self.viewStore.text, value: text))
+                let state = updateState(state: self.state, newValue: .string(stateId: self.state.id, id: self.viewStore.text, value: text))
                 self.stateSubject.send(state)
             }
         )
@@ -41,9 +41,10 @@ class TextFieldStore: ObservableObject {
             .map({ $0 })
             .assign(to: &$state)
         
-        $state.map({
-            findStringValue(id: store.text, state: $0)
-        }).assign(to: &$text)
+        $state
+        .map { findStringValue(id: store.text, state: $0)}
+        .compactMap { $0 }
+        .assign(to: &$text)
 
     }
 }

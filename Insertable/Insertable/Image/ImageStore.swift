@@ -23,13 +23,14 @@ class ImageStore: ObservableObject {
         $state.map { state in
             switch store {
             case .namedImage(let imageKey, _):
-                return Image(findStringValue(id: imageKey, state: state))
+                return Image(findStringValue(id: imageKey, state: state) ?? "" )
             case .systemImage(let imageKey, _):
-                return Image(systemName: findStringValue(id: imageKey, state: state))
+                return Image(systemName: findStringValue(id: imageKey, state: state) ?? "" )
             default:
                 return Image.init(systemName: "")
             }
-        }.assign(to: &$image)
+        }
+        .assign(to: &$image)
         
         stateSubject.eraseToAnyPublisher().assign(to: &$state)
     }

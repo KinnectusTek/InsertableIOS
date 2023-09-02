@@ -22,6 +22,24 @@ enum InjectedValue: Codable, Equatable {
     case dataArray(stateId: String, id: String, value: [Data])
     case stateArray(stateId: String, id: String, value: [InjectedState])
 
+    var stateId: String {
+        switch self {
+        case .string(let stateId, _, _),
+                .integer(let stateId, _, _),
+                .double(let stateId, _, _),
+                .boolean(let stateId, _, _),
+                .data(let stateId, _, _),
+                .stringArray(let stateId, _, _),
+                .integerArray(let stateId, _, _),
+                .doubleArray(let stateId, _, _),
+                .booleanArray(let stateId, _, _),
+                .dataArray(let stateId, _, _),
+                .state(let stateId, _, _),
+                .stateArray(let stateId, _, _):
+            return stateId
+        }
+    }
+    
     var id: String {
         switch self {
         case .string(_, let id , _),
@@ -34,7 +52,8 @@ enum InjectedValue: Codable, Equatable {
                 .doubleArray(_, let id , _),
                 .booleanArray(_, let id , _),
                 .dataArray(_, let id , _),
-                .state(_, let id, _):
+                .state(_, let id, _),
+                .stateArray(_, let id, _):
             return id
         }
     }
@@ -145,33 +164,52 @@ enum InjectedValue: Codable, Equatable {
             return []
         }
     }
+    
+    var array: [InjectedValue] {
+        switch self {
+        case let .stringArray(stateId, id, strings):
+            return strings.map { InjectedValue.string(stateId: "\(stateId).\(UUID().uuidString)", id: "\(id).\(UUID().uuidString)", value: $0)}
+        case let .booleanArray(stateId, id, booleans):
+            return booleans.map { InjectedValue.boolean(stateId: "\(stateId).\(UUID().uuidString)", id: "\(id).\(UUID().uuidString)", value: $0)}
+        case let .doubleArray(stateId, id, doubles):
+            return doubles.map { InjectedValue.double(stateId: "\(stateId).\(UUID().uuidString)", id: "\(id).\(UUID().uuidString)", value: $0)}
+        case let .integerArray(stateId, id, integers):
+            return integers.map { InjectedValue.integer(stateId: "\(stateId).\(UUID().uuidString)", id: "\(id).\(UUID().uuidString)", value: $0)}
+        case let .dataArray(stateId, id, data):
+            return data.map { InjectedValue.data(stateId: "\(stateId).\(UUID().uuidString)", id: "\(id).\(UUID().uuidString)", value: $0)}
+        case let .stateArray(stateId, id, states):
+            return states.map { InjectedValue.state(stateId: "\(stateId).\(UUID().uuidString)", id: "\(id).\(UUID().uuidString)", value: $0)}   
+        default:
+            return []
+        }
+    }
 
     func updateStateId(id: String) -> InjectedValue {
         switch self {
         case .string(_, _, let value):
-            return .string(stateId: id, id: value, value: value)
+            return .string(stateId: self.stateId, id: self.id, value: value)
         case .integer(_, _, let value):
-            return .integer(stateId: id, id: value, value: value)
+            return .integer(stateId: self.stateId, id: self.id, value: value)
         case .double(_, _, let value):
-            return .double(stateId: id, id: value, value: value)
+            return .double(stateId: self.stateId, id: self.id, value: value)
         case .boolean(_, _, let value):
-            return .boolean(stateId: id, id: value, value: value)
+            return .boolean(stateId: self.stateId, id: self.id, value: value)
         case .data(_, _, let value):
-            return .data(stateId: id, id: value, value: value)
+            return .data(stateId: self.stateId, id: self.id, value: value)
         case .state(_, _, let value):
-            return .state(stateId: id, id: value, value: value)
+            return .state(stateId: self.stateId, id: self.id, value: value)
         case .stringArray(_, _, let value):
-            return .stringArray(stateId: id, id: value, value: value)
+            return .stringArray(stateId: self.stateId, id: self.id, value: value)
         case .integerArray(_, _, let value):
-            return .integerArray(stateId: id, id: value, value: value)
+            return .integerArray(stateId: self.stateId, id: self.id, value: value)
         case .doubleArray(_, _, let value):
-            return .doubleArray(stateId: id, id: value, value: value)
+            return .doubleArray(stateId: self.stateId, id: self.id, value: value)
         case .booleanArray(_, _, let value):
-            return .booleanArray(stateId: id, id: value, value: value)
+            return .booleanArray(stateId: self.stateId, id: self.id, value: value)
         case .dataArray(_, _, let value):
-            return .dataArray(stateId: id, id: value, value: value)
+            return .dataArray(stateId: self.stateId, id: self.id, value: value)
         case .stateArray(_, _, let value):
-            return .stateArray(stateId: id, id: value, value: value)
+            return .stateArray(stateId: self.stateId, id: self.id, value: value)
         }
     }
 }

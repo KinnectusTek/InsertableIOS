@@ -11,14 +11,15 @@ import WebKit
 import Combine
 
 struct Insertable: View {
-
+    
     var state: CurrentValueSubject<InjectedState,Never>
     var container: ViewStoresContainer
     var viewStore: InjectedViewStore
     @ViewBuilder var render: some View {
         switch viewStore {
+            
         case .vStack:
-        
+            
             VStackInsertable(
                 store: .init(store: viewStore, stateSubject: state),
                 container: container)
@@ -26,28 +27,35 @@ struct Insertable: View {
         case .hStack:
             
             HStackInsertable(
-                store: .init(store: viewStore, container: container, stateSubject: state),
+                store: .init(store: viewStore, stateSubject: state),
                 container: container)
+            
         case .zStack:
-
+            
             ZStackInsertable(
-                store: .init(store: viewStore, container: container, stateSubject: state),
+                store: .init(store: viewStore, stateSubject: state),
                 container: container)
-        
+            
         case .list:
-
+            
             ListInsertable(
                 store: .init(viewStore: viewStore, stateSubject: state),
                 container: container)
-        
+            
+        case .forEach:
+            
+            ForEachInsertable(
+                store: .init(viewStore: viewStore, stateSubject: state),
+                container: container)
+            
         case .button:
             
             ButtonInsertable(container: container, store: .init(store: viewStore, stateSubject: state))
-
+            
         case .text:
-           
+            
             TextInsertable(store: .init(stateSubject: state, store: viewStore), container: container)
-                    
+            
         case .field:
             
             TextFieldInsertable(store: .init(store: viewStore, stateSubject: state), container: container)
@@ -55,7 +63,11 @@ struct Insertable: View {
         case .namedImage, .systemImage:
             
             ImageInsertable(store: .init(store: viewStore, stateSubject: state), container: container)
-        
+            
+        case .color:
+            
+            ColorInsertable(store: .init(store: viewStore, state: state), container: container)
+            
         case .spacer:
             
             SpacerInsertable(store: .init(store: viewStore, stateSubject: state), container: container)
@@ -70,10 +82,11 @@ struct Insertable: View {
             EmptyView()
             
         }
+        
     }
     
     var body: some View {
         render
     }
+    
 }
-

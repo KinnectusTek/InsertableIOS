@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB5FCB2F2AA3B4A500993678 /* ForEachInsertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FCB2E2AA3B4A500993678 /* ForEachInsertable.swift */; };
+		DB5FCB312AA3B4AD00993678 /* ForEachStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FCB302AA3B4AD00993678 /* ForEachStore.swift */; };
 		DB900DD72A9F0238001FBA2E /* ViewStoresContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB900DD62A9F0238001FBA2E /* ViewStoresContainer.swift */; };
 		DB900DD92A9F0246001FBA2E /* InjectedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB900DD82A9F0246001FBA2E /* InjectedState.swift */; };
 		DB900DDC2A9F028C001FBA2E /* ZStackStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB900DDA2A9F028C001FBA2E /* ZStackStore.swift */; };
@@ -52,6 +54,7 @@
 		DBAB4C9E2A9E3E1100BB804C /* ImageInsertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4C9D2A9E3E1100BB804C /* ImageInsertable.swift */; };
 		DBAB4CA02A9E3E1800BB804C /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4C9F2A9E3E1800BB804C /* ImageStore.swift */; };
 		DBAB4CA32A9E453600BB804C /* StackAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4CA22A9E453600BB804C /* StackAlignment.swift */; };
+		DBB83F602AA2BC19005DF98F /* StateFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB83F5F2AA2BC19005DF98F /* StateFunctions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +75,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DB5FCB2E2AA3B4A500993678 /* ForEachInsertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForEachInsertable.swift; sourceTree = "<group>"; };
+		DB5FCB302AA3B4AD00993678 /* ForEachStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForEachStore.swift; sourceTree = "<group>"; };
 		DB900DD62A9F0238001FBA2E /* ViewStoresContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewStoresContainer.swift; sourceTree = "<group>"; };
 		DB900DD82A9F0246001FBA2E /* InjectedState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InjectedState.swift; sourceTree = "<group>"; };
 		DB900DDA2A9F028C001FBA2E /* ZStackStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZStackStore.swift; sourceTree = "<group>"; };
@@ -120,6 +125,7 @@
 		DBAB4C9D2A9E3E1100BB804C /* ImageInsertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInsertable.swift; sourceTree = "<group>"; };
 		DBAB4C9F2A9E3E1800BB804C /* ImageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 		DBAB4CA22A9E453600BB804C /* StackAlignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackAlignment.swift; sourceTree = "<group>"; };
+		DBB83F5F2AA2BC19005DF98F /* StateFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +153,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DB5FCB322AA3B4B600993678 /* ForEach */ = {
+			isa = PBXGroup;
+			children = (
+				DB5FCB2E2AA3B4A500993678 /* ForEachInsertable.swift */,
+				DB5FCB302AA3B4AD00993678 /* ForEachStore.swift */,
+			);
+			path = ForEach;
+			sourceTree = "<group>";
+		};
 		DB900DDF2A9F02B2001FBA2E /* ZStack */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +265,7 @@
 				DBAB4CA12A9E3E1F00BB804C /* Image */,
 				DB900DE42AA0392A001FBA2E /* Color */,
 				DB900DE92AA0C848001FBA2E /* List */,
+				DB5FCB322AA3B4B600993678 /* ForEach */,
 			);
 			path = Insertable;
 			sourceTree = "<group>";
@@ -278,6 +294,7 @@
 				DBAB4CA22A9E453600BB804C /* StackAlignment.swift */,
 				DB900DD82A9F0246001FBA2E /* InjectedState.swift */,
 				DB900DD62A9F0238001FBA2E /* ViewStoresContainer.swift */,
+				DBB83F5F2AA2BC19005DF98F /* StateFunctions.swift */,
 			);
 			path = InjectedModels;
 			sourceTree = "<group>";
@@ -480,6 +497,7 @@
 			files = (
 				DBAB4C092A93F23900BB804C /* Operators_Ext.swift in Sources */,
 				DBAB4BF52A8F0DD400BB804C /* TextFieldInsertable.swift in Sources */,
+				DB5FCB312AA3B4AD00993678 /* ForEachStore.swift in Sources */,
 				DB900DE12AA038D1001FBA2E /* ColorInsertable.swift in Sources */,
 				DBAB4C052A9306F100BB804C /* InjectedOperation.swift in Sources */,
 				DBAB4BFF2A91881E00BB804C /* InjectedValue.swift in Sources */,
@@ -507,12 +525,14 @@
 				DBAB4CA32A9E453600BB804C /* StackAlignment.swift in Sources */,
 				DBAB4C9E2A9E3E1100BB804C /* ImageInsertable.swift in Sources */,
 				DBAB4C012A91A08E00BB804C /* InjectedFunctionBuilder.swift in Sources */,
+				DBB83F602AA2BC19005DF98F /* StateFunctions.swift in Sources */,
 				DBAB4BF12A8F0CFD00BB804C /* ButtonInsertable.swift in Sources */,
 				DB900DD92A9F0246001FBA2E /* InjectedState.swift in Sources */,
 				DBAB4BF32A8F0D8B00BB804C /* TextInsertable.swift in Sources */,
 				DBAB4C0B2A93FCAF00BB804C /* CompositionFunctions.swift in Sources */,
 				DB900DD72A9F0238001FBA2E /* ViewStoresContainer.swift in Sources */,
 				DBAB4BEF2A8F0AE000BB804C /* HStackInsertable.swift in Sources */,
+				DB5FCB2F2AA3B4A500993678 /* ForEachInsertable.swift in Sources */,
 				DBAB4C882A9B9B3700BB804C /* ButtonStore.swift in Sources */,
 				DBAB4BE72A8F0A4700BB804C /* VStackStore.swift in Sources */,
 			);

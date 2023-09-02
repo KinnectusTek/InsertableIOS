@@ -32,7 +32,7 @@ class VStackStore: ObservableObject {
             .assign(to: &$state)
         
         $state.map { state in
-            let alignment = findStringValue(id: store.alignmentKey, state: state)
+            let alignment = findStringValue(id: store.alignmentKey, state: state) ?? ""
             switch VStackAlignment(rawValue: alignment) {
             case .center?:
                 return HorizontalAlignment.center

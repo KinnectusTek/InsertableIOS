@@ -24,9 +24,10 @@ class TextStore: ObservableObject {
         
         stateSubject.eraseToAnyPublisher().assign(to: &$state)
         
-        $state.map({
-            findStringValue(id: store.text, state: $0)
-        }).assign(to: &$text)
+        $state
+        .map { findStringValue(id: store.text, state: $0)}
+        .compactMap { $0 }
+        .assign(to: &$text)
     }
 }
 

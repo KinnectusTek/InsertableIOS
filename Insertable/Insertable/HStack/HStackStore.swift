@@ -19,7 +19,6 @@ class HStackStore: ObservableObject {
     let viewStore: InjectedViewStore
   
     init(store: InjectedViewStore,
-         container: ViewStoresContainer,
          stateSubject: CurrentValueSubject<InjectedState, Never>) {
         self.viewStore = store
         self.stateSubject = stateSubject
@@ -28,7 +27,7 @@ class HStackStore: ObservableObject {
         stateSubject.eraseToAnyPublisher().assign(to: &$state)
         
         $state.map { state in
-            let alignment = findStringValue(id: store.alignmentKey, state: state)
+            let alignment = findStringValue(id: store.alignmentKey, state: state) ?? ""
             switch HStackAlignment(rawValue: alignment) {
             case .center?:
                 return VerticalAlignment.center
@@ -43,7 +42,6 @@ class HStackStore: ObservableObject {
             default:
                 return nil
             }
-            
         }.compactMap { $0 }.assign(to: &$alignment)
 
         $state.map { state in

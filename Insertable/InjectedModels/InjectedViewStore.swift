@@ -64,6 +64,10 @@ indirect enum InjectedViewStore: Codable, Hashable {
               modifiers: [InjectedModifier] = [],
               listKey: String,
               content: InjectedViewStore)
+    case forEach(id: String = "",
+                 modifiers: [InjectedModifier] = [],
+                 forEachKey: String,
+                 content: InjectedViewStore)
     case text(id: String = "",
               modifiers: [InjectedModifier] = [],
               textKey: String)
@@ -89,6 +93,23 @@ indirect enum InjectedViewStore: Codable, Hashable {
     case color(id: String = "", modifiers: [InjectedModifier] = [], colorKey: String)
     case spacer(id: String = "",
                 modifiers: [InjectedModifier] = [])
+    // case `if`(conditionKey: String, modifiers: [InjectedModifier], content: InjectedViewStore)
+    // case `ifLet`(conditionKey: String, modifiers: [InjectedModifier], content: InjectedViewStore)
+    // case `switch`(  conditionKey: String,
+    //                 modifiers: [InjectedModifier],
+    //                 caseContent1: InjectedViewStore,
+    //                 caseContent2: InjectedViewStore,
+    //                 caseContent3: InjectedViewStore,
+    //                 caseContent4: InjectedViewStore,
+    //                 caseContent5: InjectedViewStore,
+    //                 caseContent6: InjectedViewStore,
+    //                 caseContent7: InjectedViewStore,
+    //                 caseContent8: InjectedViewStore,
+    //                 caseContent9: InjectedViewStore,
+    //                 caseContent10: InjectedViewStore)
+    // case `ifElse`(conditionKey: String, modifiers: [InjectedModifier], content: InjectedViewStore, elseContent: InjectedViewStore)
+    // case `ifLetElse`(conditionKey: String, modifiers: [InjectedModifier], content: InjectedViewStore, elseContent: InjectedViewStore)
+    // case `ifElseIfElese`(conditionKey: String, modifiers: [InjectedModifier], content: InjectedViewStore, elseIfContent: InjectedViewStore, elseContent: InjectedViewStore)
     case empty(id: String = "")
     var id: String {
         switch self {
@@ -97,11 +118,13 @@ indirect enum InjectedViewStore: Codable, Hashable {
                 .hStack(let id,_, _, _, _, _, _, _, _, _, _, _, _, _),
                 .zStack(let id,_, _, _, _, _, _, _, _, _, _, _, _, _),
                 .list(let id, _, _, _),
+                .forEach(let id, _, _, _),
                 .text(let id, _, _),
                 .field(let id, _, _, _),
                 .button(let id, _, _, _, _, _, _, _, _, _, _, _, _),
                 .namedImage(let id, _),
                 .systemImage(let id, _),
+                .color(id: let id, _, _),
                 .spacer(let id, _),
                 .empty(let id):
             return id
@@ -119,12 +142,13 @@ indirect enum InjectedViewStore: Codable, Hashable {
                 .hStack(_, let modifiers, _, _,_, _, _, _,_,_,_,_,_,_),
                 .zStack(_, let modifiers, _, _,_, _, _, _,_,_,_,_,_,_),
                 .list(_, let modifiers, _, _),
+                .forEach(_, let modifiers, _, _),
                 .text(_, let modifiers, _),
                 .field(_, let modifiers, _, _),
                 .button(_, let modifiers, _, _,_,_,_,_,_,_,_,_,_),
                 .namedImage(_, let modifiers),
                 .systemImage(_, let modifiers),
-                .color(_, let modifiers),
+                .color(_, let modifiers, _),
                 .spacer(_, let modifiers):
             return modifiers
         default:
@@ -145,10 +169,13 @@ indirect enum InjectedViewStore: Codable, Hashable {
     ) {
         switch self {
         case .vStack(_, _, _, _, let content1, let content2, let content3, let content4,let content5,let content6,let content7,let content8,let content9,let content10),
-                .hStack(_, _, _, _, let content1, let content2, let content3, let content4,let content5,let content6,let content7,let content8,let content9,let content10):
+                .hStack(_, _, _, _, let content1, let content2, let content3, let content4,let content5,let content6,let content7,let content8,let content9,let content10),
+                .zStack(_, _, _, _, let content1, let content2, let content3, let content4,let content5,let content6,let content7,let content8,let content9,let content10):
             return (content1, content2, content3, content4, content5,content6,content7,content8,content9,content10)
         case .field(_, _, _, let content),
-                .button(_, _, _,_,_,_,_,_,_,_,_,_, let content):
+                .button(_, _, _,_,_,_,_,_,_,_,_,_, let content),
+                .list(_, _, _, let content),
+                .forEach(_, _, _, let content):
             return (content, nil, nil, nil, nil, nil, nil, nil, nil, nil)
         case .empty, .spacer, .viewStoreReference, .text, .systemImage, .namedImage, .color:
             return (.empty(id: ""), nil, nil, nil, nil, nil, nil, nil, nil, nil)
@@ -202,7 +229,7 @@ indirect enum InjectedViewStore: Codable, Hashable {
     var colorKey: String {
         switch self {
         case .color(_, _, let colorKey):
-            return id
+            return colorKey
         default:
             return ""
         }
@@ -216,6 +243,15 @@ indirect enum InjectedViewStore: Codable, Hashable {
         }
     }
 
+    var forEachKey: String {
+        switch self {
+        case .forEach(_, _, let forEachKey, _):
+            return forEachKey
+        default:
+            return ""
+        }
+    }
+
     var itemStore: InjectedViewStore {
         switch self {
         case .list(_, _, _, let content):
@@ -224,20 +260,14 @@ indirect enum InjectedViewStore: Codable, Hashable {
             return .empty()
         }
     }
-}
 
-
-extension InjectedViewStore {
-    
-    static func updateState(state: InjectedState, newValue: InjectedValue) -> InjectedState {
-        state |> prop(\.state)({
-            $0.map { value in
-                if value.id == newValue.id {
-                    return newValue
-                } else {
-                    return value
-                }
-            }
-        })
+    var forEachStore: InjectedViewStore {
+        switch self {
+        case .forEach(_, _, _, let content):
+            return content
+        default:
+            return .empty()
+        }
     }
 }
+

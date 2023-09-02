@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 struct ListInsertable: View {
     @ObservedObject var store: ListStore
@@ -14,7 +15,10 @@ struct ListInsertable: View {
 
     var body: some View {
         List(store.listStates, id: \.self) { itemState in
-            Insertable(store: store.viewStore.itemStore(state: itemState), container: container)
+           Insertable(
+            state: store.stateForItem(itemState),
+            container: container,
+            viewStore: store.viewStore.itemStore)
         }
         .addModifiers(mods: store.viewStore.modifiers, state: store.stateSubject, container: container)
     }

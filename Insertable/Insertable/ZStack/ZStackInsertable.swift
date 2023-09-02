@@ -15,7 +15,6 @@ struct ZStackInsertable: View {
     var container: ViewStoresContainer
     
     var body: some View {
-        ZStack(alignment: ., content: <#T##() -> _#>)
         ZStack(alignment: store.alignment){
             
             Insertable(state: store.stateSubject, container: container, viewStore: store.viewStore.content.0)
