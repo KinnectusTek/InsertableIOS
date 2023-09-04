@@ -18,7 +18,7 @@ struct ForEachInsertable: View {
             Insertable(
                 state: store.stateForItem(forEachState),
                 container: container,
-                viewStore: store.viewStore.forEachStore)
+                viewStore: store.viewStore.content)
             
         }
         .addModifiers(mods: store.viewStore.modifiers, state: store.stateSubject, container: container)

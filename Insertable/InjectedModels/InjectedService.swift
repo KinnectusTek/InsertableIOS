@@ -74,25 +74,24 @@ func createLoginState() -> Data {
 
 func createLoginViewStore() -> Data {
     var onboardingViewStore: InjectedViewStore {
-        .vStack(id: "entry",
-                modifiers: [],
-                content1: .hStack(
-                    id: "",
-                    modifiers: [],
-                    content1: .namedImage(name: "", modifiers: []),
-                    content2: .text(id: "", modifiers: [], textKey: "")
-                ),
-                content2: .text(id: "", modifiers: [], textKey: ""),
-                content3: .text(id: "", modifiers: [], textKey: ""),
-                content4: .button(
-                    id: "",
-                    modifiers: [],
-                    content: .text(id: "", modifiers: [], textKey: "")
-                ),
-                content5: .button(
-                    id: "",
-                    modifiers: [],
-                    content: .text(id: "", modifiers: [], textKey: "")
+        .vStack(store: .init(id: "entry",
+                             modifiers: [],
+                             content1: .hStack(store: .init(
+                                id: "",
+                                modifiers: [],
+                                content1: .namedImage(store: .init(id: "", name: "", modifiers: [])),
+                                content2: .text(store: .init(id: "", modifiers: [], textKey: "")))
+                             ),
+                             content2: .text(store: .init(id: "", modifiers: [], textKey: "")),
+                             content3: .text(store: .init(id: "", modifiers: [], textKey: "")),
+                             content4: .button(store: .init(
+                                id: "",
+                                modifiers: [],
+                                content: .text(store: .init(id: "", modifiers: [], textKey: "")))),
+                            content5: .button(store: .init(
+                                                id: "",
+                                                modifiers: [],
+                                                content: .text(store: .init(id: "", modifiers: [], textKey: ""))))
                 )
         )
     }
@@ -101,38 +100,38 @@ func createLoginViewStore() -> Data {
 func createViewStore() -> Data {
     
     var presentedContent: InjectedViewStore {
-        .vStack(
+        .vStack(store: .init(
             id: "presentedContent",
             
-            content1: .text(id: "", textKey: "name"),
-            content2: .text(id: "", textKey: "email"),
-            content3: .field(id: "", textKey: "email", content: .empty()),
-            content4: .button(
+            content1: .text(store: .init(id: "", textKey: "name")),
+            content2: .text(store: .init(id: "", textKey: "email")),
+            content3: .field(store: .init(id: "", textKey: "email", content: .empty())),
+            content4: .button(store: .init(
                 id: "multiplyButton",
                 operation1: .assign(key: "name", value: .string(stateId: "", id: "name", value: "Dolo")),
                 operation2: .asyncAfter(operation: .assign(key: "name", value:.string(stateId: "", id: "name", value: "You did it")), delay: 2.5),
-                content: .text(id: "", textKey: "multiplayButtonTitle")),
-            content5: .button(
+                content: .text(store: .init(id: "", textKey: "multiplayButtonTitle")))),
+            content5: .button(store: .init(
                 id: "dismissButton",
                 operation1: .assign(key: "isPageDisplayed", value: .boolean(stateId: "", id: "isPageDisplayed", value: false)),
-                content: .text(id: "", textKey: "dismissButtonTitle")
-            )
-        )
+                content: .text(store: .init(id: "", textKey: "dismissButtonTitle"))
+            ))
+        ))
     }
     
     var entryViewStore: InjectedViewStore {
-        .vStack(
+        .vStack(store: .init(
             id: "entry",
             modifiers: [
                 .fullScreenCover(viewStore: .viewStoreReference(id: "presentedContent"), isPresentedKey: "isPageDisplayed")
             ],
-            content1: .text(id: "", textKey: "fullScreenTitle"),
-            content2: .spacer(id: "", modifiers: [.frame(stateId: "", widthId: "", heightId: "fullScreenSpacerHeight", width: nil, height: nil)]),
-            content3: .button(id: "displayButton",
-                              operation1: .assign(key: "isPageDisplayed", value: .boolean(stateId: "", id: "isPageDisplayed", value: true)),
-                              content: .text(id: "", textKey: "displayButtonTitle")
-                             )
-        )
+            content1: .text(store: .init(id: "", textKey: "fullScreenTitle")),
+            content2: .spacer(store: .init(id: "", modifiers: [.frame(stateId: "", widthId: "", heightId: "fullScreenSpacerHeight", width: nil, height: nil)])),
+            content3: .button(store: .init(id: "displayButton",
+                                           operation1: .assign(key: "isPageDisplayed", value: .boolean(stateId: "", id: "isPageDisplayed", value: true)),
+                                           content: .text(store: .init(id: "", textKey: "displayButtonTitle"))
+                                          ))
+        ))
     }
             
             

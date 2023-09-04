@@ -18,7 +18,7 @@ struct ListInsertable: View {
            Insertable(
             state: store.stateForItem(itemState),
             container: container,
-            viewStore: store.viewStore.itemStore)
+            viewStore: store.viewStore.content)
         }
         .addModifiers(mods: store.viewStore.modifiers, state: store.stateSubject, container: container)
     }

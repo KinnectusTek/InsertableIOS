@@ -15,9 +15,9 @@ class ZStackStore: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     
     let stateSubject: CurrentValueSubject<InjectedState, Never>
-    let viewStore: InjectedViewStore
+    let viewStore: ZStackViewStore
     
-    init(store: InjectedViewStore,
+    init(store: ZStackViewStore,
          stateSubject: CurrentValueSubject<InjectedState, Never>) {
         self.viewStore = store
         self.stateSubject = stateSubject

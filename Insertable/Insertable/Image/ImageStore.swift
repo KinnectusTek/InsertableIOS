@@ -12,22 +12,21 @@ import Combine
 class ImageStore: ObservableObject {
     @Published var state: InjectedState
     @Published var image: Image = .init(systemName: "")
-    let viewStore: InjectedViewStore
+    let viewStore: ImageViewStore
     let stateSubject: CurrentValueSubject<InjectedState, Never>
     
-    init(store: InjectedViewStore, stateSubject: CurrentValueSubject<InjectedState, Never>) {
+    init(store: ImageViewStore, stateSubject: CurrentValueSubject<InjectedState, Never>) {
         self.viewStore = store
         self.stateSubject = stateSubject
         self.state = stateSubject.value
         
         $state.map { state in
-            switch store {
-            case .namedImage(let imageKey, _):
+            if let imageKey = store.name {
                 return Image(findStringValue(id: imageKey, state: state) ?? "" )
-            case .systemImage(let imageKey, _):
+            } else if let imageKey = store.systemName {
                 return Image(systemName: findStringValue(id: imageKey, state: state) ?? "" )
-            default:
-                return Image.init(systemName: "")
+            } else {
+                return Image(systemName: "photo.artframe")
             }
         }
         .assign(to: &$image)

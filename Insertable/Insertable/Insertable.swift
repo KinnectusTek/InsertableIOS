@@ -18,57 +18,57 @@ struct Insertable: View {
     @ViewBuilder var render: some View {
         switch viewStore {
             
-        case .vStack:
+        case .vStack(let viewStore):
             
             VStackInsertable(
                 store: .init(store: viewStore, stateSubject: state),
                 container: container)
             
-        case .hStack:
+        case .hStack(let viewStore):
             
             HStackInsertable(
                 store: .init(store: viewStore, stateSubject: state),
                 container: container)
             
-        case .zStack:
+        case .zStack(let viewStore):
             
             ZStackInsertable(
                 store: .init(store: viewStore, stateSubject: state),
                 container: container)
             
-        case .list:
+        case .list(let viewStore):
             
             ListInsertable(
                 store: .init(viewStore: viewStore, stateSubject: state),
                 container: container)
             
-        case .forEach:
+        case .forEach(let viewStore):
             
             ForEachInsertable(
                 store: .init(viewStore: viewStore, stateSubject: state),
                 container: container)
             
-        case .button:
+        case .button(let viewStore):
             
             ButtonInsertable(container: container, store: .init(store: viewStore, stateSubject: state))
             
-        case .text:
+        case .text(let viewStore):
             
             TextInsertable(store: .init(stateSubject: state, store: viewStore), container: container)
             
-        case .field:
+        case .field(let viewStore):
             
             TextFieldInsertable(store: .init(store: viewStore, stateSubject: state), container: container)
             
-        case .namedImage, .systemImage:
+        case .namedImage(let viewStore), .systemImage(let viewStore):
             
             ImageInsertable(store: .init(store: viewStore, stateSubject: state), container: container)
             
-        case .color:
+        case .color(let viewStore):
             
             ColorInsertable(store: .init(store: viewStore, state: state), container: container)
             
-        case .spacer:
+        case .spacer(let viewStore):
             
             SpacerInsertable(store: .init(store: viewStore, stateSubject: state), container: container)
             

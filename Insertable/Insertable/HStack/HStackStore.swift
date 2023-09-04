@@ -16,9 +16,9 @@ class HStackStore: ObservableObject {
     
     private var cancellables = Set<AnyCancellable>()
     let stateSubject: CurrentValueSubject<InjectedState, Never>
-    let viewStore: InjectedViewStore
+    let viewStore: HStackViewStore
   
-    init(store: InjectedViewStore,
+    init(store: HStackViewStore,
          stateSubject: CurrentValueSubject<InjectedState, Never>) {
         self.viewStore = store
         self.stateSubject = stateSubject

@@ -16,11 +16,11 @@ class ListStore: ObservableObject {
             CurrentValueSubject<InjectedState, Never>($0)
         }
     }
-    @Published var viewStore: InjectedViewStore
+    @Published var viewStore: ListViewStore
     @Published var stateSubject: CurrentValueSubject<InjectedState, Never>
     @Published var state: InjectedState
     private var cancellables = Set<AnyCancellable>()
-    init(viewStore: InjectedViewStore,
+    init(viewStore: ListViewStore,
          stateSubject: CurrentValueSubject<InjectedState, Never>) {
         self.viewStore = viewStore
         self.stateSubject = stateSubject

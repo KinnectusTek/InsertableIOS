@@ -10,11 +10,11 @@ import Combine
 class ColorStore: ObservableObject {
     
     @Published var color: Color = .white
-    @Published var viewStore: InjectedViewStore
+    @Published var viewStore: ColorViewStore
     @Published var stateSubject: CurrentValueSubject<InjectedState, Never>
     @Published var state: InjectedState
 
-    init(store: InjectedViewStore, state: CurrentValueSubject<InjectedState, Never>) {
+    init(store: ColorViewStore, state: CurrentValueSubject<InjectedState, Never>) {
         self.viewStore = store
         self.stateSubject = state
         self.state = state.value

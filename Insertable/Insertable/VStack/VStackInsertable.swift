@@ -17,33 +17,33 @@ struct VStackInsertable: View {
     var body: some View {
         VStack(alignment: store.alignment, spacing: store.spacing) {
             
-            Insertable(state: store.stateSubject, container: container, viewStore: store.viewStore.content.0)
+            Insertable(state: store.stateSubject, container: container, viewStore: store.viewStore.content1)
             
-            if let content = store.viewStore.content.1 {
+            if let content = store.viewStore.content2 {
                 Insertable(state: store.stateSubject, container: container, viewStore: content)
             }
-            if let content = store.viewStore.content.2 {
+            if let content = store.viewStore.content3 {
                 Insertable(state: store.stateSubject, container: container, viewStore: content)
             }
-            if let content = store.viewStore.content.3 {
+            if let content = store.viewStore.content4 {
                 Insertable(state: store.stateSubject, container: container, viewStore: content)
             }
-            if let content = store.viewStore.content.4 {
+            if let content = store.viewStore.content5 {
                 Insertable(state: store.stateSubject, container: container, viewStore: content)
             }
-            if let content = store.viewStore.content.5 {
+            if let content = store.viewStore.content6 {
                 Insertable(state: store.stateSubject, container: container, viewStore: content)
             }
-            if let content = store.viewStore.content.6 {
+            if let content = store.viewStore.content7 {
                 Insertable(state: store.stateSubject, container: container, viewStore: content)
             }
-            if let content = store.viewStore.content.7 {
+            if let content = store.viewStore.content8 {
                 Insertable(state: store.stateSubject, container: container, viewStore: content)
             }
-            if let content = store.viewStore.content.8 {
+            if let content = store.viewStore.content9 {
                 Insertable(state: store.stateSubject, container: container, viewStore: content)
             }
-            if let content = store.viewStore.content.9 {
+            if let content = store.viewStore.content10 {
                 Insertable(state: store.stateSubject, container: container, viewStore: content)
             }
         }

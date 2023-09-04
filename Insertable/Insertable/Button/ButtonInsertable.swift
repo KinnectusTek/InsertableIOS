@@ -17,7 +17,7 @@ struct ButtonInsertable: View {
         Button(action: {
             store.didCommitAction()
         }, label: {
-            Insertable(state: store.stateSubject, container: container, viewStore: store.viewStore.content.0)
+            Insertable(state: store.stateSubject, container: container, viewStore: store.viewStore.content)
         }).addModifiers(mods: store.viewStore.modifiers, state: store.stateSubject, container: container)
     }
 }
