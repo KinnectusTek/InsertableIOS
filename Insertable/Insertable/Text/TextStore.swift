@@ -14,19 +14,20 @@ class TextStore: ObservableObject {
     @Published var text: String = ""
     
     private var cancellables = Set<AnyCancellable>()
-    let viewStore: InjectedViewStore
+    let viewStore: TextViewStore
     let stateSubject: CurrentValueSubject<InjectedState, Never>
     
-    init(stateSubject: CurrentValueSubject<InjectedState, Never>, store: InjectedViewStore) {
+    init(stateSubject: CurrentValueSubject<InjectedState, Never>, store: TextViewStore) {
         self.viewStore = store
         self.stateSubject = stateSubject
         self.state = stateSubject.value
         
         stateSubject.eraseToAnyPublisher().assign(to: &$state)
         
-        $state.map({
-            findStringValue(id: store.text, state: $0)
-        }).assign(to: &$text)
+        $state
+        .map { findStringValue(id: store.textKey, state: $0)}
+        .compactMap { $0 }
+        .assign(to: &$text)
     }
 }
 

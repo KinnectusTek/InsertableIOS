@@ -77,11 +77,11 @@ struct InjectedFunctionBuilder {
         case .multiplyByInteger(let key, let multiple):
             if let value = state.state.first(where: {$0.id == key}) {
                 switch value {
-                case .double(let id, let double):
-                    let updateValue = InjectedValue.double(id: id, value: double * Double(multiple))
+                case let .double(stateId, id, double):
+                    let updateValue = InjectedValue.double(stateId: stateId, id: id, value: double * Double(multiple))
                     return provideStateUpdatedByValue(state, updateValue)
-                case .integer(let id, let integer):
-                    let updateValue = InjectedValue.integer(id: id, value: integer * multiple)
+                case let .integer(stateId, id, integer):
+                    let updateValue = InjectedValue.integer(stateId: stateId, id: id, value: integer * multiple)
                     return provideStateUpdatedByValue(state, updateValue)
                 default:
                     return state
@@ -90,11 +90,11 @@ struct InjectedFunctionBuilder {
         case .divideByInteger(let key, let quotient):
             if let value = state.state.first(where: {$0.id == key}) {
                 switch value {
-                case .double(let id, let double):
-                    let updateValue = InjectedValue.double(id: id, value: double / Double(quotient))
+                case let .double(stateId, id, double):
+                    let updateValue = InjectedValue.double(stateId: stateId, id: id, value: double / Double(quotient))
                     return provideStateUpdatedByValue(state, updateValue)
-                case .integer(let id, let integer):
-                    let updateValue = InjectedValue.integer(id: id, value: integer / quotient)
+                case let .integer(stateId, id, integer):
+                    let updateValue = InjectedValue.integer(stateId: stateId, id: id, value: integer / quotient)
                     return provideStateUpdatedByValue(state, updateValue)
                 default:
                     return state

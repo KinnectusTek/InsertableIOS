@@ -13,7 +13,7 @@ struct ColorInsertable: View {
     var container: ViewStoresContainer
 
     var body: some View {
-        Color(store.color)
+        store.color
         .addModifiers(mods: store.viewStore.modifiers, state: store.stateSubject, container: container)
 
     }

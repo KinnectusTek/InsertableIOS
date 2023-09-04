@@ -16,9 +16,9 @@ class VStackStore: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     
     let stateSubject: CurrentValueSubject<InjectedState, Never>
-    let viewStore: InjectedViewStore
+    let viewStore: VStackViewStore
     
-    init(store: InjectedViewStore,
+    init(store: VStackViewStore,
          stateSubject: CurrentValueSubject<InjectedState, Never>) {
         self.viewStore = store
         self.stateSubject = stateSubject
@@ -32,7 +32,7 @@ class VStackStore: ObservableObject {
             .assign(to: &$state)
         
         $state.map { state in
-            let alignment = findStringValue(id: store.alignmentKey, state: state)
+            let alignment = findStringValue(id: store.alignmentKey, state: state) ?? ""
             switch VStackAlignment(rawValue: alignment) {
             case .center?:
                 return HorizontalAlignment.center

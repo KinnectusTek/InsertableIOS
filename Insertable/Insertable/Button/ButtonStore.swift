@@ -14,23 +14,43 @@ class ButtonStore: ObservableObject {
     @Published var state: InjectedState
     
     private var cancellables = Set<AnyCancellable>()
-    let viewStore: InjectedViewStore
+    let viewStore: ButtonViewStore
     let stateSubject: CurrentValueSubject<InjectedState, Never>
-    
+
     @InjectedFunctionBuilder var action: InjectedFunctionBuilder {
-        InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.0)
-        InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.1)
-        InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.2)
-        InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.3)
-        InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.4)
-        InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.5)
-        InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.6)
-        InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.7)
-        InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.8)
-        InjectedFunctionBuilder(state: stateSubject, operation: viewStore.operations.9)
+        InjectedFunctionBuilder(
+            state: stateSubject,
+            operation: viewStore.operation1 ?? .noOperation)
+        InjectedFunctionBuilder(
+            state: stateSubject,
+            operation: viewStore.operation2 ?? .noOperation)
+        InjectedFunctionBuilder(
+            state: stateSubject,
+            operation: viewStore.operation3 ?? .noOperation)
+        InjectedFunctionBuilder(
+            state: stateSubject,
+            operation: viewStore.operation4 ?? .noOperation)
+        InjectedFunctionBuilder(
+            state: stateSubject,
+            operation: viewStore.operation5 ?? .noOperation)
+        InjectedFunctionBuilder(
+            state: stateSubject,
+            operation: viewStore.operation6 ?? .noOperation)
+        InjectedFunctionBuilder(
+            state: stateSubject,
+            operation: viewStore.operation7 ?? .noOperation)
+        InjectedFunctionBuilder(
+            state: stateSubject,
+            operation: viewStore.operation8 ?? .noOperation)
+        InjectedFunctionBuilder(
+            state: stateSubject,
+            operation: viewStore.operation9 ?? .noOperation)
+        InjectedFunctionBuilder(
+            state: stateSubject,
+            operation: viewStore.operation10 ?? .noOperation)
     }
     
-    init(store: InjectedViewStore,
+    init(store: ButtonViewStore,
          stateSubject: CurrentValueSubject<InjectedState, Never>
     ) {
         self.stateSubject = stateSubject
