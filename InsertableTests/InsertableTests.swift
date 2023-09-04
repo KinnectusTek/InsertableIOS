@@ -23,9 +23,9 @@ final class InsertableTests: XCTestCase {
         }
  
         switch text {
-        case let .text(_, modifiers, textKey):
-            let noModifiers = modifiers.isEmpty
-            XCTAssertTrue(noModifiers && textKey == "textKey")
+        case let .text(store):
+            let noModifiers = store.modifiers.isEmpty
+            XCTAssertTrue(noModifiers && store.textKey == "textKey")
         default:
             XCTFail("Did not render a text viewStore")
         }
@@ -40,10 +40,10 @@ final class InsertableTests: XCTestCase {
         }
  
         switch button {
-        case let .button(_, modifiers, _, _, _, _, _, _, _, _, _, _, content):
-            switch content {
-            case .text(_, let modifiers, let textKey):
-                XCTAssertTrue(modifiers.isEmpty && textKey == "buttonTitle")
+        case let .button(store):
+            switch store.content {
+            case .text(let textStore):
+                XCTAssertTrue(store.modifiers.isEmpty && textStore.textKey == "buttonTitle")
             default:
                 XCTFail("did not render to text viewStore")
             }
@@ -61,10 +61,10 @@ final class InsertableTests: XCTestCase {
         }
  
         switch vStack {
-        case let .vStack(_, modifiers, content, _, _, _, _, _, _, _, _, _):
-            switch content {
-            case .text(_, let modifiers, let textKey):
-                XCTAssertTrue(modifiers.isEmpty && textKey == "vStackText")
+        case let .vStack(store):
+            switch store.content1 {
+            case .text(let textStore):
+                XCTAssertTrue(store.modifiers.isEmpty && textStore.textKey == "vStackText")
             default:
                 XCTFail("did not render to text viewStore")
             }
@@ -82,10 +82,10 @@ final class InsertableTests: XCTestCase {
         }
  
         switch hStack {
-        case let .hStack(_, modifiers, content, _, _, _, _, _, _, _, _, _):
-            switch content {
-            case .text(_, let modifiers, let textKey):
-                XCTAssertTrue(modifiers.isEmpty && textKey == "hStackText")
+        case let .hStack(store):
+            switch store.content1 {
+            case .text(let textStore):
+                XCTAssertTrue(store.modifiers.isEmpty && textStore.textKey == "hStackText")
             default:
                 XCTFail("did not render to text viewStore")
             }
@@ -103,10 +103,10 @@ final class InsertableTests: XCTestCase {
         }
  
         switch field {
-        case let .field(_, _, modifiers, content):
-            switch content {
-            case .text(_, let modifiers, let textKey):
-                XCTAssertTrue(modifiers.isEmpty && textKey == "fieldText")
+        case let .field(store):
+            switch store.content {
+            case .text(let textStore):
+                XCTAssertTrue(store.modifiers.isEmpty && textStore.textKey == "fieldText")
             default:
                 XCTFail("did not render to text viewStore")
             }
@@ -124,8 +124,8 @@ final class InsertableTests: XCTestCase {
         }
  
         switch spacer {
-        case let .spacer(id, modifiers):
-            XCTAssertTrue(modifiers.isEmpty && id == "spacer")
+        case let .spacer(store):
+            XCTAssertTrue(store.modifiers.isEmpty && store.id == "spacer")
         default:
             XCTFail("Did not render a spacer viewStore")
         }
@@ -140,10 +140,10 @@ final class InsertableTests: XCTestCase {
         }
  
         switch hStack {
-        case let .hStack(_, modifiers, content, _, _, _, _, _, _, _, _, _):
-            switch content {
-            case .text(_, let modifiers, let textKey):
-                XCTAssertTrue(modifiers.isEmpty && textKey == "hStackText")
+        case let .hStack(store):
+            switch store.content1 {
+            case .text(let textStore):
+                XCTAssertTrue(store.modifiers.isEmpty && textStore.textKey == "hStackText")
             default:
                 XCTFail("did not render to text viewStore")
             }
