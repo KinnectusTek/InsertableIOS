@@ -15,15 +15,15 @@ class IfStore: ObservableObject {
     @Published var condition: Bool = false
     
     init(store: IfViewStore, stateSubject: CurrentValueSubject<InjectedState,Never>) {
-        self.store = store
+        self.viewStore = store
         self.stateSubject = stateSubject
         self.state = stateSubject.value
-        self.condition = stateSubject.value[store.conditionKey] as? Bool ?? false
+        self.condition = findBooleanValue(id: store.conditionKey, state: state) ?? false
 
-        self.stateSubject.erasesToAnyPublisher().assign(to: &$state)
+        self.stateSubject.eraseToAnyPublisher().assign(to: &$state)
 
         stateSubject.map { state in 
-            findBooleanValue(state: state, key: store.conditionKey)
+            findBooleanValue(id: store.conditionKey, state: state)
         }
         .compactMap { $0 }
         .assign(to: &$condition)
