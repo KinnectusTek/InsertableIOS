@@ -71,7 +71,11 @@ struct Insertable: View {
         case .spacer(let viewStore):
             
             SpacerInsertable(store: .init(store: viewStore, stateSubject: state), container: container)
-            
+        
+        case .if(let viewStore):
+        
+            IfInsertable(store: .init(store: viewStore, stateSubject: state), container: container)    
+        
         case .viewStoreReference(let id):
             if let viewStore = container.viewStores.first(where: {$0.id == id })  {
                 Insertable(state: state, container: container, viewStore: viewStore)
