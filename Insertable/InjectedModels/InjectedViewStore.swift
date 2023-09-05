@@ -29,7 +29,7 @@ indirect enum InjectedViewStore: Codable, Hashable {
     case systemImage(store: ImageViewStore)
     case color(store: ColorViewStore)
     case spacer(store: SpacerViewStore)
-    case `if`(store: IfStore)
+    case `if`(store: IfViewStore)
     // case `ifLet`(conditionKey: String, modifiers: [InjectedModifier], content: InjectedViewStore)
     // case `switch`(  conditionKey: String,
     //                 modifiers: [InjectedModifier],
