@@ -24,6 +24,13 @@
 		DB5FCB4C2AA68F1600993678 /* IfStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FCB4B2AA68F1600993678 /* IfStore.swift */; };
 		DB5FCB4E2AA68F1E00993678 /* IfInsertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FCB4D2AA68F1E00993678 /* IfInsertable.swift */; };
 		DB5FCB512AA68FFF00993678 /* IfViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FCB502AA68FFF00993678 /* IfViewStore.swift */; };
+		DB5FCB532AA7785400993678 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FCB522AA7785400993678 /* LoginView.swift */; };
+		DB5FCB552AA7E20400993678 /* Array_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FCB542AA7E20400993678 /* Array_Ext.swift */; };
+		DB5FCB572AA7E21A00993678 /* Bundle_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FCB562AA7E21A00993678 /* Bundle_Ext.swift */; };
+		DB5FCB592AA7E25800993678 /* LoginViewContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FCB582AA7E25800993678 /* LoginViewContent.swift */; };
+		DB5FCB5C2AA7E2B900993678 /* LoginApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FCB5B2AA7E2B900993678 /* LoginApp.swift */; };
+		DB5FCB5F2AA818C400993678 /* InjectedModifier_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FCB5E2AA818C400993678 /* InjectedModifier_Ext.swift */; };
+		DB5FCB612AB0178300993678 /* InjectedSystemFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FCB602AB0178300993678 /* InjectedSystemFont.swift */; };
 		DB900DD72A9F0238001FBA2E /* ViewStoresContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB900DD62A9F0238001FBA2E /* ViewStoresContainer.swift */; };
 		DB900DD92A9F0246001FBA2E /* InjectedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB900DD82A9F0246001FBA2E /* InjectedState.swift */; };
 		DB900DDC2A9F028C001FBA2E /* ZStackStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB900DDA2A9F028C001FBA2E /* ZStackStore.swift */; };
@@ -32,8 +39,8 @@
 		DB900DE32AA0391C001FBA2E /* ColorStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB900DE22AA0391C001FBA2E /* ColorStore.swift */; };
 		DB900DE62AA0C83A001FBA2E /* ListInsertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB900DE52AA0C83A001FBA2E /* ListInsertable.swift */; };
 		DB900DE82AA0C843001FBA2E /* ListStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB900DE72AA0C843001FBA2E /* ListStore.swift */; };
-		DBAB4BB72A8CFBCC00BB804C /* InsertableApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4BB62A8CFBCC00BB804C /* InsertableApp.swift */; };
-		DBAB4BB92A8CFBCC00BB804C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4BB82A8CFBCC00BB804C /* ContentView.swift */; };
+		DBAB4BB72A8CFBCC00BB804C /* GenericInsertableApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4BB62A8CFBCC00BB804C /* GenericInsertableApp.swift */; };
+		DBAB4BB92A8CFBCC00BB804C /* ExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4BB82A8CFBCC00BB804C /* ExampleView.swift */; };
 		DBAB4BBB2A8CFBCD00BB804C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBAB4BBA2A8CFBCD00BB804C /* Assets.xcassets */; };
 		DBAB4BBE2A8CFBCD00BB804C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBAB4BBD2A8CFBCD00BB804C /* Preview Assets.xcassets */; };
 		DBAB4BC82A8CFBCD00BB804C /* InsertableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4BC72A8CFBCD00BB804C /* InsertableTests.swift */; };
@@ -51,7 +58,7 @@
 		DBAB4BF32A8F0D8B00BB804C /* TextInsertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4BF22A8F0D8B00BB804C /* TextInsertable.swift */; };
 		DBAB4BF52A8F0DD400BB804C /* TextFieldInsertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4BF42A8F0DD400BB804C /* TextFieldInsertable.swift */; };
 		DBAB4BF92A911B5900BB804C /* SpacerInsertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4BF82A911B5900BB804C /* SpacerInsertable.swift */; };
-		DBAB4BFB2A91214300BB804C /* InjectedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4BFA2A91214300BB804C /* InjectedService.swift */; };
+		DBAB4BFB2A91214300BB804C /* ExampleContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4BFA2A91214300BB804C /* ExampleContent.swift */; };
 		DBAB4BFF2A91881E00BB804C /* InjectedValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4BFE2A91881E00BB804C /* InjectedValue.swift */; };
 		DBAB4C012A91A08E00BB804C /* InjectedFunctionBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4C002A91A08E00BB804C /* InjectedFunctionBuilder.swift */; };
 		DBAB4C052A9306F100BB804C /* InjectedOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4C042A9306F100BB804C /* InjectedOperation.swift */; };
@@ -107,6 +114,13 @@
 		DB5FCB4B2AA68F1600993678 /* IfStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IfStore.swift; sourceTree = "<group>"; };
 		DB5FCB4D2AA68F1E00993678 /* IfInsertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IfInsertable.swift; sourceTree = "<group>"; };
 		DB5FCB502AA68FFF00993678 /* IfViewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IfViewStore.swift; sourceTree = "<group>"; };
+		DB5FCB522AA7785400993678 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		DB5FCB542AA7E20400993678 /* Array_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array_Ext.swift; sourceTree = "<group>"; };
+		DB5FCB562AA7E21A00993678 /* Bundle_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle_Ext.swift; sourceTree = "<group>"; };
+		DB5FCB582AA7E25800993678 /* LoginViewContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewContent.swift; sourceTree = "<group>"; };
+		DB5FCB5B2AA7E2B900993678 /* LoginApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginApp.swift; sourceTree = "<group>"; };
+		DB5FCB5E2AA818C400993678 /* InjectedModifier_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedModifier_Ext.swift; sourceTree = "<group>"; };
+		DB5FCB602AB0178300993678 /* InjectedSystemFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedSystemFont.swift; sourceTree = "<group>"; };
 		DB900DD62A9F0238001FBA2E /* ViewStoresContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewStoresContainer.swift; sourceTree = "<group>"; };
 		DB900DD82A9F0246001FBA2E /* InjectedState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InjectedState.swift; sourceTree = "<group>"; };
 		DB900DDA2A9F028C001FBA2E /* ZStackStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZStackStore.swift; sourceTree = "<group>"; };
@@ -116,8 +130,8 @@
 		DB900DE52AA0C83A001FBA2E /* ListInsertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInsertable.swift; sourceTree = "<group>"; };
 		DB900DE72AA0C843001FBA2E /* ListStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListStore.swift; sourceTree = "<group>"; };
 		DBAB4BB32A8CFBCC00BB804C /* Insertable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Insertable.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DBAB4BB62A8CFBCC00BB804C /* InsertableApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertableApp.swift; sourceTree = "<group>"; };
-		DBAB4BB82A8CFBCC00BB804C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DBAB4BB62A8CFBCC00BB804C /* GenericInsertableApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericInsertableApp.swift; sourceTree = "<group>"; };
+		DBAB4BB82A8CFBCC00BB804C /* ExampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleView.swift; sourceTree = "<group>"; };
 		DBAB4BBA2A8CFBCD00BB804C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DBAB4BBD2A8CFBCD00BB804C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DBAB4BC32A8CFBCD00BB804C /* InsertableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InsertableTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,7 +151,7 @@
 		DBAB4BF22A8F0D8B00BB804C /* TextInsertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInsertable.swift; sourceTree = "<group>"; };
 		DBAB4BF42A8F0DD400BB804C /* TextFieldInsertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldInsertable.swift; sourceTree = "<group>"; };
 		DBAB4BF82A911B5900BB804C /* SpacerInsertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacerInsertable.swift; sourceTree = "<group>"; };
-		DBAB4BFA2A91214300BB804C /* InjectedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedService.swift; sourceTree = "<group>"; };
+		DBAB4BFA2A91214300BB804C /* ExampleContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleContent.swift; sourceTree = "<group>"; };
 		DBAB4BFE2A91881E00BB804C /* InjectedValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedValue.swift; sourceTree = "<group>"; };
 		DBAB4C002A91A08E00BB804C /* InjectedFunctionBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedFunctionBuilder.swift; sourceTree = "<group>"; };
 		DBAB4C042A9306F100BB804C /* InjectedOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedOperation.swift; sourceTree = "<group>"; };
@@ -203,6 +217,26 @@
 			path = If;
 			sourceTree = "<group>";
 		};
+		DB5FCB5A2AA7E26200993678 /* LoginExample */ = {
+			isa = PBXGroup;
+			children = (
+				DB5FCB522AA7785400993678 /* LoginView.swift */,
+				DB5FCB5B2AA7E2B900993678 /* LoginApp.swift */,
+				DB5FCB582AA7E25800993678 /* LoginViewContent.swift */,
+			);
+			path = LoginExample;
+			sourceTree = "<group>";
+		};
+		DB5FCB5D2AA7E30800993678 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				DBAB4BB62A8CFBCC00BB804C /* GenericInsertableApp.swift */,
+				DBAB4BFA2A91214300BB804C /* ExampleContent.swift */,
+				DBAB4BB82A8CFBCC00BB804C /* ExampleView.swift */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
 		DB900DDF2A9F02B2001FBA2E /* ZStack */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,8 +292,8 @@
 			children = (
 				DBAB4C062A93B2E800BB804C /* Insertable.json */,
 				DBAB4C0E2A94563700BB804C /* ViewStore.json */,
-				DBAB4BB62A8CFBCC00BB804C /* InsertableApp.swift */,
-				DBAB4BB82A8CFBCC00BB804C /* ContentView.swift */,
+				DB5FCB5D2AA7E30800993678 /* Example */,
+				DB5FCB5A2AA7E26200993678 /* LoginExample */,
 				DBAB4BBA2A8CFBCD00BB804C /* Assets.xcassets */,
 				DBAB4BBC2A8CFBCD00BB804C /* Preview Content */,
 				DBAB4C142A96F9C000BB804C /* Insertable */,
@@ -319,6 +353,8 @@
 			isa = PBXGroup;
 			children = (
 				DBAB4BEA2A8F0A7C00BB804C /* View_Ext.swift */,
+				DB5FCB542AA7E20400993678 /* Array_Ext.swift */,
+				DB5FCB562AA7E21A00993678 /* Bundle_Ext.swift */,
 				DBAB4C0C2A9419EA00BB804C /* UIColor_Ext.swift */,
 				DBAB4C082A93F23900BB804C /* Operators_Ext.swift */,
 				DBAB4C0A2A93FCAF00BB804C /* CompositionFunctions.swift */,
@@ -330,9 +366,10 @@
 			isa = PBXGroup;
 			children = (
 				DBAB4BE22A8F0A0900BB804C /* InjectedModifier.swift */,
+				DB5FCB5E2AA818C400993678 /* InjectedModifier_Ext.swift */,
+				DB5FCB602AB0178300993678 /* InjectedSystemFont.swift */,
 				DBAB4BE42A8F0A2F00BB804C /* InjectedViewStore.swift */,
 				DB5FCB492AA68EB900993678 /* InjectedViewStoreHelper.swift */,
-				DBAB4BFA2A91214300BB804C /* InjectedService.swift */,
 				DBAB4BFE2A91881E00BB804C /* InjectedValue.swift */,
 				DBAB4C002A91A08E00BB804C /* InjectedFunctionBuilder.swift */,
 				DBAB4C042A9306F100BB804C /* InjectedOperation.swift */,
@@ -549,15 +586,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBAB4C092A93F23900BB804C /* Operators_Ext.swift in Sources */,
+				DB5FCB552AA7E20400993678 /* Array_Ext.swift in Sources */,
 				DBAB4BF52A8F0DD400BB804C /* TextFieldInsertable.swift in Sources */,
 				DB5FCB312AA3B4AD00993678 /* ForEachStore.swift in Sources */,
 				DB900DE12AA038D1001FBA2E /* ColorInsertable.swift in Sources */,
+				DB5FCB572AA7E21A00993678 /* Bundle_Ext.swift in Sources */,
 				DB5FCB422AA68D7F00993678 /* ButtonViewStore.swift in Sources */,
 				DBAB4C052A9306F100BB804C /* InjectedOperation.swift in Sources */,
 				DBAB4BFF2A91881E00BB804C /* InjectedValue.swift in Sources */,
 				DB900DE82AA0C843001FBA2E /* ListStore.swift in Sources */,
 				DBAB4C8A2A9B9B4E00BB804C /* TextStore.swift in Sources */,
-				DBAB4BB92A8CFBCC00BB804C /* ContentView.swift in Sources */,
+				DBAB4BB92A8CFBCC00BB804C /* ExampleView.swift in Sources */,
 				DB5FCB342AA68CFF00993678 /* VStackViewStore.swift in Sources */,
 				DB5FCB442AA68D8B00993678 /* ImageViewStore.swift in Sources */,
 				DB5FCB462AA68D9800993678 /* ColorViewStore.swift in Sources */,
@@ -565,11 +604,13 @@
 				DB900DE62AA0C83A001FBA2E /* ListInsertable.swift in Sources */,
 				DB5FCB4E2AA68F1E00993678 /* IfInsertable.swift in Sources */,
 				DB5FCB512AA68FFF00993678 /* IfViewStore.swift in Sources */,
+				DB5FCB5C2AA7E2B900993678 /* LoginApp.swift in Sources */,
 				DB5FCB362AA68D1A00993678 /* HStackViewStore.swift in Sources */,
 				DBAB4BE92A8F0A5500BB804C /* VStackInsertable.swift in Sources */,
-				DBAB4BFB2A91214300BB804C /* InjectedService.swift in Sources */,
+				DBAB4BFB2A91214300BB804C /* ExampleContent.swift in Sources */,
 				DB900DDC2A9F028C001FBA2E /* ZStackStore.swift in Sources */,
 				DBAB4BE52A8F0A2F00BB804C /* InjectedViewStore.swift in Sources */,
+				DB5FCB532AA7785400993678 /* LoginView.swift in Sources */,
 				DBAB4C8C2A9B9B8200BB804C /* TextFieldStore.swift in Sources */,
 				DB5FCB3A2AA68D3E00993678 /* ListViewStore.swift in Sources */,
 				DB5FCB4A2AA68EB900993678 /* InjectedViewStoreHelper.swift in Sources */,
@@ -577,15 +618,18 @@
 				DB900DDD2A9F028C001FBA2E /* ZStackInsertable.swift in Sources */,
 				DBAB4C0D2A9419EA00BB804C /* UIColor_Ext.swift in Sources */,
 				DB5FCB382AA68D2700993678 /* ZStackViewStore.swift in Sources */,
+				DB5FCB592AA7E25800993678 /* LoginViewContent.swift in Sources */,
 				DB5FCB402AA68D6C00993678 /* FieldViewStore.swift in Sources */,
 				DBAB4C8E2A9B9BBE00BB804C /* SpacerStore.swift in Sources */,
 				DBAB4BE12A8CFBDD00BB804C /* Insertable.swift in Sources */,
+				DB5FCB612AB0178300993678 /* InjectedSystemFont.swift in Sources */,
 				DBAB4BEB2A8F0A7C00BB804C /* View_Ext.swift in Sources */,
 				DBAB4BED2A8F0AA800BB804C /* HStackStore.swift in Sources */,
 				DBAB4C182A97C2FE00BB804C /* InjectedError.swift in Sources */,
 				DB900DE32AA0391C001FBA2E /* ColorStore.swift in Sources */,
 				DBAB4BE32A8F0A0900BB804C /* InjectedModifier.swift in Sources */,
-				DBAB4BB72A8CFBCC00BB804C /* InsertableApp.swift in Sources */,
+				DBAB4BB72A8CFBCC00BB804C /* GenericInsertableApp.swift in Sources */,
+				DB5FCB5F2AA818C400993678 /* InjectedModifier_Ext.swift in Sources */,
 				DB5FCB3E2AA68D5A00993678 /* TextViewStore.swift in Sources */,
 				DBAB4CA32A9E453600BB804C /* StackAlignment.swift in Sources */,
 				DBAB4C9E2A9E3E1100BB804C /* ImageInsertable.swift in Sources */,

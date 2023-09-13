@@ -1,21 +1,21 @@
 //
-//  InsertableApp.swift
+//  LoginApp.swift
 //  Insertable
 //
-//  Created by Blake Osonduagwueki on 8/16/23.
+//  Created by Blake Osonduagwueki on 9/5/23.
 //
 
+import Foundation
 import SwiftUI
 import Combine
 
-
-@main
-struct InsertableApp: App {
+//@main
+struct LoginApp: App {
     var state = CurrentValueSubject<InjectedState, Never>(getState())
     var container = getViewStores()
     var body: some Scene {
         WindowGroup {
-            ContentView(state: state, container: container)
+            LoginView(state: state, container: container)
         }
     }
 }

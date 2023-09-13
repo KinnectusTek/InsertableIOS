@@ -4,28 +4,24 @@
     "viewStores": [
             {
                 "text": {
-                    "id": "text",
-                    "modifiers": [],
-                    "textKey": "textKey",
-                    "content": {
-                        "empty": {
-                            "id": ""
-                        }
+                    "store": {
+                        "id": "text",
+                        "modifiers": [],
+                        "textKey": "textKey"
                     }
                 }
             },
             {
                 "button": {
-                    "id": "button",
-                    "modifiers": [],
-                    "content": {
-                        "text": {
-                            "id": "buttonTitle",
-                            "modifiers": [],
-                            "textKey": "buttonTitle",
-                            "content": {
-                                "empty": {
-                                    "id": ""
+                    "store": {
+                        "id": "button",
+                        "modifiers": [],
+                        "content": {
+                            "text": {
+                                "store": {
+                                    "id": "buttonTitle",
+                                    "modifiers": [],
+                                    "textKey": "buttonTitle"
                                 }
                             }
                         }
@@ -34,48 +30,66 @@
             },
             {
                 "vStack": {
-                    "id": "vStack",
-                    "modifiers": [],
-                    "content1": {
-                        "text": {
-                            "id": "vStackText",
-                            "modifiers": [],
-                            "textKey": "vStackText"
+                    "store": {
+                        "id": "vStack",
+                        "modifiers": [],
+                        "alignmentKey": "",
+                        "spacingKey": "",
+                        "content1": {
+                            "text": {
+                               "store": {
+                                   "id": "vStackText",
+                                   "modifiers": [],
+                                   "textKey": "vStackText"
+                               }
+                            }
                         }
                     }
                 }
             },
             {
                 "hStack": {
-                    "id": "hStack",
-                    "modifiers": [],
-                    "content1": {
-                        "text": {
-                            "id": "hStackText",
-                            "modifiers": [],
-                            "textKey": "hStackText"
+                    "store": {
+                        "id": "hStack",
+                        "modifiers": [],
+                        "alignmentKey": "",
+                        "spacingKey": "",
+                        "content1": {
+                            "text": {
+                               "store": {
+                                   "id": "hStackText",
+                                   "modifiers": [],
+                                   "textKey": "hStackText"
+                               }
+                            }
                         }
                     }
                 }
             },
             {
                 "field": {
-                    "id": "field",
-                    "modifiers": [],
-                    "textKey": "field",
-                    "content": {
-                        "text": {
-                            "id": "fieldText",
-                            "modifiers": [],
-                            "textKey": "fieldText"
+                    "store": {
+                        "id": "field",
+                        "modifiers": [],
+                        "textKey": "field",
+                        "content": {
+                            "text": {
+                               "store": {
+                                   "id": "fieldText",
+                                   "modifiers": [],
+                                   "textKey": "fieldText"
+                               }
+                            }
                         }
                     }
                 }
             },
             {
                 "spacer": {
-                    "id": "spacer",
-                    "modifiers": []
+                    "store": {
+                        "id": "spacer",
+                        "modifiers": []
+                    }
                 }
             }
     ]

@@ -1,14 +1,15 @@
 //
-//  ContentView.swift
+//  LoginView.swift
 //  Insertable
 //
-//  Created by Blake Osonduagwueki on 8/16/23.
+//  Created by Blake Osonduagwueki on 9/5/23.
 //
 
+import Foundation
 import SwiftUI
 import Combine
 
-struct ContentView: View {
+struct LoginView: View {
     var state: CurrentValueSubject<InjectedState,Never>
     var container: ViewStoresContainer
     var entry: InjectedViewStore {
@@ -20,10 +21,10 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         let state = CurrentValueSubject<InjectedState, Never>(getState())
         let container = getViewStores()
-        ContentView(state: state, container: container)
+        LoginView(state: state, container: container)
     }
 }
