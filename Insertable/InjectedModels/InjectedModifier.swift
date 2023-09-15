@@ -15,7 +15,7 @@ enum InjectedModifier: Codable {
     case cornerRadius(stateId: String = "", valueId: String = "", radius: Double? = nil)
     case borderline(stateId: String = "", widthId: String = "", colorId: String = "", width: Double? = nil, colorHex: String? = nil)
     case foregroundColor(stateId: String = "", valueId: String = "", colorHex: String? = nil)
-    case background(stateId: String = "", valueId: String = "", colorHex: String? = nil, modifier: [InjectedModifier])
+    case background(content: InjectedViewStore, ignoresSafeAreaEdges: InjectedEdgeSet)
     case fullScreenCover(viewStore: InjectedViewStore, isPresentedKey: String)
     case sheet(viewStore: InjectedViewStore, isPresentedKey: String)
 }

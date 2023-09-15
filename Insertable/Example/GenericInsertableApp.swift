@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 
-@main
+//@main
 struct ExampleInsertableApp: App {
     var state = CurrentValueSubject<InjectedState, Never>(getState())
     var container = getViewStores()

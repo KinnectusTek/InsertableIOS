@@ -66,12 +66,9 @@ func createViewStore() -> Data {
 }
 
 func getState() -> InjectedState {
-//    let state = Bundle.main.decode(InjectedState.self, from: "Insertable.json")
-    
     return try! JSONDecoder().decode(InjectedState.self, from: createState())
 }
 
 func getViewStores() -> ViewStoresContainer {
-//    let viewStoresContainer = Bundle.main.decode(ViewStoresContainer.self, from: "ViewStore.json")
     return try! JSONDecoder().decode(ViewStoresContainer.self, from: createViewStore())
 }

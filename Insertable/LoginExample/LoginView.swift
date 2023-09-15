@@ -23,8 +23,8 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        let state = CurrentValueSubject<InjectedState, Never>(getState())
-        let container = getViewStores()
+        let state = CurrentValueSubject<InjectedState, Never>(getLoginState())
+        let container = getLoginViewStores()
         LoginView(state: state, container: container)
     }
 }

@@ -6,75 +6,52 @@
 //
 
 import Foundation
+typealias InjectedContent = () -> InjectedViewStore
 
 func vStack(
     id: String = "",
     modifiers: [InjectedModifier] = [],
     alignmentKey: String = "",
     spacingKey: String = "",
-    content1: InjectedViewStore = .empty(),
-    content2: InjectedViewStore? = nil,
-    content3: InjectedViewStore? = nil,
-    content4: InjectedViewStore? = nil,
-    content5: InjectedViewStore? = nil,
-    content6: InjectedViewStore? = nil,
-    content7: InjectedViewStore? = nil,
-    content8: InjectedViewStore? = nil,
-    content9: InjectedViewStore? = nil,
-    content10: InjectedViewStore? = nil) -> InjectedViewStore {
-        .vStack(store: .init(id: id, modifiers: modifiers, alignmentKey: alignmentKey, spacingKey: spacingKey, content1: content1, content2: content2, content3: content3, content4: content4, content5: content5, content6: content6, content7: content7, content8: content8, content9: content9, content10: content10))
+    content: InjectedContent...) -> InjectedViewStore {
+        let content = content.map { $0() }.toTenLengthTuple()
+         return   .vStack(store: .init(id: id, modifiers: modifiers, alignmentKey: alignmentKey, spacingKey: spacingKey, content1: content.0, content2: content.1, content3: content.2, content4: content.3, content5: content.4, content6: content.5, content7: content.6, content8: content.7, content9: content.8, content10: content.9))
 }
 
-func hStackStore(
+func hStack(
     id: String = "",
     modifiers: [InjectedModifier] = [],
     alignmentKey: String = "",
     spacingKey: String = "",
-    content1: InjectedViewStore = .empty(),
-    content2: InjectedViewStore? = nil,
-    content3: InjectedViewStore? = nil,
-    content4: InjectedViewStore? = nil,
-    content5: InjectedViewStore? = nil,
-    content6: InjectedViewStore? = nil,
-    content7: InjectedViewStore? = nil,
-    content8: InjectedViewStore? = nil,
-    content9: InjectedViewStore? = nil,
-    content10: InjectedViewStore? = nil) -> InjectedViewStore {
-        .hStack(store: .init(id: id, modifiers: modifiers, alignmentKey: alignmentKey, spacingKey: spacingKey, content1: content1, content2: content2, content3: content3, content4: content4, content5: content5, content6: content6, content7: content7, content8: content8, content9: content9, content10: content10))
+    content: InjectedContent...) -> InjectedViewStore {
+        let content = content.map { $0() }.toTenLengthTuple()
+         return   .hStack(store: .init(id: id, modifiers: modifiers, alignmentKey: alignmentKey, spacingKey: spacingKey, content1: content.0, content2: content.1, content3: content.2, content4: content.3, content5: content.4, content6: content.5, content7: content.6, content8: content.7, content9: content.8, content10: content.9))
 }
 
-func zStackStore(
+func zStack(
     id: String = "",
     modifiers: [InjectedModifier] = [],
     alignmentKey: String = "",
     spacingKey: String = "",
-    content1: InjectedViewStore = .empty(),
-    content2: InjectedViewStore? = nil,
-    content3: InjectedViewStore? = nil,
-    content4: InjectedViewStore? = nil,
-    content5: InjectedViewStore? = nil,
-    content6: InjectedViewStore? = nil,
-    content7: InjectedViewStore? = nil,
-    content8: InjectedViewStore? = nil,
-    content9: InjectedViewStore? = nil,
-    content10: InjectedViewStore? = nil) -> InjectedViewStore {
-        .zStack(store: .init(id: id, modifiers: modifiers, alignmentKey: alignmentKey, spacingKey: spacingKey, content1: content1, content2: content2, content3: content3, content4: content4, content5: content5, content6: content6, content7: content7, content8: content8, content9: content9, content10: content10))
+    content: InjectedContent...) -> InjectedViewStore {
+        let content = content.map { $0() }.toTenLengthTuple()
+         return   .zStack(store: .init(id: id, modifiers: modifiers, alignmentKey: alignmentKey, spacingKey: spacingKey, content1: content.0, content2: content.1, content3: content.2, content4: content.3, content5: content.4, content6: content.5, content7: content.6, content8: content.7, content9: content.8, content10: content.9))
 }
 
 func list(
     id: String = "",
     modifiers: [InjectedModifier] = [],
     listKey: String = "",
-    content: InjectedViewStore = .empty()) -> InjectedViewStore {
-        .list(store: .init(id: id, modifiers: modifiers, listKey: listKey, content: content))
+    content: InjectedContent = { .empty()}) -> InjectedViewStore {
+        .list(store: .init(id: id, modifiers: modifiers, listKey: listKey, content: content()))
 }
 
 func forEach(
     id: String = "",
     modifiers: [InjectedModifier] = [],
     forEachKey: String = "",
-    content: InjectedViewStore = .empty()) -> InjectedViewStore {
-        .forEach(store: .init(id: id, modifiers: modifiers, forEachKey: forEachKey, content: content))
+    content: InjectedContent = { .empty() }) -> InjectedViewStore {
+        .forEach(store: .init(id: id, modifiers: modifiers, forEachKey: forEachKey, content: content()))
 }
 
 func text(
@@ -88,8 +65,8 @@ func field(
     id: String = "",
     modifiers: [InjectedModifier] = [],
     textKey: String = "",
-    content: InjectedViewStore = .empty()) -> InjectedViewStore {
-        .field(store: .init(id: id, modifiers: modifiers, textKey: textKey, content: content))
+    content: InjectedContent = { .empty()}) -> InjectedViewStore {
+        .field(store: .init(id: id, modifiers: modifiers, textKey: textKey, content: content()))
 }
 
 func button(
@@ -105,8 +82,8 @@ func button(
     operation8: InjectedOperation? = nil,
     operation9: InjectedOperation? = nil,
     operation10: InjectedOperation? = nil,
-    content: InjectedViewStore = .empty()) -> InjectedViewStore {
-        .button(store: .init(id: id, modifiers: modifiers, operation1: operation1, operation2: operation2, operation3: operation3, operation4: operation4, operation5: operation5, operation6: operation6, operation7: operation7, operation8: operation8, operation9: operation9, operation10: operation10, content: content))
+    content: InjectedContent = { .empty()}) -> InjectedViewStore {
+    .button(store: .init(id: id, modifiers: modifiers, operation1: operation1, operation2: operation2, operation3: operation3, operation4: operation4, operation5: operation5, operation6: operation6, operation7: operation7, operation8: operation8, operation9: operation9, operation10: operation10, content: content()))
 }
 
 func namedImage(
@@ -134,4 +111,40 @@ func spacer(
     id: String = "",
     modifiers: [InjectedModifier] = []) -> InjectedViewStore {
         .spacer(store: .init(id: id, modifiers: modifiers))
+}
+
+extension Array {
+    var second: Element? {
+        itemAtIndex(index: 1)
+    }
+    var third: Element? {
+        itemAtIndex(index: 2)
+    }
+    var fourth: Element? {
+        itemAtIndex(index: 3)
+    }
+    var fifth: Element? {
+        itemAtIndex(index: 4)
+    }
+    var sixth: Element? {
+        itemAtIndex(index: 5)
+    }
+    var seventh: Element? {
+        itemAtIndex(index: 6)
+    }
+    var eigth: Element? {
+        itemAtIndex(index: 7)
+    }
+    var ninth: Element? {
+        itemAtIndex(index: 8)
+    }
+    var tenth: Element? {
+        itemAtIndex(index: 9)
+    }
+    func toTenLengthTuple() -> (Element, Element?, Element?, Element?, Element?,
+                                Element?, Element?, Element?, Element?, Element?) {
+        precondition(self.count >= 1)
+        
+        return (first!, second, third, fourth, fifth, sixth, seventh, eigth, ninth, tenth)
+    }
 }

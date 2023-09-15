@@ -9,6 +9,7 @@ import Foundation
 import Combine
 
 indirect enum InjectedViewStore: Codable, Hashable {
+   
     static func == (lhs: InjectedViewStore, rhs: InjectedViewStore) -> Bool {
         lhs.id == rhs.id
     }

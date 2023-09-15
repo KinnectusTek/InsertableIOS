@@ -7,16 +7,11 @@ struct InjectedState: Codable, Equatable, Identifiable, Hashable {
     init(id: String, state: [InjectedValue]) {
         self.id = id
         self.state = state.map { value in
-            value.updateStateId(id: id)
+            value.updateStateId(stateId: id)
         }
     }
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-}
-
-struct InjectedItemState: Equatable {
-    var id: String
-    var state: InjectedValue
 }

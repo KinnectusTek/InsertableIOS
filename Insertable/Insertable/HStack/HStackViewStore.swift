@@ -13,7 +13,7 @@ struct HStackViewStore: Codable {
     var modifiers: [InjectedModifier] = []
     var alignmentKey: String = ""
     var spacingKey: String = ""
-    var content1: InjectedViewStore = .empty()
+    var content1: InjectedViewStore 
     var content2: InjectedViewStore? = nil
     var content3: InjectedViewStore? = nil
     var content4: InjectedViewStore? = nil

@@ -9,10 +9,10 @@ import Foundation
 import SwiftUI
 import Combine
 
-//@main
+@main
 struct LoginApp: App {
-    var state = CurrentValueSubject<InjectedState, Never>(getState())
-    var container = getViewStores()
+    var state = CurrentValueSubject<InjectedState, Never>(getLoginState())
+    var container = getLoginViewStores()
     var body: some Scene {
         WindowGroup {
             LoginView(state: state, container: container)

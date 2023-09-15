@@ -31,6 +31,9 @@
 		DB5FCB5C2AA7E2B900993678 /* LoginApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FCB5B2AA7E2B900993678 /* LoginApp.swift */; };
 		DB5FCB5F2AA818C400993678 /* InjectedModifier_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FCB5E2AA818C400993678 /* InjectedModifier_Ext.swift */; };
 		DB5FCB612AB0178300993678 /* InjectedSystemFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FCB602AB0178300993678 /* InjectedSystemFont.swift */; };
+		DB5FCB632AB1469300993678 /* InjectedEdgeSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FCB622AB1469300993678 /* InjectedEdgeSet.swift */; };
+		DB5FCB652AB16D0200993678 /* InjectedViewStoreAddModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FCB642AB16D0200993678 /* InjectedViewStoreAddModifier.swift */; };
+		DB5FCB692AB298C600993678 /* String_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FCB682AB298C600993678 /* String_Ext.swift */; };
 		DB900DD72A9F0238001FBA2E /* ViewStoresContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB900DD62A9F0238001FBA2E /* ViewStoresContainer.swift */; };
 		DB900DD92A9F0246001FBA2E /* InjectedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB900DD82A9F0246001FBA2E /* InjectedState.swift */; };
 		DB900DDC2A9F028C001FBA2E /* ZStackStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB900DDA2A9F028C001FBA2E /* ZStackStore.swift */; };
@@ -121,6 +124,9 @@
 		DB5FCB5B2AA7E2B900993678 /* LoginApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginApp.swift; sourceTree = "<group>"; };
 		DB5FCB5E2AA818C400993678 /* InjectedModifier_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedModifier_Ext.swift; sourceTree = "<group>"; };
 		DB5FCB602AB0178300993678 /* InjectedSystemFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedSystemFont.swift; sourceTree = "<group>"; };
+		DB5FCB622AB1469300993678 /* InjectedEdgeSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedEdgeSet.swift; sourceTree = "<group>"; };
+		DB5FCB642AB16D0200993678 /* InjectedViewStoreAddModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedViewStoreAddModifier.swift; sourceTree = "<group>"; };
+		DB5FCB682AB298C600993678 /* String_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String_Ext.swift; sourceTree = "<group>"; };
 		DB900DD62A9F0238001FBA2E /* ViewStoresContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewStoresContainer.swift; sourceTree = "<group>"; };
 		DB900DD82A9F0246001FBA2E /* InjectedState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InjectedState.swift; sourceTree = "<group>"; };
 		DB900DDA2A9F028C001FBA2E /* ZStackStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZStackStore.swift; sourceTree = "<group>"; };
@@ -220,8 +226,8 @@
 		DB5FCB5A2AA7E26200993678 /* LoginExample */ = {
 			isa = PBXGroup;
 			children = (
-				DB5FCB522AA7785400993678 /* LoginView.swift */,
 				DB5FCB5B2AA7E2B900993678 /* LoginApp.swift */,
+				DB5FCB522AA7785400993678 /* LoginView.swift */,
 				DB5FCB582AA7E25800993678 /* LoginViewContent.swift */,
 			);
 			path = LoginExample;
@@ -231,8 +237,8 @@
 			isa = PBXGroup;
 			children = (
 				DBAB4BB62A8CFBCC00BB804C /* GenericInsertableApp.swift */,
-				DBAB4BFA2A91214300BB804C /* ExampleContent.swift */,
 				DBAB4BB82A8CFBCC00BB804C /* ExampleView.swift */,
+				DBAB4BFA2A91214300BB804C /* ExampleContent.swift */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -353,6 +359,7 @@
 			isa = PBXGroup;
 			children = (
 				DBAB4BEA2A8F0A7C00BB804C /* View_Ext.swift */,
+				DB5FCB682AB298C600993678 /* String_Ext.swift */,
 				DB5FCB542AA7E20400993678 /* Array_Ext.swift */,
 				DB5FCB562AA7E21A00993678 /* Bundle_Ext.swift */,
 				DBAB4C0C2A9419EA00BB804C /* UIColor_Ext.swift */,
@@ -366,10 +373,12 @@
 			isa = PBXGroup;
 			children = (
 				DBAB4BE22A8F0A0900BB804C /* InjectedModifier.swift */,
+				DB5FCB622AB1469300993678 /* InjectedEdgeSet.swift */,
 				DB5FCB5E2AA818C400993678 /* InjectedModifier_Ext.swift */,
 				DB5FCB602AB0178300993678 /* InjectedSystemFont.swift */,
 				DBAB4BE42A8F0A2F00BB804C /* InjectedViewStore.swift */,
 				DB5FCB492AA68EB900993678 /* InjectedViewStoreHelper.swift */,
+				DB5FCB642AB16D0200993678 /* InjectedViewStoreAddModifier.swift */,
 				DBAB4BFE2A91881E00BB804C /* InjectedValue.swift */,
 				DBAB4C002A91A08E00BB804C /* InjectedFunctionBuilder.swift */,
 				DBAB4C042A9306F100BB804C /* InjectedOperation.swift */,
@@ -600,6 +609,7 @@
 				DB5FCB342AA68CFF00993678 /* VStackViewStore.swift in Sources */,
 				DB5FCB442AA68D8B00993678 /* ImageViewStore.swift in Sources */,
 				DB5FCB462AA68D9800993678 /* ColorViewStore.swift in Sources */,
+				DB5FCB652AB16D0200993678 /* InjectedViewStoreAddModifier.swift in Sources */,
 				DBAB4BF92A911B5900BB804C /* SpacerInsertable.swift in Sources */,
 				DB900DE62AA0C83A001FBA2E /* ListInsertable.swift in Sources */,
 				DB5FCB4E2AA68F1E00993678 /* IfInsertable.swift in Sources */,
@@ -610,6 +620,7 @@
 				DBAB4BFB2A91214300BB804C /* ExampleContent.swift in Sources */,
 				DB900DDC2A9F028C001FBA2E /* ZStackStore.swift in Sources */,
 				DBAB4BE52A8F0A2F00BB804C /* InjectedViewStore.swift in Sources */,
+				DB5FCB692AB298C600993678 /* String_Ext.swift in Sources */,
 				DB5FCB532AA7785400993678 /* LoginView.swift in Sources */,
 				DBAB4C8C2A9B9B8200BB804C /* TextFieldStore.swift in Sources */,
 				DB5FCB3A2AA68D3E00993678 /* ListViewStore.swift in Sources */,
@@ -626,6 +637,7 @@
 				DBAB4BEB2A8F0A7C00BB804C /* View_Ext.swift in Sources */,
 				DBAB4BED2A8F0AA800BB804C /* HStackStore.swift in Sources */,
 				DBAB4C182A97C2FE00BB804C /* InjectedError.swift in Sources */,
+				DB5FCB632AB1469300993678 /* InjectedEdgeSet.swift in Sources */,
 				DB900DE32AA0391C001FBA2E /* ColorStore.swift in Sources */,
 				DBAB4BE32A8F0A0900BB804C /* InjectedModifier.swift in Sources */,
 				DBAB4BB72A8CFBCC00BB804C /* GenericInsertableApp.swift in Sources */,
