@@ -28,20 +28,7 @@ class HStackStore: ObservableObject {
         
         $state.map { state in
             let alignment = findStringValue(id: store.alignmentKey, state: state) ?? ""
-            switch HStackAlignment(rawValue: alignment) {
-            case .center?:
-                return VerticalAlignment.center
-            case .top?:
-                return VerticalAlignment.top
-            case .bottom?:
-                return VerticalAlignment.bottom
-            case .firstTextBaseline?:
-                return VerticalAlignment.firstTextBaseline
-            case .lastTextBaseline?:
-                return VerticalAlignment.lastTextBaseline
-            default:
-                return nil
-            }
+            return HStackAlignment(rawValue: alignment)?.render ?? .center
         }.compactMap { $0 }.assign(to: &$alignment)
 
         $state.map { state in

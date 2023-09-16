@@ -11,7 +11,7 @@ import Combine
 struct ExampleView: View {
     var state: CurrentValueSubject<InjectedState,Never>
     var container: ViewStoresContainer
-    var entry: InjectedViewStore {
+    var entry: InjectedView {
         container.viewStores.first(where: {$0.id == "entry" })!
     }
     var value: Bool = false

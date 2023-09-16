@@ -8,5 +8,5 @@
 import Foundation
 
 struct ViewStoresContainer: Codable {
-    let viewStores: [InjectedViewStore]
+    let viewStores: [InjectedView]
 }

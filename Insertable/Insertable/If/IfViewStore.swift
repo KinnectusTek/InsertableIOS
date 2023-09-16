@@ -10,5 +10,5 @@ import Foundation
 struct IfViewStore: Codable {
     var id: String = ""
     var conditionKey: String = ""
-    var content: InjectedViewStore 
+    var content: InjectedView 
 }

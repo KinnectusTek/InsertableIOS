@@ -7,7 +7,9 @@
 
 import Foundation
 
-
+extension String {
+    static let empty = ""
+}
 struct RegisterStateKey {
     static let  none = "none"
     static let  backButtonIcon = "backButtonIcon"
@@ -63,7 +65,6 @@ struct OnboardingStateKey {
     static let  registerState = "registerState"
 }
 
-//#error("Make Ids hashable and comparable so that they can be set with enums instead")
 func createLoginState() -> Data {
     
     let registerState: [InjectedValue] = [
@@ -117,7 +118,7 @@ func createLoginState() -> Data {
 }
 
 func createLoginViewStore() -> Data {
-    var onboardingViewStore: InjectedViewStore {
+    var onboardingViewStore: InjectedView {
         vStack(id: "entry", content: {
             namedImage(id: LoginStateKey.none, name: "background")
                 .frame(width: 300, height: 300)
@@ -138,6 +139,8 @@ func createLoginViewStore() -> Data {
             button {
                 text(textKey: LoginStateKey.loginButtonTitle)
                     .foregroundColor(colorHex: "FFFFFF")
+                    .background(content: color(id: .empty, colorKey: "#2F70AF"), ignoresSafeAreaEdges: .all)
+                    .borderline(stateId: .empty, widthId: .empty, colorId: .empty, width: 2, colorHex: "000000")
             }
             .cornerRadius(radius: 20)
         }, {

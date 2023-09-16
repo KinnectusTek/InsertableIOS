@@ -7,9 +7,9 @@
 
 import Foundation
 
-extension InjectedViewStore {
+extension InjectedView {
     
-    func addModifer(modifier: InjectedModifier) -> InjectedViewStore {
+    func addModifer(modifier: InjectedModifier) -> InjectedView {
         switch self {
         case .viewStoreReference, .if, .empty:
             return self
@@ -37,45 +37,8 @@ extension InjectedViewStore {
             return .color(store: .init(id: store.id, modifiers: store.modifiers.appending(modifier), colorKey: store.colorKey))
         case .spacer(let store):
             return .spacer(store: .init(id: store.id, modifiers: store.modifiers.appending(modifier)))
+        
         }
     }
 }
 
-
-extension InjectedViewStore {
-    
-    func systemFont(stateId: String = "", nameId: String = "", description: String = "") -> InjectedViewStore {
-        self.addModifer(modifier: .systemFont(stateId: stateId, nameId: nameId, description: description))
-    }
-    
-    func font(stateId: String = "", nameId: String = "", sizeId: String = "", fontName: String? = nil, fontSize: Double? = nil) -> InjectedViewStore {
-        self.addModifer(modifier: .font(stateId: stateId, nameId: nameId, sizeId: sizeId, fontName: fontName, fontSize: fontSize))
-    }
-    func frame(stateId: String = "", widthId: String = "", heightId: String = "", width: Double? = nil, height: Double? = nil) -> InjectedViewStore {
-        self.addModifer(modifier: .frame(stateId: stateId, widthId: widthId, heightId: heightId, width: width, height: height))
-    }
-    
-    func cornerRadius(stateId: String = "", valueId: String = "", radius: Double? = nil) -> InjectedViewStore {
-        self.addModifer(modifier: .cornerRadius(stateId: stateId, valueId: valueId, radius: radius))
-    }
-    
-    func borderline(stateId: String = "", widthId: String = "", colorId: String = "", width: Double? = nil, colorHex: String? = nil) -> InjectedViewStore {
-        self.addModifer(modifier: .borderline(stateId: stateId, widthId: widthId, colorId: colorId, width: width, colorHex: colorHex))
-    }
-    
-    func foregroundColor(stateId: String = "", valueId: String = "", colorHex: String? = nil) -> InjectedViewStore {
-        self.addModifer(modifier: .foregroundColor(stateId: stateId, valueId: valueId, colorHex: colorHex))
-    }
-    
-    func background(content: InjectedViewStore, ignoresSafeAreaEdges: InjectedEdgeSet) -> InjectedViewStore {
-        self.addModifer(modifier: .background(content: content, ignoresSafeAreaEdges: ignoresSafeAreaEdges))
-    }
-    
-    func fullScreenCover(viewStore: InjectedViewStore, isPresentedKey: String) -> InjectedViewStore {
-        self.addModifer(modifier: .fullScreenCover(viewStore: viewStore, isPresentedKey: isPresentedKey))
-    }
-    
-    func sheet(viewStore: InjectedViewStore, isPresentedKey: String) -> InjectedViewStore {
-        self.addModifer(modifier: .sheet(viewStore: viewStore, isPresentedKey: isPresentedKey))
-    }
-}

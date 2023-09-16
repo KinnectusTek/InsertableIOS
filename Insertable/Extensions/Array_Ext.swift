@@ -21,4 +21,39 @@ extension Array {
         copy.append(item)
         return copy
     }
+    
+    var second: Element? {
+        itemAtIndex(index: 1)
+    }
+    var third: Element? {
+        itemAtIndex(index: 2)
+    }
+    var fourth: Element? {
+        itemAtIndex(index: 3)
+    }
+    var fifth: Element? {
+        itemAtIndex(index: 4)
+    }
+    var sixth: Element? {
+        itemAtIndex(index: 5)
+    }
+    var seventh: Element? {
+        itemAtIndex(index: 6)
+    }
+    var eigth: Element? {
+        itemAtIndex(index: 7)
+    }
+    var ninth: Element? {
+        itemAtIndex(index: 8)
+    }
+    var tenth: Element? {
+        itemAtIndex(index: 9)
+    }
+    func toTenLengthTuple() -> (Element, Element?, Element?, Element?, Element?,
+                                Element?, Element?, Element?, Element?, Element?) {
+        precondition(self.count >= 1)
+        
+        return (first!, second, third, fourth, fifth, sixth, seventh, eigth, ninth, tenth)
+    }
 }
+

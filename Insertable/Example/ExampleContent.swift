@@ -25,7 +25,7 @@ func createState() -> Data {
 
 func createViewStore() -> Data {
     
-    var presentedContent: InjectedViewStore {
+    var presentedContent: InjectedView {
         .vStack(store: .init(
             id: "presentedContent",
             
@@ -45,7 +45,7 @@ func createViewStore() -> Data {
         ))
     }
     
-    var entryViewStore: InjectedViewStore {
+    var entryViewStore: InjectedView {
         .vStack(store: .init(
             id: "entry",
             modifiers: [

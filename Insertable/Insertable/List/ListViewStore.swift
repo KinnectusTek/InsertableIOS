@@ -11,5 +11,5 @@ struct ListViewStore: Codable {
     var id: String = ""
     var modifiers: [InjectedModifier] = []
     var listKey: String = ""
-    var content: InjectedViewStore = .empty()
+    var content: InjectedView = .empty()
 }

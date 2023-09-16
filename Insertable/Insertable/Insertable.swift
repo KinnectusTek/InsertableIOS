@@ -14,7 +14,7 @@ struct Insertable: View {
     
     var state: CurrentValueSubject<InjectedState,Never>
     var container: ViewStoresContainer
-    var viewStore: InjectedViewStore
+    var viewStore: InjectedView
     @ViewBuilder var render: some View {
         switch viewStore {
             
@@ -65,7 +65,7 @@ struct Insertable: View {
             ImageInsertable(store: .init(store: viewStore, stateSubject: state), container: container)
             
         case .color(let viewStore):
-            
+           
             ColorInsertable(store: .init(store: viewStore, state: state), container: container)
             
         case .spacer(let viewStore):

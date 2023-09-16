@@ -32,41 +32,7 @@ class ZStackStore: ObservableObject {
         
         $state.map { state  -> Alignment in
             let alignment = findStringValue(id: store.alignmentKey, state: state) ?? ""
-            switch ZStackAlignment(rawValue: alignment) {
-            case .trailing?:
-                return Alignment.trailing
-            case .leading?:
-                return Alignment.leading
-            case .center?:
-                return Alignment.center
-            case .top?:
-                return Alignment.top
-            case .bottom?:
-                return Alignment.bottom
-            case .bottomLeading?:
-                return Alignment.bottomLeading
-            case .bottomTrailing?:
-                return Alignment.bottomTrailing
-            case .topLeading?:
-                return Alignment.topLeading
-            case .topTrailing?:
-                return Alignment.topTrailing
-            case .centerFirstTextBaseline?:
-                return Alignment.centerFirstTextBaseline
-            case .centerLastTextBaseline?:
-                return Alignment.centerLastTextBaseline
-            case .leadingFirstTextBaseline?:
-                return Alignment.leadingFirstTextBaseline
-            case .leadingLastTextBaseline?:
-                return Alignment.leadingLastTextBaseline
-            case .trailingFirstTextBaseline?:
-                return Alignment.trailingFirstTextBaseline
-            case .trailingLastTextBaseline?:
-                return Alignment.trailingLastTextBaseline
-            default:
-                return Alignment.center
-            }
-            
+            return ZStackAlignment(rawValue: alignment)?.render ?? .center
         }.compactMap { $0 }.assign(to: &$alignment)
         
     }

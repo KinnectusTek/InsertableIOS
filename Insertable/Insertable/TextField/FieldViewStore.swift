@@ -12,5 +12,5 @@ struct FieldViewStore: Codable {
     var id: String = ""
     var modifiers: [InjectedModifier] = []
     var textKey: String = ""
-    var content: InjectedViewStore = .empty()
+    var content: InjectedView = .empty()
 }

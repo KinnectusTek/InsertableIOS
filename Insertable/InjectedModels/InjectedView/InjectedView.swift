@@ -8,9 +8,9 @@
 import Foundation
 import Combine
 
-indirect enum InjectedViewStore: Codable, Hashable {
+indirect enum InjectedView: Codable, Hashable {
    
-    static func == (lhs: InjectedViewStore, rhs: InjectedViewStore) -> Bool {
+    static func == (lhs: InjectedView, rhs: InjectedView) -> Bool {
         lhs.id == rhs.id
     }
     

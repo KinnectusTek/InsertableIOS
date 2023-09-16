@@ -20,7 +20,7 @@
 		DB5FCB442AA68D8B00993678 /* ImageViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FCB432AA68D8B00993678 /* ImageViewStore.swift */; };
 		DB5FCB462AA68D9800993678 /* ColorViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FCB452AA68D9800993678 /* ColorViewStore.swift */; };
 		DB5FCB482AA68DA400993678 /* SpacerViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FCB472AA68DA400993678 /* SpacerViewStore.swift */; };
-		DB5FCB4A2AA68EB900993678 /* InjectedViewStoreHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FCB492AA68EB900993678 /* InjectedViewStoreHelper.swift */; };
+		DB5FCB4A2AA68EB900993678 /* InjectedView_Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FCB492AA68EB900993678 /* InjectedView_Util.swift */; };
 		DB5FCB4C2AA68F1600993678 /* IfStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FCB4B2AA68F1600993678 /* IfStore.swift */; };
 		DB5FCB4E2AA68F1E00993678 /* IfInsertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FCB4D2AA68F1E00993678 /* IfInsertable.swift */; };
 		DB5FCB512AA68FFF00993678 /* IfViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FCB502AA68FFF00993678 /* IfViewStore.swift */; };
@@ -32,8 +32,9 @@
 		DB5FCB5F2AA818C400993678 /* InjectedModifier_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FCB5E2AA818C400993678 /* InjectedModifier_Ext.swift */; };
 		DB5FCB612AB0178300993678 /* InjectedSystemFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FCB602AB0178300993678 /* InjectedSystemFont.swift */; };
 		DB5FCB632AB1469300993678 /* InjectedEdgeSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FCB622AB1469300993678 /* InjectedEdgeSet.swift */; };
-		DB5FCB652AB16D0200993678 /* InjectedViewStoreAddModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FCB642AB16D0200993678 /* InjectedViewStoreAddModifier.swift */; };
+		DB5FCB652AB16D0200993678 /* InjectedView_Modier_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FCB642AB16D0200993678 /* InjectedView_Modier_Ext.swift */; };
 		DB5FCB692AB298C600993678 /* String_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FCB682AB298C600993678 /* String_Ext.swift */; };
+		DB5FCB782AB4A79E00993678 /* InjectedView_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FCB772AB4A79E00993678 /* InjectedView_Ext.swift */; };
 		DB900DD72A9F0238001FBA2E /* ViewStoresContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB900DD62A9F0238001FBA2E /* ViewStoresContainer.swift */; };
 		DB900DD92A9F0246001FBA2E /* InjectedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB900DD82A9F0246001FBA2E /* InjectedState.swift */; };
 		DB900DDC2A9F028C001FBA2E /* ZStackStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB900DDA2A9F028C001FBA2E /* ZStackStore.swift */; };
@@ -51,7 +52,7 @@
 		DBAB4BD42A8CFBCD00BB804C /* InsertableUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4BD32A8CFBCD00BB804C /* InsertableUITestsLaunchTests.swift */; };
 		DBAB4BE12A8CFBDD00BB804C /* Insertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4BE02A8CFBDD00BB804C /* Insertable.swift */; };
 		DBAB4BE32A8F0A0900BB804C /* InjectedModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4BE22A8F0A0900BB804C /* InjectedModifier.swift */; };
-		DBAB4BE52A8F0A2F00BB804C /* InjectedViewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4BE42A8F0A2F00BB804C /* InjectedViewStore.swift */; };
+		DBAB4BE52A8F0A2F00BB804C /* InjectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4BE42A8F0A2F00BB804C /* InjectedView.swift */; };
 		DBAB4BE72A8F0A4700BB804C /* VStackStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4BE62A8F0A4700BB804C /* VStackStore.swift */; };
 		DBAB4BE92A8F0A5500BB804C /* VStackInsertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4BE82A8F0A5500BB804C /* VStackInsertable.swift */; };
 		DBAB4BEB2A8F0A7C00BB804C /* View_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB4BEA2A8F0A7C00BB804C /* View_Ext.swift */; };
@@ -113,7 +114,7 @@
 		DB5FCB432AA68D8B00993678 /* ImageViewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewStore.swift; sourceTree = "<group>"; };
 		DB5FCB452AA68D9800993678 /* ColorViewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewStore.swift; sourceTree = "<group>"; };
 		DB5FCB472AA68DA400993678 /* SpacerViewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacerViewStore.swift; sourceTree = "<group>"; };
-		DB5FCB492AA68EB900993678 /* InjectedViewStoreHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedViewStoreHelper.swift; sourceTree = "<group>"; };
+		DB5FCB492AA68EB900993678 /* InjectedView_Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedView_Util.swift; sourceTree = "<group>"; };
 		DB5FCB4B2AA68F1600993678 /* IfStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IfStore.swift; sourceTree = "<group>"; };
 		DB5FCB4D2AA68F1E00993678 /* IfInsertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IfInsertable.swift; sourceTree = "<group>"; };
 		DB5FCB502AA68FFF00993678 /* IfViewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IfViewStore.swift; sourceTree = "<group>"; };
@@ -125,8 +126,9 @@
 		DB5FCB5E2AA818C400993678 /* InjectedModifier_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedModifier_Ext.swift; sourceTree = "<group>"; };
 		DB5FCB602AB0178300993678 /* InjectedSystemFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedSystemFont.swift; sourceTree = "<group>"; };
 		DB5FCB622AB1469300993678 /* InjectedEdgeSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedEdgeSet.swift; sourceTree = "<group>"; };
-		DB5FCB642AB16D0200993678 /* InjectedViewStoreAddModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedViewStoreAddModifier.swift; sourceTree = "<group>"; };
+		DB5FCB642AB16D0200993678 /* InjectedView_Modier_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedView_Modier_Ext.swift; sourceTree = "<group>"; };
 		DB5FCB682AB298C600993678 /* String_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String_Ext.swift; sourceTree = "<group>"; };
+		DB5FCB772AB4A79E00993678 /* InjectedView_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedView_Ext.swift; sourceTree = "<group>"; };
 		DB900DD62A9F0238001FBA2E /* ViewStoresContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewStoresContainer.swift; sourceTree = "<group>"; };
 		DB900DD82A9F0246001FBA2E /* InjectedState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InjectedState.swift; sourceTree = "<group>"; };
 		DB900DDA2A9F028C001FBA2E /* ZStackStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZStackStore.swift; sourceTree = "<group>"; };
@@ -147,7 +149,7 @@
 		DBAB4BD32A8CFBCD00BB804C /* InsertableUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertableUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		DBAB4BE02A8CFBDD00BB804C /* Insertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Insertable.swift; sourceTree = "<group>"; };
 		DBAB4BE22A8F0A0900BB804C /* InjectedModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedModifier.swift; sourceTree = "<group>"; };
-		DBAB4BE42A8F0A2F00BB804C /* InjectedViewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedViewStore.swift; sourceTree = "<group>"; };
+		DBAB4BE42A8F0A2F00BB804C /* InjectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedView.swift; sourceTree = "<group>"; };
 		DBAB4BE62A8F0A4700BB804C /* VStackStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VStackStore.swift; sourceTree = "<group>"; };
 		DBAB4BE82A8F0A5500BB804C /* VStackInsertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VStackInsertable.swift; sourceTree = "<group>"; };
 		DBAB4BEA2A8F0A7C00BB804C /* View_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View_Ext.swift; sourceTree = "<group>"; };
@@ -206,9 +208,9 @@
 		DB5FCB322AA3B4B600993678 /* ForEach */ = {
 			isa = PBXGroup;
 			children = (
+				DB5FCB302AA3B4AD00993678 /* ForEachStore.swift */,
 				DB5FCB2E2AA3B4A500993678 /* ForEachInsertable.swift */,
 				DB5FCB3B2AA68D4A00993678 /* ForEachViewStore.swift */,
-				DB5FCB302AA3B4AD00993678 /* ForEachStore.swift */,
 			);
 			path = ForEach;
 			sourceTree = "<group>";
@@ -243,11 +245,31 @@
 			path = Example;
 			sourceTree = "<group>";
 		};
+		DB5FCB792AB4A7B000993678 /* InjectedView */ = {
+			isa = PBXGroup;
+			children = (
+				DBAB4BE42A8F0A2F00BB804C /* InjectedView.swift */,
+				DB5FCB772AB4A79E00993678 /* InjectedView_Ext.swift */,
+				DB5FCB492AA68EB900993678 /* InjectedView_Util.swift */,
+			);
+			path = InjectedView;
+			sourceTree = "<group>";
+		};
+		DB5FCB7A2AB4A7FB00993678 /* InjectedModifier */ = {
+			isa = PBXGroup;
+			children = (
+				DBAB4BE22A8F0A0900BB804C /* InjectedModifier.swift */,
+				DB5FCB5E2AA818C400993678 /* InjectedModifier_Ext.swift */,
+				DB5FCB642AB16D0200993678 /* InjectedView_Modier_Ext.swift */,
+			);
+			path = InjectedModifier;
+			sourceTree = "<group>";
+		};
 		DB900DDF2A9F02B2001FBA2E /* ZStack */ = {
 			isa = PBXGroup;
 			children = (
-				DB900DDB2A9F028C001FBA2E /* ZStackInsertable.swift */,
 				DB900DDA2A9F028C001FBA2E /* ZStackStore.swift */,
+				DB900DDB2A9F028C001FBA2E /* ZStackInsertable.swift */,
 				DB5FCB372AA68D2700993678 /* ZStackViewStore.swift */,
 			);
 			path = ZStack;
@@ -256,8 +278,8 @@
 		DB900DE42AA0392A001FBA2E /* Color */ = {
 			isa = PBXGroup;
 			children = (
-				DB900DE02AA038D0001FBA2E /* ColorInsertable.swift */,
 				DB900DE22AA0391C001FBA2E /* ColorStore.swift */,
+				DB900DE02AA038D0001FBA2E /* ColorInsertable.swift */,
 				DB5FCB452AA68D9800993678 /* ColorViewStore.swift */,
 			);
 			path = Color;
@@ -266,8 +288,8 @@
 		DB900DE92AA0C848001FBA2E /* List */ = {
 			isa = PBXGroup;
 			children = (
-				DB900DE52AA0C83A001FBA2E /* ListInsertable.swift */,
 				DB900DE72AA0C843001FBA2E /* ListStore.swift */,
+				DB900DE52AA0C83A001FBA2E /* ListInsertable.swift */,
 				DB5FCB392AA68D3E00993678 /* ListViewStore.swift */,
 			);
 			path = List;
@@ -372,13 +394,10 @@
 		DBAB4C162A96F9FE00BB804C /* InjectedModels */ = {
 			isa = PBXGroup;
 			children = (
-				DBAB4BE22A8F0A0900BB804C /* InjectedModifier.swift */,
+				DB5FCB7A2AB4A7FB00993678 /* InjectedModifier */,
 				DB5FCB622AB1469300993678 /* InjectedEdgeSet.swift */,
-				DB5FCB5E2AA818C400993678 /* InjectedModifier_Ext.swift */,
 				DB5FCB602AB0178300993678 /* InjectedSystemFont.swift */,
-				DBAB4BE42A8F0A2F00BB804C /* InjectedViewStore.swift */,
-				DB5FCB492AA68EB900993678 /* InjectedViewStoreHelper.swift */,
-				DB5FCB642AB16D0200993678 /* InjectedViewStoreAddModifier.swift */,
+				DB5FCB792AB4A7B000993678 /* InjectedView */,
 				DBAB4BFE2A91881E00BB804C /* InjectedValue.swift */,
 				DBAB4C002A91A08E00BB804C /* InjectedFunctionBuilder.swift */,
 				DBAB4C042A9306F100BB804C /* InjectedOperation.swift */,
@@ -454,8 +473,8 @@
 		DBAB4CA12A9E3E1F00BB804C /* Image */ = {
 			isa = PBXGroup;
 			children = (
-				DBAB4C9D2A9E3E1100BB804C /* ImageInsertable.swift */,
 				DBAB4C9F2A9E3E1800BB804C /* ImageStore.swift */,
+				DBAB4C9D2A9E3E1100BB804C /* ImageInsertable.swift */,
 				DB5FCB432AA68D8B00993678 /* ImageViewStore.swift */,
 			);
 			path = Image;
@@ -609,7 +628,7 @@
 				DB5FCB342AA68CFF00993678 /* VStackViewStore.swift in Sources */,
 				DB5FCB442AA68D8B00993678 /* ImageViewStore.swift in Sources */,
 				DB5FCB462AA68D9800993678 /* ColorViewStore.swift in Sources */,
-				DB5FCB652AB16D0200993678 /* InjectedViewStoreAddModifier.swift in Sources */,
+				DB5FCB652AB16D0200993678 /* InjectedView_Modier_Ext.swift in Sources */,
 				DBAB4BF92A911B5900BB804C /* SpacerInsertable.swift in Sources */,
 				DB900DE62AA0C83A001FBA2E /* ListInsertable.swift in Sources */,
 				DB5FCB4E2AA68F1E00993678 /* IfInsertable.swift in Sources */,
@@ -619,12 +638,12 @@
 				DBAB4BE92A8F0A5500BB804C /* VStackInsertable.swift in Sources */,
 				DBAB4BFB2A91214300BB804C /* ExampleContent.swift in Sources */,
 				DB900DDC2A9F028C001FBA2E /* ZStackStore.swift in Sources */,
-				DBAB4BE52A8F0A2F00BB804C /* InjectedViewStore.swift in Sources */,
+				DBAB4BE52A8F0A2F00BB804C /* InjectedView.swift in Sources */,
 				DB5FCB692AB298C600993678 /* String_Ext.swift in Sources */,
 				DB5FCB532AA7785400993678 /* LoginView.swift in Sources */,
 				DBAB4C8C2A9B9B8200BB804C /* TextFieldStore.swift in Sources */,
 				DB5FCB3A2AA68D3E00993678 /* ListViewStore.swift in Sources */,
-				DB5FCB4A2AA68EB900993678 /* InjectedViewStoreHelper.swift in Sources */,
+				DB5FCB4A2AA68EB900993678 /* InjectedView_Util.swift in Sources */,
 				DBAB4CA02A9E3E1800BB804C /* ImageStore.swift in Sources */,
 				DB900DDD2A9F028C001FBA2E /* ZStackInsertable.swift in Sources */,
 				DBAB4C0D2A9419EA00BB804C /* UIColor_Ext.swift in Sources */,
@@ -650,6 +669,7 @@
 				DBAB4BF12A8F0CFD00BB804C /* ButtonInsertable.swift in Sources */,
 				DB5FCB4C2AA68F1600993678 /* IfStore.swift in Sources */,
 				DB900DD92A9F0246001FBA2E /* InjectedState.swift in Sources */,
+				DB5FCB782AB4A79E00993678 /* InjectedView_Ext.swift in Sources */,
 				DBAB4BF32A8F0D8B00BB804C /* TextInsertable.swift in Sources */,
 				DBAB4C0B2A93FCAF00BB804C /* CompositionFunctions.swift in Sources */,
 				DB900DD72A9F0238001FBA2E /* ViewStoresContainer.swift in Sources */,

@@ -12,5 +12,5 @@ struct ForEachViewStore: Codable {
     var id: String = ""
     var modifiers: [InjectedModifier] = []
     var forEachKey: String = ""
-    var content: InjectedViewStore = .empty()
+    var content: InjectedView = .empty()
 }

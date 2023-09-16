@@ -18,8 +18,10 @@ class ColorStore: ObservableObject {
         self.viewStore = store
         self.stateSubject = state
         self.state = state.value
-        if let colorValue = findStringValue(id: store.colorKey, state: state.value) {
+        if let colorValue = findStringValue(id: store.id, state: state.value) {
             self.color = Color(UIColor.hex(colorValue))
+        } else {
+            self.color = Color(UIColor.hex(viewStore.colorKey))
         }
         stateSubject
             .eraseToAnyPublisher()

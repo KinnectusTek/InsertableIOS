@@ -21,5 +21,5 @@ struct ButtonViewStore: Codable {
     var operation8: InjectedOperation? = nil
     var operation9: InjectedOperation? = nil
     var operation10: InjectedOperation? = nil
-    var content: InjectedViewStore = .empty()
+    var content: InjectedView = .empty()
 }
